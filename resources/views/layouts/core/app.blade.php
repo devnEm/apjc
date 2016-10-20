@@ -52,10 +52,10 @@
                 </ul>
             @else
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Les Ecoles</a></li>
-                    <li><a href="{{ url('/') }}">Actualités</a></li>
-                    <li><a href="{{ url('/') }}">Nos Actions</a></li>
-                    <li><a href="{{ url('/') }}">Qui sommes nous ?</a></li>
+                    <li><a href="{{ url('/ecole') }}">Les Ecoles</a></li>
+                    <li><a href="{{ url('/actualite') }}">Actualités</a></li>
+                    <li><a href="{{ url('/actions') }}">Nos Actions</a></li>
+                    <li><a href="{{ url('/info') }}">Qui sommes nous ?</a></li>
 
                 </ul>
             @endif
