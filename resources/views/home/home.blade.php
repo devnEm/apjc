@@ -3,12 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-6 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Mes Informations</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <table>
+                        <th>Nom</th>
+                        <tr>
+                            <td>{{Auth::user()->name}}</td>
+                        </tr>
+                        <th>mail</th>
+                        <tr>
+                            <td>{{Auth::user()->email}}</td>
+                        </tr>
+
+                    </table>
                 </div>
             </div>
         </div>

@@ -46,19 +46,17 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            @if (!Auth::guest())
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-            @else
+
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/ecole') }}">Les Ecoles</a></li>
                     <li><a href="{{ url('/actualite') }}">Actualités</a></li>
                     <li><a href="{{ url('/actions') }}">Nos Actions</a></li>
                     <li><a href="{{ url('/info') }}">Qui sommes nous ?</a></li>
+                    @if (!Auth::guest())
+                        <li><a href="{{ url('/home') }}">Espace </a></li>
+                    @endif
 
                 </ul>
-            @endif
 
                         <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -81,6 +79,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-user"></i>Admin</a></li>
+                                <li><a href="{{ url('/user') }}"><i class="fa fa-btn fa-user"></i>Mon compte</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
