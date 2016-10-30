@@ -29,5 +29,5 @@ Route::get('/info', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/admin', 'AdminController@index');
+Route::get('/home', 'Front\HomeController@index');
+Route::get('/admin', 'Back\AdminController@index');

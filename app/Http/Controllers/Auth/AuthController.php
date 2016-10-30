@@ -64,11 +64,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+      
+      $user = User::create([
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'password' => bcrypt($data['password']),
+          'activate_token' => hash_hmac('sha256', str_random(40), config('app.key')),
+      ]);
+
+      return $user;
     }
 
 }
