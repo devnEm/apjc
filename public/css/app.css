@@ -1,4 +1,46 @@
 @charset "UTF-8";
+body {
+  background-image: url(/img/line.gif); }
+
+.main-container .wrapper-article {
+  margin-top: 25px; }
+
+article h1 {
+  text-align: center; }
+
+article .panel {
+  position: relative;
+  left: 150px;
+  bottom: 315px;
+  width: 700px; }
+
+article .ecole-article {
+  margin-left: 25px; }
+  article .ecole-article img {
+    margin-left: 14px;
+    margin-top: 30px; }
+
+article .tab-ecole {
+  position: relative;
+  left: 20px; }
+  article .tab-ecole table {
+    width: 654px; }
+
+article .tab-ecole-recap {
+  position: relative;
+  left: 20px; }
+  article .tab-ecole-recap table {
+    width: 200px; }
+
+article .conseil-ecole {
+  position: relative;
+  left: 273px;
+  bottom: 250px;
+  border: 1px solid Gainsboro;
+  border-radius: 1px;
+  width: 400px;
+  padding: 5px 0 5px 20px; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.

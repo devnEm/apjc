@@ -1,1 +1,56 @@
+body{
+    background-image: url(/img/line.gif);
+}
+
+.main-container{
+  // background-color: Gainsboro;
+  .wrapper-article{
+    margin-top: 25px;
+  }
+}
+article{
+  h1{
+    text-align: center;
+  }
+  .panel{
+    position: relative;
+    left: 150px;
+    bottom: 315px;
+    width: 700px;
+  }
+  .ecole-article{
+    //height : 350px;
+    margin-left: 25px;
+    img{
+      margin-left: 14px;
+      margin-top: 30px;
+    }
+  }
+  .tab-ecole{
+    position: relative;
+    left: 20px;
+    table{
+      width: 654px;
+    }
+  }
+  .tab-ecole-recap{
+    position: relative;
+    left: 20px;
+    table{
+      width: 200px;
+    }
+  }
+  .conseil-ecole{
+    position: relative;
+    left: 273px;
+    bottom: 250px;
+    border: 1px solid Gainsboro;
+    border-radius: 1px;
+    width: 400px;
+    padding: 5px 0 5px 20px;
+
+  }
+}
+
+
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
