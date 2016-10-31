@@ -54,7 +54,11 @@
                     <li><a href="{{ url('/info') }}">Qui sommes nous ?</a></li>
                     @if (!Auth::guest())
                         <li><a href="{{ url('/home') }}">Espace </a></li>
+                        @if (Auth::user()->admin)
+                            <li><a href="{{ url('/admin') }}">Admin</a></li>
+                        @endif
                     @endif
+
 
                 </ul>
 
