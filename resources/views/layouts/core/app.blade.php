@@ -89,7 +89,7 @@
 
     @yield('content')
             <footer>
-              <div class="container">
+              <div class="container-fluid">
                 <div class="row">
                   <h4 class="pull-right">
                     By devnem

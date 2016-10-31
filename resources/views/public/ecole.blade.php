@@ -1,6 +1,6 @@
 @extends('layouts.core.app')
 @section('content')
-    <div class="container ecole-container">
+    <div class="container-fluid ecole-container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 wrapper-article">
                 <div class="panel panel-default">
@@ -21,7 +21,7 @@
                           <h4>Téléphone</h4> 0668866969
                           <div class="panel panel-default">
                             <div class="tab-ecole">
-                              <table class="table">
+                              <table class="table table-responsive">
                                   <thead>
                                     <td></td>
                                     <td>CP 1</td>
@@ -49,7 +49,7 @@
                                 </table>
                               </div>
                               <div class="tab-ecole-recap">
-                                <table class="table">
+                                <table class="table table-responsive">
                                   <thead>
                                     <td></td>
                                     <td>Total</td>
