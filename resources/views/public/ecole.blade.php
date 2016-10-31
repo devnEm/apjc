@@ -1,10 +1,10 @@
 @extends('layouts.core.app')
 @section('content')
-    <div class="container main-container">
+    <div class="container ecole-container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 wrapper-article">
                 <div class="panel panel-default">
-                  
+
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#ecole1">Ecole 1</a></li>
                     <li><a data-toggle="tab" href="#ecole2">Ecole 2</a></li>
