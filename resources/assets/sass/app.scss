@@ -8,7 +8,11 @@ body{
     margin-top: 25px;
   }
 }
+.my-nav-bar{
+  margin: 10px !important ; //FIXME
+}
 article{
+  // background-color: $primary-blue;
   h1{
     text-align: center;
   }

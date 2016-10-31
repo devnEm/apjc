@@ -1,5 +1,7 @@
 @extends('layouts.core.app')
+
 @section('content')
+<!-- <header><img src="{{ URL::asset('img/apjc-logo-2.png') }}" alt="ecole-header" /></header> -->
     @if(Auth::check())
         <div class="container">
             <div class="row">
@@ -10,6 +12,15 @@
             </div>
         </div>
     @endif
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <marquee direction="left">Mon texte va vers la gauche</marquee>
+            </div>
+        </div>
+    </div>
+  </div>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">

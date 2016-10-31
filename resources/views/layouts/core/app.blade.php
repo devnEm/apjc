@@ -15,15 +15,7 @@
       <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
 </head>
 <body id="app-layout">
 <nav class="navbar navbar-default navbar-static-top">
@@ -39,15 +31,15 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                APJC
+            <a class="navbar-left" href="{{ url('/') }}">
+                <img src="{{ URL::asset('img/apjc-logo-2-64px.png') }}" alt="ecole-header" />
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
 
-                <ul class="nav navbar-nav">
+                <ul class="my-nav-bar nav navbar-nav ">
                     <li><a href="{{ url('/ecole') }}">Les Ecoles</a></li>
                     <li><a href="{{ url('/actualite') }}">Actualités</a></li>
                     <li><a href="{{ url('/actions') }}">Nos Actions</a></li>
@@ -92,6 +84,8 @@
         </div>
     </div>
 </nav>
+
+
 
     @yield('content')
             <footer>
