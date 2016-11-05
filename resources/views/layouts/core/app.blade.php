@@ -31,9 +31,12 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-left" href="{{ url('/') }}">
-                <img src="{{ URL::asset('img/apjc-logo-2-64px.png') }}" alt="ecole-header" />
-            </a>
+            <div class="navbar-header">
+              <a class="navbar-left" href="{{ url('/') }}">
+                  <img src="{{ URL::asset('img/apjc-logo-2-64px.png') }}" alt="ecole-header" />
+              </a>
+            </div>
+
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">

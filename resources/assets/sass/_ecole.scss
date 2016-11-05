@@ -1,57 +1,39 @@
 .ecole-container{
-  // background-color: Gainsboro;
-  .wrapper-article{
-    margin-top: 25px;
+  .panel-heading{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 35px;
+    text-transform: uppercase;
   }
-  article{
-    //background-color: $primary-white;
-    h1{
-      text-align: center;
+  .panel{
+    border : 2.5px solid $primary-orange ;
+  }
+  .nav-tabs {
+    border-bottom: 1px solid $primary-orange ;
+    margin-left: -1px;
+    margin-top: -1px;
+    > li.active > a{
+      border : 1px solid $primary-orange ;
+      border-radius: 12px 12px 0px 0px;
+      outline: 0;
+      :focus{
+        border: none;
+        outline: 0;
+      }
     }
-    .panel{
-      position: relative;
-      left: 150px;
-      bottom: 315px;
-      width: 700px;
+    >li>a:hover{
+      border-bottom: 1px solid $primary-orange ;
+      border-radius: 12px 12px 0px 0px;
+    }
 
-      //border: 1px solid $primary-orange;
-    }
-    .ecole-article{
-      //height : 350px;
-      margin-left: 25px;
-      img{
-        margin-left: 14px;
-        margin-top: 30px;
-      }
-    }
-    .tab-ecole{
-      position: relative;
-      left: 20px;
-      table{
-        width: 654px;
-      }
-    }
-    .tab-ecole-recap{
-      position: relative;
-      left: 20px;
-      table{
-        width: 200px;
-      }
-    }
-    .conseil-ecole{
-      position: relative;
-      left: 273px;
-      bottom: 250px;
-      border: 1px solid $primary-orange;
-      border-radius: 4px;
-      width: 400px;
-      padding: 5px 0 5px 20px;
-
-    }
-    .news-ecole{
-      position: relative;
-      bottom: 225px;
-      padding: 25px;
-    }
+  }
+  .tab-content{
+    border : 1px solid $primary-orange ;
+    margin-left: -1px;
+    margin-top: -1px;
+  }
+  h1{
+      font-weight: bold;
+      text-transform: uppercase;
   }
 }
