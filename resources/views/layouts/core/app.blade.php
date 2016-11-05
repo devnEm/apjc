@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,18 +12,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+      <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
+
 </head>
 <body id="app-layout">
 <nav class="navbar navbar-default navbar-static-top">
@@ -39,22 +31,29 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                APJC
-            </a>
+            <div class="navbar-header">
+              <a class="navbar-left" href="{{ url('/') }}">
+                  <img src="{{ URL::asset('img/apjc-logo-2-64px.png') }}" alt="ecole-header" />
+              </a>
+            </div>
+
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
 
-                <ul class="nav navbar-nav">
+                <ul class="my-nav-bar nav navbar-nav ">
                     <li><a href="{{ url('/ecole') }}">Les Ecoles</a></li>
                     <li><a href="{{ url('/actualite') }}">Actualités</a></li>
                     <li><a href="{{ url('/actions') }}">Nos Actions</a></li>
                     <li><a href="{{ url('/info') }}">Qui sommes nous ?</a></li>
                     @if (!Auth::guest())
                         <li><a href="{{ url('/home') }}">Espace </a></li>
+                        @if (Auth::user()->admin)
+                            <li><a href="{{ url('/admin') }}">Admin</a></li>
+                        @endif
                     @endif
+
 
                 </ul>
 
@@ -89,9 +88,17 @@
     </div>
 </nav>
 
+
+
     @yield('content')
             <footer>
-                <h4 class="pull-right">By devnem</h4>
+              <div class="container-fluid">
+                <div class="row">
+                  <h4 class="pull-right">
+                    By devnem
+                  </h4>
+                </div>
+              </div>
             </footer>
 
     <!-- JavaScripts -->

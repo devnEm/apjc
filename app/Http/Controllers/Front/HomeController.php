@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,6 +25,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('home.home');
     }
 }

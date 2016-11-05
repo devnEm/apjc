@@ -1,0 +1,39 @@
+.ecole-container{
+  .panel-heading{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 35px;
+    text-transform: uppercase;
+  }
+  .panel{
+    border : 2.5px solid $primary-orange ;
+  }
+  .nav-tabs {
+    border-bottom: 1px solid $primary-orange ;
+    margin-left: -1px;
+    margin-top: -1px;
+    > li.active > a{
+      border : 1px solid $primary-orange ;
+      border-radius: 12px 12px 0px 0px;
+      outline: 0;
+      :focus{
+        border: none;
+        outline: 0;
+      }
+    }
+    >li>a:hover{
+      border-bottom: 1px solid $primary-orange ;
+      border-radius: 12px 12px 0px 0px;
+    }
+
+  }
+  .tab-content{
+    border : 1px solid $primary-orange ;
+    margin-left: -1px;
+    margin-top: -1px;
+  }
+  h1{
+      font-weight: bold;
+      text-transform: uppercase;
+  }
+}
