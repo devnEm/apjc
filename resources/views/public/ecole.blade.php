@@ -20,8 +20,8 @@
                           <h4>Adresse</h4> Rue jean Jaures</br>91200 Athis-mons
                           <h4>Téléphone</h4> 0668866969
                           <div class="panel panel-default">
-                            <div class="tab-ecole">
-                              <table class="table table-responsive">
+                            <div class="tab-ecole table-responsive">
+                              <table class="table">
                                   <thead>
                                     <td></td>
                                     <td>CP 1</td>
@@ -48,8 +48,8 @@
                                   </tbody>
                                 </table>
                               </div>
-                              <div class="tab-ecole-recap">
-                                <table class="table table-responsive">
+                              <div class="tab-ecole-recap table-responsive">
+                                <table class="table">
                                   <thead>
                                     <td></td>
                                     <td>Total</td>
