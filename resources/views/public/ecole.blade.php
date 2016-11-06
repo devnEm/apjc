@@ -45,6 +45,7 @@
                             <li><a data-toggle="tab" href="#accs">Accompagnants</a></li>
                           </ul>
                           <div class="tab-content">
+
                           <div id="profs" class="tab-pane fade in active">
                             <ul>
                               <li>prof1</li>
@@ -65,17 +66,26 @@
                               <li>acc5</li>
                               <li>acc6</li>
                             </ul>
-                        </div>
+                          </div>
+
                         </div>
                       </li>
                       </ul>
+                      <div class="form-group " role="group">
+
+                        <a href="#"><button type="button" class="btn btn-primary">
+                              Site municipal
+                        </button></a>
+
+                      </div>
                     </div>
+
                 </div>
               </div>
                 <div class="col-md-6">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h3>Conseils d'ecoles</h3>
+                      <h2>Conseils d'ecoles</h2>
                     </div>
                     <div class="panel-body">
                         <h4>Dates des conseils</h4>
@@ -83,7 +93,7 @@
                         <li>
                           <label>Date : </label>
                           <date>10/02/2017</date><br>
-                          <a href="#">voir le rapport</a>
+                          <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
                         </li>
                         <li>
                           <label>Date : </label>
@@ -114,7 +124,7 @@
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h3>Actualité 1</h3>
+                      <h2>Actualité 1</h2>
                     </div>
                     <div class="panel-body">
                       <p>
@@ -126,7 +136,7 @@
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h3>Actualité 2</h3>
+                      <h2>Actualité 2</h2>
                     </div>
                     <div class="panel-body">
                       <p>
@@ -138,7 +148,7 @@
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h3>Actualité 3</h3>
+                      <h2>Actualité 3</h2>
                     </div>
                     <div class="panel-body">
                       <p>
@@ -152,7 +162,7 @@
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h3>Tableau recapitualif 1</h3>
+                      <h2>Tableau recapitualif 1</h2>
                     </div>
                     <div class="panel-body">
                       <div class="table-responsive">
@@ -192,7 +202,7 @@
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h3>Tableau recapitualif 2</h3>
+                      <h2>Tableau recapitualif 2</h2>
                     </div>
                     <div class="panel-body">
                     </div>
@@ -201,7 +211,7 @@
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h3>Tableau recapitualif 3</h3>
+                      <h2>Tableau recapitualif 3</h2>
                     </div>
                     <div class="panel-body">
                     </div>
@@ -209,6 +219,7 @@
                 </div>
               </div>
             </div>
+          </div>
 
           <!-- deuxieme article -->
             <div id="ecole2" class="tab-pane fade">

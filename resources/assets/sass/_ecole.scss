@@ -7,14 +7,38 @@
   }
   .panel{
     border : 2.5px solid $primary-orange ;
+    padding: 1px;
+    // padding-top: 1px;
+
   }
   .nav-tabs {
     border-bottom: 1px solid $primary-orange ;
+    border-radius: 12px 12px 0px 0px;
     margin-left: -1px;
     margin-top: -1px;
-    > li.active > a{
-      border : 1px solid $primary-orange ;
+    background: $light-blue;
+    >li{
+      background: white;
       border-radius: 12px 12px 0px 0px;
+      border: 1px solid $primary-orange ;
+      margin-right: 2px;
+
+    }
+    > li.active{
+
+        //margin-left: 1px;
+        margin-top: 1px;
+        border: 1px solid $primary-orange;
+        border-bottom: 1px solid white ;
+        border-radius: 12px 12px 0px 0px;
+    }
+    > li.active > a{
+      margin-left: 1px;
+      margin-top: 1px;
+      border-radius: 12px 12px 0px 0px;
+      border: none;
+      background: white;
+      // border-bottom: 1px solid white ;
       outline: 0;
       :focus{
         border: none;
@@ -22,13 +46,14 @@
       }
     }
     >li>a:hover{
-      border-bottom: 1px solid $primary-orange ;
+      //border-bottom: 1px solid $primary-orange ;
       border-radius: 12px 12px 0px 0px;
     }
 
   }
   .tab-content{
     border : 1px solid $primary-orange ;
+    border-radius: 0px 0px 12px 12px;
     margin-left: -1px;
     margin-top: -1px;
   }
