@@ -31,14 +31,17 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="/">
-                        Accueil
+                      &#8592;   Retour
                     </a>
                 </li>
                 <li>
-                    <a href="/home">Dashboard</a>
+                    <a href="/admin">Administration</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="#">Ecoles</a>
+                </li>
+                <li>
+                    <a href="#">Actualités</a>
                 </li>
 
             </ul>
@@ -48,11 +51,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                          @yield('content')
-                    </div>
-                </div>
+                @yield('content')
             </div>
         </div>
         <!-- /#page-content-wrapper -->

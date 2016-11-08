@@ -17,7 +17,14 @@
                         <tr>
                             <td>{{Auth::user()->email}}</td>
                         </tr>
-
+                        @if(Auth::user()->admin)
+                        <th>admin</th>
+                        <tr>
+                          <td>
+                            <input type="checkbox" checked="checked" onclick="return false"/>
+                          </td>
+                        </tr>
+                        @endif
                     </table>
                 </div>
             </div>

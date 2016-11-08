@@ -31,3 +31,5 @@ Route::auth();
 
 Route::get('/home', 'Front\HomeController@index');
 Route::get('/admin', 'Back\AdminController@index');
+
+// Route::get('/admin/ecole', 'Back\AdminController@index');

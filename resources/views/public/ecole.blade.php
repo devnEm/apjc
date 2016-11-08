@@ -71,15 +71,14 @@
                         </div>
                       </li>
                       </ul>
-                      <div class="form-group " role="group">
-
-                        <a href="#"><button type="button" class="btn btn-primary">
-                              Site municipal
-                        </button></a>
-
+                      <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                          <div class="form-group " role="group">
+                            <a href="#"><button type="button" class="btn btn-primary">Site municipal</button></a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
                 </div>
               </div>
                 <div class="col-md-6">
