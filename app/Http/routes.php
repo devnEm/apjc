@@ -33,7 +33,8 @@ Route::get('/home', 'Front\HomeController@index');
 Route::get('/admin', 'Back\AdminController@index');
 
 Route::get('/admin/ecole', 'Back\SchoolController@showAllSchool');
-// Route::get('/admin/ecole/{ecole_id}','Back\SchoolController@showSchool');
-// Route::post('/admin/ecole/save/{ecole_id}','Back\SchoolController@saveSchool');
+Route::get('/admin/ecole/{ecole_id}/show','Back\SchoolController@showSchool');
+Route::get('/admin/ecole/create','Back\SchoolController@createSchool');
+// Route::post('/admin/ecole/create','Back\SchoolController@saveSchool');
 // Route::post('/admin/ecole/reset/{ecole_id}','Back\SchoolController@deleteSchool');
 // Route::post('/admin/ecole/update/{ecole_id}','Back\SchoolController@updateSchool');

@@ -24,4 +24,16 @@ class SchoolController extends Controller
 
       return view('admin.school');
   }
+
+  public function showSchool()
+  {
+
+      return view('admin.showschool');
+  }
+
+  public function createSchool()
+  {
+
+      return view('admin.createschool');
+  }
 }
