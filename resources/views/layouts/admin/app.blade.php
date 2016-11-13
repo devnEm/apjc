@@ -38,7 +38,7 @@
                     <a href="/admin">Administration</a>
                 </li>
                 <li>
-                    <a href="#">Ecoles</a>
+                    <a href="/admin/ecole">Ecoles</a>
                 </li>
                 <li>
                     <a href="#">Actualités</a>

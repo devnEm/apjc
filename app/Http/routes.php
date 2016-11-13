@@ -32,4 +32,8 @@ Route::auth();
 Route::get('/home', 'Front\HomeController@index');
 Route::get('/admin', 'Back\AdminController@index');
 
-// Route::get('/admin/ecole', 'Back\AdminController@index');
+Route::get('/admin/ecole', 'Back\SchoolController@showAllSchool');
+// Route::get('/admin/ecole/{ecole_id}','Back\SchoolController@showSchool');
+// Route::post('/admin/ecole/save/{ecole_id}','Back\SchoolController@saveSchool');
+// Route::post('/admin/ecole/reset/{ecole_id}','Back\SchoolController@deleteSchool');
+// Route::post('/admin/ecole/update/{ecole_id}','Back\SchoolController@updateSchool');
