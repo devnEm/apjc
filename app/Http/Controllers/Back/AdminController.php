@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 
+use App\Models\User;
+
 class AdminController extends Controller
 {
     /**
@@ -26,6 +28,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin');
+      $users = User::all();
+      return view('admin.admin', ['users' => $users]);
     }
 }
