@@ -3,7 +3,10 @@
 <div class="row">
   <div class="col-md-10">
     <div class="panel panel-info">
-      <div class="panel-heading">Calmette</div>
+      <div class="panel-heading">
+        <div class="titre">Calmette</div>
+        <a href="/admin/ecole"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
+        </div>
       <div class="panel-boby">
         <div class="table">
           <table class="table">
@@ -25,7 +28,7 @@
                 <td>Mme La directrice</td>
               </tr>
               <tr>
-                <td>Référehnt APJC</td>
+                <td>Référent APJC</td>
                 <td>Adhérent n°1</td>
               </tr>
               <tr>

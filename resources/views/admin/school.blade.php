@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-10">
-        <div class="panel panel-default">
+        <div class="panel panel-info">
             <div class="panel-heading">
               <div class="titre">Ecoles</div>
               <a href="/admin/ecole/create"><button type="button" name="button" class="btn btn-primary">ajouter</button></a>
