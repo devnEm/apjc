@@ -94,9 +94,10 @@
             <footer>
               <div class="container-fluid">
                 <div class="row">
-                  <h4 class="pull-right">
-                    By devnem
-                  </h4>
+                  <div class="pull-right">
+                    <img class="img-rounded" src="https://avatars3.githubusercontent.com/u/15685524?v=3&s=40" alt=""/>
+                    <h4>By devnem</h4>
+                  </div>
                 </div>
               </div>
             </footer>
