@@ -35,16 +35,17 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin', 'Back\AdminController@index');
 
   Route::get('/admin/ecole', 'Back\SchoolController@showAllSchool');
-  Route::get('/admin/ecole/{ecole_id}/show','Back\SchoolController@showSchool');
+  Route::get('/admin/ecole/show/{ecole_id}','Back\SchoolController@showSchool');
   Route::get('/admin/ecole/create','Back\SchoolController@createSchool');
-  // Route::post('/admin/ecole/create','Back\SchoolController@saveSchool');
-  // Route::post('/admin/ecole/reset/{ecole_id}','Back\SchoolController@deleteSchool');
-  // Route::post('/admin/ecole/update/{ecole_id}','Back\SchoolController@updateSchool');
+  Route::post('/admin/ecole/create','Back\SchoolController@saveSchool');
+  Route::get('/admin/ecole/edit/{ecole_id}','Back\SchoolController@editSchool');
+  Route::post('/admin/ecole/update/{ecole_id}','Back\SchoolController@updateSchool');
+  Route::get('/admin/ecole/delete/{ecole_id}','Back\SchoolController@deleteSchool');
 
-  Route::get('/admin/millesime', 'Back\SchoolController@showAllMillesime');
-  Route::get('/admin/millesime/{millesime_id}/show','Back\SchoolController@showMillesime');
-  Route::get('/admin/millesime/create','Back\SchoolController@createMillesime');
+  Route::get('/admin/promotion', 'Back\SchoolController@showAllPromotion');
+  Route::get('/admin/promotion/show/{promotion_id}','Back\SchoolController@showPromotion');
+  Route::get('/admin/promotion/create','Back\SchoolController@createPromotion');
   // Route::post('/admin/millesime/create','Back\SchoolController@saveSchool');
   // Route::post('/admin/millesime/reset/{ecole_id}','Back\SchoolController@deleteSchool');
-  // Route::post('/admin/millesime/update/{ecole_id}','Back\SchoolController@updateSchool');
+  // Route::post('/admin/millesime/edit/{ecole_id}','Back\SchoolController@editSchool');
 });

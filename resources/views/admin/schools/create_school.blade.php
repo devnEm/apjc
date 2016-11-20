@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 @section('content')
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Ajouter une école</div>
@@ -14,8 +14,8 @@
           {!! Form::text('type',null,['class' => 'form-group']) !!} <!-- TODO SELECT OPTION -->
         </div>
         <div class="form-group">
-          {!! Form::label('nom','nom de l\'école',['class' => 'form-group', 'type' => 'text']) !!}
-          {!! Form::text('nom',null,['placeholder' => 'Entre un nom']) !!}
+          {!! Form::label('name','nom de l\'école',['class' => 'form-group', 'type' => 'text']) !!}
+          {!! Form::text('name',null,['placeholder' => 'Entre un nom']) !!}
         </div>
         <div class="form-group">
           {!! Form::label('street','rue',['class' => 'form-group']) !!}
@@ -33,5 +33,15 @@
       </div>
     </div>
   </div>
+</div>
+@endsection
+@section('info')
+<div class="panel panel-info">
+    <div class="panel-heading">INFOS</div>
+    <div class="panel-body">
+        <p>
+          message d'informations ecrite en dur
+        </p>
+    </div>
 </div>
 @endsection

@@ -14,13 +14,16 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('school-millesime_id')->unsigned();
-            $table->foreign('school-millesime_id')->references('id')->on('school-millesime');
+            $table->integer('promotion_id')->unsigned();
             $table->string('type');
             $table->string('effectif');
             $table->string('professor');
             $table->timestamps();
         });
+
+        Schema::table('classes', function($table) {
+       $table->foreign('promotion_id')->references('id')->on('promotions');
+   });
     }
 
     /**

@@ -20,5 +20,5 @@ class School-millesime extends Model
       'nb_class',
 
   ];
-  protected $table = 'school-millesime';
+  protected $table = 'promotions';
 }

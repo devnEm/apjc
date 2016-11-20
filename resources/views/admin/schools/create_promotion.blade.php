@@ -1,15 +1,15 @@
 @extends('layouts.admin.app')
 @section('content')
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Ajouter une promotion</div>
-        <a href="/admin/millesime"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
+        <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
       </div>
       <div class="panel-boby">
         <div class="form-group">
-          {!! Form::open(['url' => '/admin/millesime/create','class' => 'form-group']) !!}
+          {!! Form::open(['url' => '/admin/promotion/create','class' => 'form-group']) !!}
             <div class="form-group">
               {!! Form::label('etablissement','école',['class' => 'form-group', 'type' => 'text']) !!}
               {!! Form::text('etablissement',null,['placeholder' => 'Entre un nom']) !!}<!-- TODO SELECT OPTION -->
@@ -46,5 +46,15 @@
       </div>
     </div>
   </div>
+</div>
+@endsection
+@section('info')
+<div class="panel panel-info">
+    <div class="panel-heading">INFOS</div>
+    <div class="panel-body">
+        <p>
+          message d'informations ecrite en dur
+        </p>
+    </div>
 </div>
 @endsection

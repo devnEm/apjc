@@ -1,14 +1,14 @@
 @extends('layouts.admin.app')
 @section('content')
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Calmette</div>
-        <a href="/admin/millesime"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
+        <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
         </div>
       <div class="panel-boby">
-        <div class="table">
+        <div class="table table-responsive">
           <table class="table">
             <tbody>
               <tr>
@@ -78,4 +78,14 @@
 </div>
 
 
+@endsection
+@section('info')
+<div class="panel panel-info">
+    <div class="panel-heading">INFOS</div>
+    <div class="panel-body">
+        <p>
+          message d'informations ecrite en dur
+        </p>
+    </div>
+</div>
 @endsection
