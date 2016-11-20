@@ -19,4 +19,8 @@ class School extends Model
 
   ];
   protected $table = 'schools';
+
+  // public function promotions(){
+  //   return $this->hasMany('App\Models\Promotion');
+  // }
 }

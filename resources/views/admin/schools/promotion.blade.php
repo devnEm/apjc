@@ -24,10 +24,10 @@
                       <tr>
                         <td>{{$promotion->id}}</td>
                         <td>{{$promotion->year}}</td>
-                        <td>{{$promotion->school_id}}</td>
-                        <td>{{$promotion->school_id}}</td>
+                        <td>{{$promotion->school->type}}</td>
+                        <td>{{$promotion->school->name}}</td>
                         <td><a href="{{url('/admin/promotion/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-info">voir</button></a></td>
-                        <td><a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>                    
+                        <td><a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
                       </tr>
                       @endforeach
 

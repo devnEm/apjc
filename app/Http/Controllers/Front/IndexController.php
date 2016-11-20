@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
+
 use App\Models\School;
+use App\Models\Promotion;
 
 class IndexController extends Controller
 {
@@ -20,7 +22,7 @@ class IndexController extends Controller
   public function ecole()
   {
     $schools = School::all();
-
-    return view('public.ecole', ['schools' => $schools]);
+    $promotion = Promotion::all();
+    return view('public.ecole', ['schools' => $schools,'$promotions'=>$promotion]);
   }
 }

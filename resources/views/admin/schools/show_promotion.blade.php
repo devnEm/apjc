@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">{{$promotion->year}} - {{$promotion->school_id}} </div>
+        <div class="titre">{{$promotion->year}} - {{$promotion->school->name}} </div>
         <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
         </div>
       <div class="panel-boby">
@@ -17,7 +17,7 @@
               </tr>
               <tr>
                 <td>nom</td>
-                <td>{{$promotion->school_id}}</td>
+                <td>{{$promotion->school->name}}</td>
               </tr>
               <tr>
                 <td>année</td>

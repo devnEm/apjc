@@ -21,4 +21,9 @@ class Promotion extends Model
 
   ];
   protected $table = 'promotions';
+
+  public function school()
+  {
+    return $this->hasOne('App\Models\School','id','school_id');
+  }
 }
