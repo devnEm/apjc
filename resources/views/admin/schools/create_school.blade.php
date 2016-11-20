@@ -20,7 +20,7 @@
         <div class="form-group">
           {!! Form::label('street','rue : ',['class' => 'form-group']) !!}
           {!! Form::text('street',null,['class' => 'form-group']) !!}
-        
+
           {!! Form::label('city','ville : ',['class' => 'form-group']) !!}
           {!! Form::text('city','Athis-Mons',['class' => 'form-group']) !!}
         </div>

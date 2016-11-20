@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">Ajouter une école</div>
+        <div class="titre">Modifier une école</div>
         <a href="/admin/ecole"><button type="button" name="button" class="btn btn-success">Annuler</button></a>
       </div>
       <div class="panel_body">

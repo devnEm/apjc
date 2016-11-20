@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">Calmette</div>
+        <div class="titre">{{$promotion->year}} - {{$promotion->school_id}} </div>
         <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
         </div>
       <div class="panel-boby">
@@ -13,19 +13,19 @@
             <tbody>
               <tr>
                 <td>id</td>
-                <td>1</td>
+                <td>{{$promotion->id}}</td>
               </tr>
               <tr>
                 <td>nom</td>
-                <td>calmette</td>
+                <td>{{$promotion->school_id}}</td>
               </tr>
               <tr>
                 <td>année</td>
-                <td>2016/2017</td>
+                <td>{{$promotion->year}}</td>
               </tr>
               <tr>
                 <td>Directrice</td>
-                <td>Mme La directrice</td>
+                <td>{{$promotion->director_name}}</td>
               </tr>
               <tr>
                 <td>Référent APJC</td>
@@ -33,11 +33,11 @@
               </tr>
               <tr>
                 <td>Effectifs</td>
-                <td>250</td>
+                <td>{{$promotion->total_student_effectives}}</td>
               </tr>
               <tr>
                 <td>nbre de classe</td>
-                <td>12</td>
+                <td>{{$promotion->nb_class}}</td>
               </tr>
             </tbody>
           </table>

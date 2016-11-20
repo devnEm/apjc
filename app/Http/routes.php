@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/promotion', 'Back\SchoolController@showAllPromotion');
   Route::get('/admin/promotion/show/{promotion_id}','Back\SchoolController@showPromotion');
   Route::get('/admin/promotion/create','Back\SchoolController@createPromotion');
-  // Route::post('/admin/millesime/create','Back\SchoolController@saveSchool');
-  // Route::post('/admin/millesime/reset/{ecole_id}','Back\SchoolController@deleteSchool');
-  // Route::post('/admin/millesime/edit/{ecole_id}','Back\SchoolController@editSchool');
+  Route::post('/admin/promotion/create','Back\SchoolController@savePromotion');
+  Route::get('/admin/promotion/edit/{promotion_id}','Back\SchoolController@editPromotion');
+  Route::post('/admin/promotion/delete/{promotion_id}','Back\SchoolController@deletePromotion');
 });

@@ -20,24 +20,17 @@
                       <td></td>
                     </thead>
                     <tbody>
+                      @foreach($promotions as $promotion)
                       <tr>
-                        <td>1</td>
-                        <td>2016/2017</td>
-                        <td>maternelle</td>
-                        <td>Calmette</td>
-                        <td><a href="/admin/promotion/1/show"><button type="button" name="button" class="btn btn-info">voir</button></a></td>
-                        <td><a href="#"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
-                        <td><a href="#"><button type="button" name="button" class="btn btn-danger">supprimer</button></a></td>
+                        <td>{{$promotion->id}}</td>
+                        <td>{{$promotion->year}}</td>
+                        <td>{{$promotion->school_id}}</td>
+                        <td>{{$promotion->school_id}}</td>
+                        <td><a href="{{url('/admin/promotion/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-info">voir</button></a></td>
+                        <td><a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>                    
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>2016/2017</td>
-                        <td>primaire</td>
-                        <td>Jaures</td>
-                        <td><a href="#"><button type="button" name="button" class="btn btn-info">voir</button></a></td>
-                        <td><a href="#"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
-                        <td><a href="#"><button type="button" name="button" class="btn btn-danger">supprimer</button></a></td>
-                      </tr>
+                      @endforeach
+
                     </tbody>
                   </table>
                 </div>

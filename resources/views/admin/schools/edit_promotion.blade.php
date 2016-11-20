@@ -4,18 +4,18 @@
   <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">Ajouter une promotion</div>
+        <div class="titre">Modifier une promotion</div>
         <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
       </div>
       <div class="panel-boby">
         <div class="form-group">
-          {!! Form::open(['url' => '/admin/promotion/create','class' => 'form-group']) !!}
+          {!! Form::model($promotion, ['url' => '/admin/promotion/update/'.$promotion->id,'class' => 'form-group']) !!}
           <div class="form-group">
             {!! Form::label('year','Millesime',['class' => 'form-group', 'type' => 'text']) !!}
             {!! Form::text('year',null,['class' => 'form-group']) !!}
           </div>
             <div class="form-group">
-              {!! Form::label('school_name','école',['class' => 'form-group', 'type' => 'text']) !!}
+              {!! Form::label('etablissement','école',['class' => 'form-group', 'type' => 'text']) !!}
               {!! Form::select('school_name[]',$school,null,['id' => 'school_name','class' => 'form-group']) !!}
             </div>
             <div class="form-group">
@@ -31,6 +31,10 @@
               {!! Form::text('director_firstname',null,['class' => 'form-group']) !!}
             </div>
             <div class="form-group">
+              {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'form-group']) !!}
+              {!! Form::text('director_firstname',null,['class' => 'form-group']) !!}
+            </div>
+            <div class="form-group">
               {!! Form::label('total_student_effectives','nombre d\'élèves',['class' => 'form-group']) !!}
               {!! Form::text('total_student_effectives',null,['class' => 'form-group']) !!}
             </div>
@@ -39,9 +43,10 @@
               {!! Form::text('nb_class',null,['class' => 'form-group']) !!}
             </div>
             <div class="form-group">
-              {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
+              {!! Form::submit('modifier',['class' => 'btn btn-success']) !!}
             </div>
           {!! Form::close() !!}
+          <a href="{{url('/admin/promotion/delete/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-danger">supprimer</button></a>
         </div>
       </div>
     </div>
