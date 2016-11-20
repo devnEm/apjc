@@ -6,15 +6,23 @@
       <div class="panel panel-default">
 
         <ul class="nav nav-tabs">
-          @foreach($schools as $school)
+          @foreach($schools as $key => $school)
+          @if($key == 0)
+          <li class="active"><a data-toggle="tab" href="#{{$school->name}}">{{$school->name}}</a></li>
+          @else
           <li><a data-toggle="tab" href="#{{$school->name}}">{{$school->name}}</a></li>
+          @endif
           @endforeach
         </ul>
 
 
         <div class="tab-content">
-          @foreach($schools as $school)
-          <div id="{{$school->name}}" class="tab-pane fade in active">
+          @foreach($schools as $key => $school)
+            @if($key == 0)
+            <div id="{{$school->name}}" class="tab-pane fade in active">
+            @else
+            <div id="{{$school->name}}" class="tab-pane">
+            @endif
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-12">
