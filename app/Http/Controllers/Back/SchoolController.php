@@ -22,18 +22,36 @@ class SchoolController extends Controller
   public function showAllSchool()
   {
 
-      return view('admin.school');
+      return view('admin.schools.school');
   }
 
   public function showSchool()
   {
 
-      return view('admin.showschool');
+      return view('admin.schools.showschool');
   }
 
   public function createSchool()
   {
 
-      return view('admin.createschool');
+      return view('admin.schools.createschool');
+  }
+
+  public function showMillesime()
+  {
+
+      return view('admin.schools.showmillesime');
+  }
+
+  public function createMillesime()
+  {
+
+      return view('admin.schools.createmillesime');
+  }
+
+  public function showAllMillesime()
+  {
+
+      return view('admin.schools.millesime');
   }
 }

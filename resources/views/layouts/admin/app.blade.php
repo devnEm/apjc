@@ -39,7 +39,9 @@
                 </li>
                 <li>
                     <a href="/admin/ecole">Ecoles</a>
+
                 </li>
+                <li><a href="/admin/millesime">Année scolaire</a></li>
                 <li>
                     <a href="#">Actualités</a>
                 </li>

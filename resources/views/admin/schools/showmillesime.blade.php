@@ -5,7 +5,7 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Calmette</div>
-        <a href="/admin/ecole"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
+        <a href="/admin/millesime"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
         </div>
       <div class="panel-boby">
         <div class="table">

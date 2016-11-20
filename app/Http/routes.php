@@ -40,4 +40,11 @@ Route::group(['middleware' => ['auth']], function () {
   // Route::post('/admin/ecole/create','Back\SchoolController@saveSchool');
   // Route::post('/admin/ecole/reset/{ecole_id}','Back\SchoolController@deleteSchool');
   // Route::post('/admin/ecole/update/{ecole_id}','Back\SchoolController@updateSchool');
+
+  Route::get('/admin/millesime', 'Back\SchoolController@showAllMillesime');
+  Route::get('/admin/millesime/{millesime_id}/show','Back\SchoolController@showMillesime');
+  Route::get('/admin/millesime/create','Back\SchoolController@createMillesime');
+  // Route::post('/admin/millesime/create','Back\SchoolController@saveSchool');
+  // Route::post('/admin/millesime/reset/{ecole_id}','Back\SchoolController@deleteSchool');
+  // Route::post('/admin/millesime/update/{ecole_id}','Back\SchoolController@updateSchool');
 });
