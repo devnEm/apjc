@@ -14,6 +14,10 @@
             {!! Form::label('year','Millesime',['class' => 'form-group', 'type' => 'text']) !!}
             {!! Form::text('year',null,['class' => 'form-group']) !!}
           </div>
+          <div class="form-group">
+            {!! Form::label('current','Promotion acuelle',['class' => 'form-group', 'type' => 'text']) !!}
+            {!! Form::checkbox('current',1,$promotion->current,['class' => 'form-group']) !!}
+          </div>
             <div class="form-group">
               {!! Form::label('etablissement','école',['class' => 'form-group', 'type' => 'text']) !!}
               {!! Form::select('school_name[]',$school,null,['id' => 'school_name','class' => 'form-group']) !!}

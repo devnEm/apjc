@@ -125,7 +125,8 @@ class SchoolController extends Controller
     'director_firstname'=> 'required',
     'total_student_effectives'=> 'required',
     'nb_class'=> 'required',
-    'school_name'=> 'required'
+    'school_name'=> 'required',
+    'current'=> 'required'
     ];
 
     $validator= Validator::make($request->all(),$rules);
@@ -139,6 +140,7 @@ class SchoolController extends Controller
     $promotion->director_firstname = $request->input('director_firstname');
     $promotion->total_student_effectives = $request->input('total_student_effectives');
     $promotion->nb_class = $request->input('nb_class');
+    $promotion->current = $request->input('current');
     $promotion->school_id = $school_id;
 
     $promotion->save();
@@ -165,6 +167,38 @@ class SchoolController extends Controller
   {
     $promotions = Promotion::all();
     return view('admin.schools.promotion',['promotions' => $promotions]);
+  }
+
+  public function updatePromotion($id, Request $request)
+  {
+    $rules=[
+    'year' => 'required',
+    'director_title' => 'required',
+    'director_name' => 'required',
+    'director_firstname'=> 'required',
+    'total_student_effectives'=> 'required',
+    'nb_class'=> 'required',
+    'school_name'=> 'required',
+    'current'=> 'required'
+    ];
+
+    $validator= Validator::make($request->all(),$rules);
+
+    $school_id = intval($request->input('school_name')[0]);
+
+    $promotion = Promotion::where('id', $id)->first();
+    $promotion->year = $request->input('year');
+    $promotion->director_title = $request->input('director_title');
+    $promotion->director_name = $request->input('director_name');
+    $promotion->director_firstname = $request->input('director_firstname');
+    $promotion->total_student_effectives = $request->input('total_student_effectives');
+    $promotion->nb_class = $request->input('nb_class');
+    $promotion->current = $request->input('current');
+    $promotion->school_id = $school_id;
+
+    $promotion->update();
+
+    return redirect()->action('Back\SchoolController@showPromotion',['id' => $promotion->id]);
   }
 
   public function deletePromotion($id)

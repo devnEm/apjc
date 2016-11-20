@@ -18,6 +18,7 @@ class Promotion extends Model
       'director_firstname',
       'total_student_effectives',
       'nb_class',
+      'current'
 
   ];
   protected $table = 'promotions';

@@ -11,9 +11,14 @@
         <div class="table table-responsive">
           <table class="table">
             <tbody>
+
               <tr>
-                <td>id</td>
-                <td>{{$promotion->id}}</td>
+                <td>actuelle</td>
+                @if($promotion->current)
+                <td>&#9733;</td>
+                @else
+                <td></td>
+                @endif
               </tr>
               <tr>
                 <td>nom</td>

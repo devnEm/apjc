@@ -43,5 +43,6 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/promotion/create','Back\SchoolController@createPromotion');
   Route::post('/admin/promotion/create','Back\SchoolController@savePromotion');
   Route::get('/admin/promotion/edit/{promotion_id}','Back\SchoolController@editPromotion');
+  Route::post('/admin/promotion/update/{promotion_id}','Back\SchoolController@updatePromotion');
   Route::post('/admin/promotion/delete/{promotion_id}','Back\SchoolController@deletePromotion');
 });
