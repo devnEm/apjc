@@ -10,20 +10,19 @@
       <div class="form-group">
         {!! Form::open(['url' => '/admin/ecole/create','class' => 'form-group']) !!}
         <div class="form-group">
-          {!! Form::label('type','type',['class' => 'form-group']) !!}
-          {!! Form::text('type',null,['class' => 'form-group']) !!} <!-- TODO SELECT OPTION -->
+          {!! Form::label('type','type d\'établissement : ',['class' => 'form-group']) !!}
+          {!! Form::select('type',['maternelle'=>'maternelle','primaire'=>'primaire','collége'=>'collége'],['class' => 'form-group']) !!} <!-- TODO SELECT OPTION -->
         </div>
         <div class="form-group">
-          {!! Form::label('name','nom de l\'école',['class' => 'form-group', 'type' => 'text']) !!}
+          {!! Form::label('name','nom de l\'école : ',['class' => 'form-group', 'type' => 'text']) !!}
           {!! Form::text('name',null,['placeholder' => 'Entre un nom']) !!}
         </div>
         <div class="form-group">
-          {!! Form::label('street','rue',['class' => 'form-group']) !!}
+          {!! Form::label('street','rue : ',['class' => 'form-group']) !!}
           {!! Form::text('street',null,['class' => 'form-group']) !!}
-        </div>
-        <div class="form-group">
-          {!! Form::label('city','ville',['class' => 'form-group']) !!}
-          {!! Form::text('city',null,['class' => 'form-group']) !!}
+        
+          {!! Form::label('city','ville : ',['class' => 'form-group']) !!}
+          {!! Form::text('city','Athis-Mons',['class' => 'form-group']) !!}
         </div>
 
         <div class="form-group">

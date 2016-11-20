@@ -6,16 +6,19 @@
       <div class="panel panel-default">
 
         <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#ecole1">Ecole 1</a></li>
-          <li><a data-toggle="tab" href="#ecole2">Ecole 2</a></li>
+          @foreach($schools as $school)
+          <li><a data-toggle="tab" href="#{{$school->name}}">{{$school->name}}</a></li>
+          @endforeach
         </ul>
 
+
         <div class="tab-content">
-          <div id="ecole1" class="tab-pane fade in active">
+          @foreach($schools as $school)
+          <div id="{{$school->name}}" class="tab-pane fade in active">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-12">
-                  <h1>Ecole n°1</h1>
+                  <h1>{{$school->name}}</h1>
                 </div>
               </div>
               <div class="row">
@@ -34,7 +37,7 @@
                         <h4>Adresse</h4>
                         <address>
                           <p>
-                            1 rue du nom a rallonge qui dépasse<br>91200 Athis-mons
+                            {{$school->street}}<br>91200 {{$school->city}}
                           </p>
                         </address>
                         </li>
@@ -219,15 +222,8 @@
               </div>
             </div>
           </div>
+          @endforeach
 
-          <!-- deuxieme article -->
-            <div id="ecole2" class="tab-pane fade">
-              <div class="container-fluid">
-                <div class="row">
-                  <h1>Ecole n°2</h1>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

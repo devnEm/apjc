@@ -11,12 +11,8 @@
 |
 */
 Route::group(['middleware' => ['web']], function () {
-  Route::get('/', function () {
-      return view('public.index');
-  });
-  Route::get('/ecole', function () {
-      return view('public.ecole');
-  });
+  Route::get('/', 'Front\IndexController@index');
+  Route::get('/ecole', 'Front\IndexController@ecole');
   Route::get('/actualite', function () {
       return view('public.news');
   });

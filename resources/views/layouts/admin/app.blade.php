@@ -37,7 +37,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="\admin">Administration</a></li>
+        <li><a href="\admin">Administration</a></li>
         <li><a href="\admin\ecole">Ecole</a></li>
         <li><a href="\admin\promotion">Promotion</a></li>
         <!-- <li class="dropdown">
