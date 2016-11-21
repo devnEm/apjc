@@ -21,8 +21,8 @@ class IndexController extends Controller
 
   public function ecole()
   {
-    $schools = School::all();
-    $promotion = Promotion::all();
-    return view('public.ecole', ['schools' => $schools,'$promotions'=>$promotion]);
+
+    $promotions = Promotion::where('current', true )->get();
+    return view('public.ecole', ['promotions' => $promotions]);
   }
 }

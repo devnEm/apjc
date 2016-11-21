@@ -20,7 +20,7 @@
           </div>
             <div class="form-group">
               {!! Form::label('etablissement','école',['class' => 'form-group', 'type' => 'text']) !!}
-              {!! Form::select('school_name[]',$school,null,['id' => 'school_name','class' => 'form-group']) !!}
+              {!! Form::select('school_name',$school,$promotion->school_id,['id' => 'school_name','class' => 'form-group']) !!}
             </div>
             <div class="form-group">
               {!! Form::label('director_title','civilité',['class' => 'form-group']) !!}
@@ -29,10 +29,6 @@
             <div class="form-group">
               {!! Form::label('director_name','nom du chef d\'établissement',['class' => 'form-group']) !!}
               {!! Form::text('director_name',null,['class' => 'form-group']) !!}
-            </div>
-            <div class="form-group">
-              {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'form-group']) !!}
-              {!! Form::text('director_firstname',null,['class' => 'form-group']) !!}
             </div>
             <div class="form-group">
               {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'form-group']) !!}

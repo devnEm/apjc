@@ -6,27 +6,27 @@
       <div class="panel panel-default">
 
         <ul class="nav nav-tabs">
-          @foreach($schools as $key => $school)
+          @foreach($promotions as $key => $promotion)
           @if($key == 0)
-          <li class="active"><a data-toggle="tab" href="#{{$school->name}}">{{$school->name}}</a></li>
+          <li class="active"><a data-toggle="tab" href="#{{$promotion->school->name}}">{{$promotion->school->name}}</a></li>
           @else
-          <li><a data-toggle="tab" href="#{{$school->name}}">{{$school->name}}</a></li>
+          <li><a data-toggle="tab" href="#{{$promotion->school->name}}">{{$promotion->school->name}}</a></li>
           @endif
           @endforeach
         </ul>
 
 
         <div class="tab-content">
-          @foreach($schools as $key => $school)
+          @foreach($promotions as $key => $promotion)
             @if($key == 0)
-            <div id="{{$school->name}}" class="tab-pane fade in active">
+            <div id="{{$promotion->school->name}}" class="tab-pane fade in active">
             @else
-            <div id="{{$school->name}}" class="tab-pane">
+            <div id="{{$promotion->school->name}}" class="tab-pane">
             @endif
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-12">
-                  <h1>{{$school->name}}</h1>
+                  <h1>{{$promotion->school->name}}</h1>
                 </div>
               </div>
               <div class="row">
@@ -39,13 +39,13 @@
                       <ul>
                         <li>
                           <h4>Directrice</h4>
-                          <span>Mme Ladirectrice</span>
+                          <span>{{$promotion->director_title}} {{$promotion->director_name}}</span>
                         </li>
                         <li>
                         <h4>Adresse</h4>
                         <address>
                           <p>
-                            {{$school->street}}<br>91200 {{$school->city}}
+                            {{$promotion->school->street}}<br>91200 {{$promotion->school->city}}
                           </p>
                         </address>
                         </li>

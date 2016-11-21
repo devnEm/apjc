@@ -160,7 +160,9 @@ class SchoolController extends Controller
     $promotion = Promotion::where('id', $id)->first();
     $school = School::lists('name', 'id');
 
-    return view('admin.schools.edit_promotion',['promotion' => $promotion , 'school' => $school]);
+    $currentSchool = School::where('id',$promotion->school->id)->first();
+
+    return view('admin.schools.edit_promotion',['promotion' => $promotion , 'school' => $school, 'currentSchool' => $currentSchool]);
   }
 
   public function showAllPromotion()
@@ -184,7 +186,7 @@ class SchoolController extends Controller
 
     $validator= Validator::make($request->all(),$rules);
 
-    $school_id = intval($request->input('school_name')[0]);
+    $school_id = intval($request->input('school_name'));
 
     $promotion = Promotion::where('id', $id)->first();
     $promotion->year = $request->input('year');
