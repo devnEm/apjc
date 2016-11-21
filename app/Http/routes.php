@@ -27,6 +27,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+
   Route::get('/home', 'Front\HomeController@index');
   Route::get('/admin', 'Back\AdminController@index');
 
@@ -38,11 +39,17 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/admin/ecole/update/{ecole_id}','Back\SchoolController@updateSchool');
   Route::get('/admin/ecole/delete/{ecole_id}','Back\SchoolController@deleteSchool');
 
-  Route::get('/admin/promotion', 'Back\SchoolController@showAllPromotion');
-  Route::get('/admin/promotion/show/{promotion_id}','Back\SchoolController@showPromotion');
-  Route::get('/admin/promotion/create','Back\SchoolController@createPromotion');
-  Route::post('/admin/promotion/create','Back\SchoolController@savePromotion');
-  Route::get('/admin/promotion/edit/{promotion_id}','Back\SchoolController@editPromotion');
-  Route::post('/admin/promotion/update/{promotion_id}','Back\SchoolController@updatePromotion');
-  Route::post('/admin/promotion/delete/{promotion_id}','Back\SchoolController@deletePromotion');
+  Route::get('/admin/promotion', 'Back\PromotionController@showAllPromotion');
+  Route::get('/admin/promotion/show/{promotion_id}','Back\PromotionController@showPromotion');
+  Route::get('/admin/promotion/create','Back\PromotionController@createPromotion');
+  Route::post('/admin/promotion/create','Back\PromotionController@savePromotion');
+  Route::get('/admin/promotion/edit/{promotion_id}','Back\PromotionController@editPromotion');
+  Route::post('/admin/promotion/update/{promotion_id}','Back\PromotionController@updatePromotion');
+  Route::post('/admin/promotion/delete/{promotion_id}','Back\PromotionController@deletePromotion');
+
+  Route::get('/admin/promotion/create/classe/{promotion_id}','Back\ClassesController@createClasses');
+  Route::post('/admin/promotion/create/classe/{promotion_id}','Back\ClassesController@saveClasses');
+  Route::get('/admin/promotion/classe/edit/{classe_id}','Back\ClassesController@editClasses');
+  Route::post('/admin/promotion/classe/update/{classe_id}','Back\ClassesController@updateClasses');
+  Route::post('/admin/promotion/classe/delete/{classe_id}','Back\ClassesController@deleteClasses');
 });

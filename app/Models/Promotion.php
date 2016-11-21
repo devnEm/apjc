@@ -27,4 +27,9 @@ class Promotion extends Model
   {
     return $this->hasOne('App\Models\School','id','school_id');
   }
+
+  public function classes()
+  {
+    return $this->hasMany('App\Models\Classes');
+  }
 }

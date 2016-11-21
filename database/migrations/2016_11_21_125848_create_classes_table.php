@@ -17,7 +17,9 @@ class CreateClassesTable extends Migration
             $table->integer('promotion_id')->unsigned();
             $table->string('type');
             $table->string('effectif');
-            $table->string('professor');
+            $table->string('professor_title');
+            $table->string('professor_name');
+            $table->string('professor_firstname');
             $table->timestamps();
         });
 

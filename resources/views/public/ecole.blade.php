@@ -50,36 +50,24 @@
                         </address>
                         </li>
                         <li>
-                          <h4>Equipe pédagogique</h4>
-                          <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#profs">Professeurs</a></li>
-                            <li><a data-toggle="tab" href="#accs">Accompagnants</a></li>
-                          </ul>
-                          <div class="tab-content">
-
-                          <div id="profs" class="tab-pane fade in active">
-                            <ul>
-                              <li>prof1</li>
-                              <li>prof2</li>
-                              <li>prof3</li>
-                              <li>prof4</li>
-                              <li>prof5</li>
-                              <li>prof6</li>
-                            </ul>
+                          <h4>Les Classes</h4>
+                          <div class="table table responsive">
+                            <table class="table">
+                              <thead>
+                                <td>Nom</td>
+                                <td>effectif</td>
+                              </thead>
+                              <tbody>
+                                @foreach($promotion->classes as $classe)
+                                <tr>
+                                  <td>{{$classe->type}}</td>
+                                  <td>{{$classe->effectif}}</td>
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
                           </div>
 
-                          <div id="accs" class="tab-pane fade">
-                            <ul>
-                              <li>acc1</li>
-                              <li>acc2</li>
-                              <li>acc3</li>
-                              <li>acc4</li>
-                              <li>acc5</li>
-                              <li>acc6</li>
-                            </ul>
-                          </div>
-
-                        </div>
                       </li>
                       </ul>
                       <div class="row">
