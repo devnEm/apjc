@@ -96,7 +96,7 @@
                 <div class="row">
                   <div class="pull-right">
                     <img class="img-rounded" src="https://avatars3.githubusercontent.com/u/15685524?v=3&s=40" alt=""/>
-                    <h4>By devnem</h4>
+                    <h4>By devnem <span>&#174;</span></h4>
                   </div>
                 </div>
               </div>

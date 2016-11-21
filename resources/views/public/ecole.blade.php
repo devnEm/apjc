@@ -6,16 +6,27 @@
       <div class="panel panel-default">
 
         <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#ecole1">Ecole 1</a></li>
-          <li><a data-toggle="tab" href="#ecole2">Ecole 2</a></li>
+          @foreach($promotions as $key => $promotion)
+          @if($key == 0)
+          <li class="active"><a data-toggle="tab" href="#{{$promotion->school->name}}">{{$promotion->school->name}}</a></li>
+          @else
+          <li><a data-toggle="tab" href="#{{$promotion->school->name}}">{{$promotion->school->name}}</a></li>
+          @endif
+          @endforeach
         </ul>
 
+
         <div class="tab-content">
-          <div id="ecole1" class="tab-pane fade in active">
+          @foreach($promotions as $key => $promotion)
+            @if($key == 0)
+            <div id="{{$promotion->school->name}}" class="tab-pane fade in active">
+            @else
+            <div id="{{$promotion->school->name}}" class="tab-pane">
+            @endif
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-12">
-                  <h1>Ecole n°1</h1>
+                  <h1>{{$promotion->school->name}}</h1>
                 </div>
               </div>
               <div class="row">
@@ -28,47 +39,35 @@
                       <ul>
                         <li>
                           <h4>Directrice</h4>
-                          <span>Mme Ladirectrice</span>
+                          <span>{{$promotion->director_title}} {{$promotion->director_name}}</span>
                         </li>
                         <li>
                         <h4>Adresse</h4>
                         <address>
                           <p>
-                            1 rue du nom a rallonge qui dépasse<br>91200 Athis-mons
+                            {{$promotion->school->street}}<br>91200 {{$promotion->school->city}}
                           </p>
                         </address>
                         </li>
                         <li>
-                          <h4>Equipe pédagogique</h4>
-                          <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#profs">Professeurs</a></li>
-                            <li><a data-toggle="tab" href="#accs">Accompagnants</a></li>
-                          </ul>
-                          <div class="tab-content">
-
-                          <div id="profs" class="tab-pane fade in active">
-                            <ul>
-                              <li>prof1</li>
-                              <li>prof2</li>
-                              <li>prof3</li>
-                              <li>prof4</li>
-                              <li>prof5</li>
-                              <li>prof6</li>
-                            </ul>
+                          <h4>Les Classes</h4>
+                          <div class="table table responsive">
+                            <table class="table">
+                              <thead>
+                                <td>Nom</td>
+                                <td>effectif</td>
+                              </thead>
+                              <tbody>
+                                @foreach($promotion->classes as $classe)
+                                <tr>
+                                  <td>{{$classe->type}}</td>
+                                  <td>{{$classe->effectif}}</td>
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
                           </div>
 
-                          <div id="accs" class="tab-pane fade">
-                            <ul>
-                              <li>acc1</li>
-                              <li>acc2</li>
-                              <li>acc3</li>
-                              <li>acc4</li>
-                              <li>acc5</li>
-                              <li>acc6</li>
-                            </ul>
-                          </div>
-
-                        </div>
                       </li>
                       </ul>
                       <div class="row">
@@ -219,15 +218,8 @@
               </div>
             </div>
           </div>
+          @endforeach
 
-          <!-- deuxieme article -->
-            <div id="ecole2" class="tab-pane fade">
-              <div class="container-fluid">
-                <div class="row">
-                  <h1>Ecole n°2</h1>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
