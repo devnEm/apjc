@@ -21,4 +21,9 @@ class Classes extends Model
 
   protected $table = 'classes';
 
+  public function promotion()
+    {
+        return $this->belongsTo('App\Models\Promotion');
+    }
+
 }

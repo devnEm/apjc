@@ -45,11 +45,11 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/admin/promotion/create','Back\PromotionController@savePromotion');
   Route::get('/admin/promotion/edit/{promotion_id}','Back\PromotionController@editPromotion');
   Route::post('/admin/promotion/update/{promotion_id}','Back\PromotionController@updatePromotion');
-  Route::post('/admin/promotion/delete/{promotion_id}','Back\PromotionController@deletePromotion');
+  Route::get('/admin/promotion/delete/{promotion_id}','Back\PromotionController@deletePromotion');
 
   Route::get('/admin/promotion/create/classe/{promotion_id}','Back\ClassesController@createClasses');
   Route::post('/admin/promotion/create/classe/{promotion_id}','Back\ClassesController@saveClasses');
   Route::get('/admin/promotion/classe/edit/{classe_id}','Back\ClassesController@editClasses');
   Route::post('/admin/promotion/classe/update/{classe_id}','Back\ClassesController@updateClasses');
-  Route::post('/admin/promotion/classe/delete/{classe_id}','Back\ClassesController@deleteClasses');
+  Route::get('/admin/promotion/classe/delete/{classe_id}','Back\ClassesController@deleteClasses');
 });

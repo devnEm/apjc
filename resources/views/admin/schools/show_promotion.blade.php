@@ -12,7 +12,6 @@
         <div class="table table-responsive">
           <table class="table">
             <tbody>
-
               <tr>
                 <td>actuelle</td>
                 @if($promotion->current)
@@ -64,6 +63,7 @@
               <td>classe</td>
               <td>nbre</td>
               <td>Enseignant</td>
+              <td></td>
             </thead>
             <tbody>
               @foreach($promotion->classes as $classe)
@@ -71,6 +71,7 @@
                 <td>{{$classe->type}}</td>
                 <td>{{$classe->effectif}}</td>
                 <td>{{$classe->professor_title}} {{$classe->professor_name}}</td>
+                <td><a href="{{url('/admin/promotion/classe/edit/'.$classe->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
               </tr>
               @endforeach
             </tbody>

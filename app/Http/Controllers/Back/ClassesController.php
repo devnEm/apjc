@@ -9,12 +9,14 @@ use Validator;
 use App\Http\Requests;
 
 use App\Models\Classes;
+use App\Models\Promotion;
 
 class ClassesController extends Controller
 {
     public function createClasses($promotion_id){
+      $promotion = Promotion::where('id',$promotion_id)->first();
 
-      return view('admin.schools.create_classe', ['promotion_id'=>$promotion_id]);
+      return view('admin.schools.create_classe', ['promotion'=>$promotion]);
     }
 
     public function saveClasses($promotion_id, Request $request)
@@ -43,5 +45,48 @@ class ClassesController extends Controller
       $classe->save();
 
       return redirect()->action('Back\PromotionController@showPromotion',['id' => $promotion_id]);
+    }
+
+    public function editClasses($id)
+    {
+      $classe = Classes::where('id', $id)->first();
+
+      return view('admin.schools.edit_classe',['classe' => $classe] );
+    }
+
+    public function updateClasses($id, Request $request)
+    {
+      $rules=[
+
+        'type'=> 'required',
+        'effectif'=> 'required',
+        'professor_title'=> 'required',
+        'professor_name'=> 'required',
+        'professor_firstname'=> 'required',
+      ];
+
+      $validator= Validator::make($request->all(),$rules);
+
+      $school_id = intval($request->input('school_name'));
+
+      $classe = Classes::where('id', $id)->first();
+
+      $classe->type = $request->input('type');
+      $classe->effectif = $request->input('effectif');
+      $classe->professor_title = $request->input('professor_title');
+      $classe->professor_name = $request->input('professor_name');
+      $classe->professor_firstname = $request->input('professor_firstname');
+
+      $classe->update();
+
+      return redirect()->action('Back\PromotionController@showPromotion',['id' => $classe->promotion->id]);
+    }
+
+    public function deleteClasses($id)
+    {
+      $promotion = Classes::where('id',$id)->first()->promotion;
+      $classe = Classes::where('id',$id)->delete();
+
+      return redirect()->action('Back\PromotionController@showPromotion',['id' => $promotion->id]);
     }
 }
