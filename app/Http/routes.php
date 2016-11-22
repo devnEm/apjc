@@ -52,4 +52,9 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/promotion/classe/edit/{classe_id}','Back\ClassesController@editClasses');
   Route::post('/admin/promotion/classe/update/{classe_id}','Back\ClassesController@updateClasses');
   Route::get('/admin/promotion/classe/delete/{classe_id}','Back\ClassesController@deleteClasses');
+
+  Route::get('/admin/promotion/create/council/{promotion_id}','Back\CouncilController@createCouncil');
+  Route::post('/admin/promotion/create/council/{promotion_id}','Back\CouncilController@saveCouncil');
+  Route::get('/admin/promotion/council/edit/{council_id}','Back\CouncilController@editCouncil');
+  Route::post('/admin/promotion/council/update/{council_id}','Back\CouncilController@updateCouncil');
 });

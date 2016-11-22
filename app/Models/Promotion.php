@@ -32,4 +32,9 @@ class Promotion extends Model
   {
     return $this->hasMany('App\Models\Classes');
   }
+
+  public function councils()
+  {
+    return $this->hasMany('App\Models\Council');
+  }
 }

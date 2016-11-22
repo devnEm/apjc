@@ -14,7 +14,7 @@
                   <td>id</td>
                   <td>type</td>
                   <td>nom</td>
-                  <td></td>
+                  <td>classes</td>
                   <td></td>
                   <td></td>
                 </thead>

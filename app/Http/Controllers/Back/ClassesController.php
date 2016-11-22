@@ -16,7 +16,7 @@ class ClassesController extends Controller
     public function createClasses($promotion_id){
       $promotion = Promotion::where('id',$promotion_id)->first();
 
-      return view('admin.schools.create_classe', ['promotion'=>$promotion]);
+      return view('admin.classe.create_classe', ['promotion'=>$promotion]);
     }
 
     public function saveClasses($promotion_id, Request $request)
@@ -51,7 +51,7 @@ class ClassesController extends Controller
     {
       $classe = Classes::where('id', $id)->first();
 
-      return view('admin.schools.edit_classe',['classe' => $classe] );
+      return view('admin.classe.edit_classe',['classe' => $classe] );
     }
 
     public function updateClasses($id, Request $request)
@@ -66,8 +66,6 @@ class ClassesController extends Controller
       ];
 
       $validator= Validator::make($request->all(),$rules);
-
-      $school_id = intval($request->input('school_name'));
 
       $classe = Classes::where('id', $id)->first();
 

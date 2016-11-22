@@ -88,21 +88,13 @@
                     <div class="panel-body">
                         <h4>Dates des conseils</h4>
                       <ul>
+                        @foreach($promotion->councils as $council)
                         <li>
                           <label>Date : </label>
-                          <date>10/02/2017</date><br>
-                          <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
+                          <date>{{$council->date}}</date><br>
+                          <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>                          
                         </li>
-                        <li>
-                          <label>Date : </label>
-                          <date>10/02/2017</date><br>
-                          <a href="#">voir le rapport</a>
-                        </li>
-                        <li>
-                          <label>Date : </label>
-                          <date>10/02/2017</date><br>
-                          <a href="#">voir le rapport</a>
-                        </li>
+                        @endforeach
                       </ul>
                       <h4>Liste des parents élus</h4>
                       <ul>

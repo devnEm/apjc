@@ -38,11 +38,11 @@
               </tr>
               <tr>
                 <td>Effectifs</td>
-                <td>{{$promotion->total_student_effectives}}</td>
+                <td>{{$effectif}}</td>
               </tr>
               <tr>
                 <td>nbre de classe</td>
-                <td>{{$promotion->nb_class}}</td>
+                <td>{{count($promotion->classes)}}</td>
               </tr>
             </tbody>
           </table>
@@ -50,6 +50,31 @@
       </div>
     </div>
   </div>
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="titre">Conseils d'école</div>
+        <a href="{{url('/admin/promotion/create/council/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
+        </div>
+      <div class="panel-boby">
+        <h4>Dates des conseils</h4>
+      <ul>
+        @foreach($promotion->councils as $council)
+        <li>
+          <label>Date : </label>
+          <date>{{$council->date}}</date><br>
+          <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
+          <a href="{{url('/admin/promotion/council/edit/'.$council->id)}}"><button type="button" class="btn btn-warning">modifier</button></a>
+        </li>
+        @endforeach
+      </ul>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row">
   <div class="col-md-6">
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -80,43 +105,23 @@
       </div>
     </div>
   </div>
-</div>
-<div class="row">
   <div class="col-md-6">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">Conseils d'école</div>
-        <a href="#"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
+        <div class="titre">Elections</div>
+        <a href="#"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
         </div>
       <div class="panel-boby">
-        <h4>Dates des conseils</h4>
-      <ul>
-        <li>
-          <label>Date : </label>
-          <date>10/02/2017</date><br>
-          <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
-        </li>
-        <li>
-          <label>Date : </label>
-          <date>10/02/2017</date><br>
-          <a href="#">voir le rapport</a>
-        </li>
-        <li>
-          <label>Date : </label>
-          <date>10/02/2017</date><br>
-          <a href="#">voir le rapport</a>
-        </li>
-      </ul>
-      <h4>Liste des parents élus</h4>
-      <ul>
-        <li>Mme Untel</li>
-        <li>Mme Deuxtel</li>
-        <li>Mme Troistel</li>
-        <li>Mme Quatretel</li>
-        <li>Mme Cinqtel</li>
-        <li>Mme Sixtel</li>
-        <li>Mme Septtel</li>
-      </ul>
+        <h4>Liste des parents élus</h4>
+        <ul>
+          <li>Mme Untel</li>
+          <li>Mme Deuxtel</li>
+          <li>Mme Troistel</li>
+          <li>Mme Quatretel</li>
+          <li>Mme Cinqtel</li>
+          <li>Mme Sixtel</li>
+          <li>Mme Septtel</li>
+        </ul>
       </div>
     </div>
   </div>

@@ -29,7 +29,7 @@ class SchoolController extends Controller
   {
     $schools = School::all();
 
-    return view('admin.schools.school', ['schools' => $schools]);
+    return view('admin.schools.schools', ['schools' => $schools]);
   }
 
   public function showSchool($id)

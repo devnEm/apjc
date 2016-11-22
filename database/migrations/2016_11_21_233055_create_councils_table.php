@@ -14,8 +14,14 @@ class CreateCouncilsTable extends Migration
     {
         Schema::create('councils', function (Blueprint $table) {
             $table->increments('id');
+            $table->date('date');
+            $table->text('url');
+            $table->integer('promotion_id')->unsigned();
             $table->timestamps();
         });
+        Schema::table('councils', function($table) {
+             $table->foreign('promotion_id')->references('id')->on('promotions');
+         });
     }
 
     /**

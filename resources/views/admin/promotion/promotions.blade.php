@@ -15,6 +15,7 @@
                       <td>année</td>
                       <td>type</td>
                       <td>nom</td>
+                      <td>classes</td>
                       <td>courante</td>
                       <td></td>
                       <td></td>
@@ -26,10 +27,11 @@
                         <td>{{$promotion->year}}</td>
                         <td>{{$promotion->school->type}}</td>
                         <td>{{$promotion->school->name}}</td>
+                        <td>{{count($promotion->classes)}}</td>
                         @if($promotion->current)
                         <td>&#9733;</td>
                         @else
-                        <td></td>
+                        <td>non</td>
                         @endif
                         <td><a href="{{url('/admin/promotion/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-info">voir</button></a></td>
                         <td><a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>

@@ -16,7 +16,8 @@ class PromotionController extends Controller
   public function showPromotion($id)
   {
     $promotion = Promotion::where('id', $id)->first();
-    return view('admin.schools.show_promotion',['promotion'=>$promotion]);
+    $effectif_total = $promotion->classes->sum('effectif');
+    return view('admin.promotion.show_promotion',['promotion'=>$promotion, 'effectif'=>$effectif_total]);
   }
 
   public function savePromotion(Request $request)
@@ -60,7 +61,7 @@ class PromotionController extends Controller
   {
     $school = School::lists('name', 'id');
 
-    return view('admin.schools.create_promotion',['school' => $school]);
+    return view('admin.promotion.create_promotion',['school' => $school]);
   }
 
   public function editPromotion($id)
@@ -70,13 +71,13 @@ class PromotionController extends Controller
 
     $currentSchool = School::where('id',$promotion->school->id)->first();
 
-    return view('admin.schools.edit_promotion',['promotion' => $promotion , 'school' => $school, 'currentSchool' => $currentSchool]);
+    return view('admin.promotion.edit_promotion',['promotion' => $promotion , 'school' => $school, 'currentSchool' => $currentSchool]);
   }
 
   public function showAllPromotion()
   {
     $promotions = Promotion::all();
-    return view('admin.schools.promotion',['promotions' => $promotions]);
+    return view('admin.promotion.promotions',['promotions' => $promotions]);
   }
 
   public function updatePromotion($id, Request $request)
