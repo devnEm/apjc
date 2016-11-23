@@ -15,8 +15,20 @@ class CreateElectionsTable extends Migration
         Schema::create('elections', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
+            $table->integer('sieges_totaux');
+            $table->integer('sieges_obtenus');
+            $table->integer('participation');
+            $table->integer('nb_votant');
+            $table->integer('nb_electeur');
+            $table->integer('promotion_id')->unsigned();
             $table->timestamps();
         });
+
+        Schema::table('elections', function($table) {
+             $table->foreign('promotion_id')->references('id')->on('promotions');
+         });
+        
+
     }
 
     /**
