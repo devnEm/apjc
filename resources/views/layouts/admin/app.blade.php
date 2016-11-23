@@ -40,6 +40,7 @@
         <li><a href="\admin">Administration</a></li>
         <li><a href="\admin\ecole">Ecole</a></li>
         <li><a href="\admin\promotion">Promotion</a></li>
+        <li><a href="\admin\election">Election</a></li>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ecoles <span class="caret"></span></a>
           <ul class="dropdown-menu">
