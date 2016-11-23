@@ -54,7 +54,9 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Conseils d'école</div>
+        @if(count($promotion->councils) < 3)
         <a href="{{url('/admin/promotion/create/council/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
+        @endif
         </div>
       <div class="panel-boby">
         <h4>Dates des conseils</h4>
