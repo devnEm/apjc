@@ -37,4 +37,9 @@ class Promotion extends Model
   {
     return $this->hasMany('App\Models\Council');
   }
+
+  public function election()
+  {
+      return $this->belongsTo('App\Models\Election','id','promotion_id');
+  }
 }

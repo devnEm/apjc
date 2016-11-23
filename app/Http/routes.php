@@ -58,8 +58,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/promotion/council/edit/{council_id}','Back\CouncilController@editCouncil');
   Route::post('/admin/promotion/council/update/{council_id}','Back\CouncilController@updateCouncil');
 
-  Route::get('/admin/election', 'Back\PromotionController@showAllElection');
-  Route::get('/admin/election/show/{election_id}','Back\ElectionController@showElection');
+  Route::get('/admin/election', 'Back\ElectionController@showAllElection');
+  Route::get('/admin/election/show/{promotion_id}','Back\ElectionController@showElection');
   Route::get('/admin/election/create/{promotion_id}','Back\ElectionController@createElection');
   Route::post('/admin/election/create/{promotion_id}','Back\ElectionController@saveElection');
   Route::get('/admin/election/edit/{election_id}','Back\ElectionController@editElection');

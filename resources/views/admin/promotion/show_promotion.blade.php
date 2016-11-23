@@ -109,9 +109,15 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Elections</div>
-        <a href="#"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
+        <a href="{{url('/admin/election/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
         </div>
       <div class="panel-boby">
+        <label>Date</label>
+        @if($promotion->election)
+        <span>{{$promotion->election->date}}</span>
+        @else
+        <span>à venir</span>
+        @endif
         <h4>Liste des parents élus</h4>
         <ul>
           <li>Mme Untel</li>

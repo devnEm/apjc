@@ -25,6 +25,8 @@ class CreateParentElusTable extends Migration
             $table->boolean('elu');
             $table->boolean('suppleant');
             $table->integer('rang');
+            $table->boolean('hidden_phone');
+            $table->boolean('email_subscription');
             $table->timestamps();
         });
         Schema::table('parent_elus', function($table) {
