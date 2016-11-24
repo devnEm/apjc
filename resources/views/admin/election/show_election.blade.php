@@ -29,7 +29,7 @@
             </div>
           <hr>
             <div class="row">
-              <a href="#"><button type="button" name="button" class="btn btn-warning">Modifier</button></a>
+              <a href="{{url('/admin/election/edit/'.$promotion->election->id)}}"><button type="button" name="button" class="btn btn-warning">Modifier</button></a>
               <a href="#"><button type="button" name="button" class="btn btn-primary">Les candidats</button></a>
             </div>
           </div>

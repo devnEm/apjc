@@ -34,9 +34,7 @@ class ElectionController extends Controller
     public function saveElection($promotion_id, Request $request)
     {
       $rules=[
-
         'date' => 'required',
-
       ];
 
       $validator= Validator::make($request->all(),$rules);
@@ -62,6 +60,35 @@ class ElectionController extends Controller
       $elections = Election::all();
       return view('admin.election.elections',['elections'=>$elections]);
     }
+
+    public function editElection($election_id){
+
+      $election = Election::where('id',$election_id)->first();
+
+      return view('admin.election.edit_election',['election'=>$election]);
+    }
+
+    public function updateElection($election_id, Request $request){
+      $rules=[
+        'date' => 'required',
+      ];
+
+      $validator= Validator::make($request->all(),$rules);
+
+      $election = Election::where('id',$election_id)->first();
+
+      $election->date = $request->input('date');
+      $election->sieges_totaux = $request->input('sieges_totaux');
+      $election->sieges_obtenus = $request->input('sieges_obtenus');
+      $election->participation = $request->input('nb_votant')/$request->input('nb_electeur')*100;
+      $election->nb_votant = $request->input('nb_votant');
+      $election->nb_electeur = $request->input('nb_electeur');
+
+      $election->update();
+
+      return redirect()->action('Back\ElectionController@showElection',['id' => $election_id]);
+    }
+
 
 
 
