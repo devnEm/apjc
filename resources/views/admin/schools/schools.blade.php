@@ -4,10 +4,13 @@
     <div class="col-md-12">
       <div class="panel panel-info">
           <div class="panel-heading">
-            <div class="titre">Ecoles</div>
-            <a href="/admin/ecole/create"><button type="button" name="button" class="btn btn-primary">ajouter</button></a>
-          </div>
+            Ecoles
+            </div>
           <div class="panel-body">
+            <div class="row tools">
+              <a href="/admin/ecole/create"><button type="button" name="button" class="btn btn-primary">ajouter</button></a>
+            </div>
+
             <div class="table table-responsive">
               <table class="table">
                 <thead>

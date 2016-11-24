@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">Ajouter un conseil d'école</div>
+        Ajouter un conseil d'école
         <a href="{{url('/admin/promotion/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
       </div>
       <div class="panel-boby">

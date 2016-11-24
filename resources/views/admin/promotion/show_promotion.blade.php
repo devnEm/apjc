@@ -4,12 +4,14 @@
   <div class="col-md-6">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <!-- <div class="titre">{{$promotion->year}} - {{$promotion->school->name}} </div> -->
-        <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
-        <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a>
+        {{$promotion->year}} - {{$promotion->school->name}}
+
         </div>
       <div class="panel-boby">
-
+        <div class="tools">
+          <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
+          <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a>
+        </div>
           <div class="table table-responsive">
             <table class="table">
               <tbody>

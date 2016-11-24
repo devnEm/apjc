@@ -4,8 +4,8 @@
   <div class="col-md-12">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">Ajouter une école</div>
-        <a href="/admin/ecole"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
+        Ajouter une école
+
       </div>
       <div class="panel-body">
         {!! Form::open(['url' => '/admin/ecole/create','class' => 'form-horizontal']) !!}
@@ -28,6 +28,7 @@
 
         <div class="form-group">
           <div class="col-md-6 col-md-offset-4">
+            <a href="/admin/ecole"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
           {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
           </div>
         </div>
