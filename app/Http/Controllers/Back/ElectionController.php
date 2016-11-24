@@ -63,6 +63,14 @@ class ElectionController extends Controller
       return view('admin.election.elections',['elections'=>$elections]);
     }
 
+    public function editElection($election_id){
+
+      $election = Election::where('id',$election_id)->first();
+
+      return view('admin.election.edit_election',['election'=>$election]);
+    }
+
+
 
 
 }

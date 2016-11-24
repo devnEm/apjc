@@ -20,7 +20,7 @@
                 <td>{{$election->promotion->year}}</td>
                 <td>{{$election->date}}</td>
                 <td><a href="{{url('/admin/election/show/'.$election->promotion->id)}}"><button type="button" name="button" class="btn btn-info">voir</button></a></td>
-                <td><a href="#"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
+                <td><a href="{{url('/admin/election/edit/'.$election->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
               </tr>
               @endforeach
             </tbody>
