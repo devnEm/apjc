@@ -7,29 +7,34 @@
         <div class="titre">Ajouter une école</div>
         <a href="/admin/ecole"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
       </div>
-      <div class="form-group">
-        {!! Form::open(['url' => '/admin/ecole/create','class' => 'form-group']) !!}
+      <div class="panel-body">
+        {!! Form::open(['url' => '/admin/ecole/create','class' => 'form-horizontal']) !!}
         <div class="form-group">
-          {!! Form::label('type','type d\'établissement : ',['class' => 'form-group']) !!}
+          {!! Form::label('type','type d\'établissement : ',['class' => 'col-md-4 control-label']) !!}
           {!! Form::select('type',['maternelle'=>'maternelle','primaire'=>'primaire','collége'=>'collége'],['class' => 'form-group']) !!} <!-- TODO SELECT OPTION -->
         </div>
         <div class="form-group">
-          {!! Form::label('name','nom de l\'école : ',['class' => 'form-group', 'type' => 'text']) !!}
+          {!! Form::label('name','nom de l\'école : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
           {!! Form::text('name',null,['placeholder' => 'Entre un nom']) !!}
         </div>
         <div class="form-group">
-          {!! Form::label('street','rue : ',['class' => 'form-group']) !!}
-          {!! Form::text('street',null,['class' => 'form-group']) !!}
-
-          {!! Form::label('city','ville : ',['class' => 'form-group']) !!}
-          {!! Form::text('city','Athis-Mons',['class' => 'form-group']) !!}
+          {!! Form::label('street','rue : ',['class' => 'col-md-4 control-label']) !!}
+          {!! Form::text('street',null) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('city','ville : ',['class' => 'col-md-4 control-label']) !!}
+          {!! Form::text('city','Athis-Mons') !!}
         </div>
 
         <div class="form-group">
+          <div class="col-md-6 col-md-offset-4">
           {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
+          </div>
         </div>
         {!! Form::close() !!}
       </div>
+
+
     </div>
   </div>
 </div>

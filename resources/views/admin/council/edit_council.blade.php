@@ -8,30 +8,32 @@
         <a href="{{url('/admin/promotion/show/'.$council->promotion->id)}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
       </div>
       <div class="panel-boby">
+        {!! Form::model($council, ['url' => '/admin/promotion/council/update/'.$council->id,'class' => 'form-horizontal']) !!}
         <div class="form-group">
-          {!! Form::model($council, ['url' => '/admin/promotion/council/update/'.$council->id,'class' => 'form-group']) !!}
-          <div class="form-group">
-            {!! Form::label('Ecole','ecole : ',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::label('ecole',$council->promotion->school->name,['class' => 'form-group']) !!}
-          </div>
-          <div class="form-group">
-            {!! Form::label('Ecole','promotion : ',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::label('ecole',$council->promotion->year,['class' => 'form-group']) !!}
-          </div>
-          <div class="form-group">
-            {!! Form::label('date','date',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::date('date',$council->date,['class' => 'form-group']) !!}
-          </div>
-            <div class="form-group">
-              {!! Form::label('url','url',['class' => 'form-group']) !!}
-              {!! Form::text('url',null,['class' => 'form-group']) !!}
-            </div>
-              {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
-            </div>
-          {!! Form::close() !!}
+          {!! Form::label('Ecole','ecole : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+          {!! Form::label('ecole',$council->promotion->school->name,['class' => 'control-label']) !!}
         </div>
+        <div class="form-group">
+          {!! Form::label('Ecole','promotion : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+          {!! Form::label('ecole',$council->promotion->year,['class' => 'control-label']) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('date','date',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+          {!! Form::date('date',$council->date) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('url','url',['class' => 'col-md-4 control-label']) !!}
+          {!! Form::text('url',null) !!}
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-4">
+            {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
+          </div>
+        </div>
+        {!! Form::close() !!}
       </div>
     </div>
   </div>
 </div>
+
 @endsection

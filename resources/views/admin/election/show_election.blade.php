@@ -26,17 +26,12 @@
               </br>
               <label>nb_electeur</label>
               <span class="pull-right">{{$promotion->election->nb_electeur}}</span>
-              </br>
-              <label>promotion_id</label>
-              <span class="pull-right">{{$promotion->election->promotion_id}} ou {{$promotion->id}}</span>
             </div>
-          </hr>
+          <hr>
             <div class="row">
               <a href="#"><button type="button" name="button" class="btn btn-warning">Modifier</button></a>
               <a href="#"><button type="button" name="button" class="btn btn-primary">Les candidats</button></a>
             </div>
-
-
           </div>
           <div class="col-md-6">
             <div class="table table_reponsive">

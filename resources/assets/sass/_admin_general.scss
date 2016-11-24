@@ -1,0 +1,23 @@
+#app-layout{
+  .panel{
+    border : 2.5px solid $primary-orange ;
+    a{
+      .btn{
+        border: none;
+      }
+      .btn-warning{
+        background-color: $primary-orange;
+      }
+    }
+    .panel-heading{
+      text-align: left;
+      font-weight: bolder;
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+    .panel_body{
+      padding: 25px;
+    }
+  }
+
+}

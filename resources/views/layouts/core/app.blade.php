@@ -19,7 +19,7 @@
 </head>
 <body id="app-layout">
 <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
@@ -77,8 +77,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-user"></i>Admin</a></li>
-                                <li><a href="{{ url('/user') }}"><i class="fa fa-btn fa-user"></i>Mon compte</a></li>
+                              <li><a href="#"><i class="fa fa-btn fa-user"></i>Mon compte</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

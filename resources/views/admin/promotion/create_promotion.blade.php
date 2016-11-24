@@ -9,41 +9,43 @@
       </div>
       <div class="panel-boby">
         <div class="form-group">
-          {!! Form::open(['url' => '/admin/promotion/create','class' => 'form-group']) !!}
+          {!! Form::open(['url' => '/admin/promotion/create','class' => 'form-horizontal']) !!}
           <div class="form-group">
-            {!! Form::label('year','Millesime',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::text('year',null,['class' => 'form-group']) !!}
+            {!! Form::label('year','Millesime',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+            {!! Form::text('year',null) !!}
           </div>
           <div class="form-group">
-            {!! Form::label('current','Promotion acuelle',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::checkbox('current',null,['class' => 'form-group']) !!}
+            {!! Form::label('current','Promotion acuelle',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+            {!! Form::checkbox('current',null) !!}
           </div>
             <div class="form-group">
-              {!! Form::label('school_name','école',['class' => 'form-group', 'type' => 'text']) !!}
-              {!! Form::select('school_name[]',$school,null,['id' => 'school_name','class' => 'form-group']) !!}
+              {!! Form::label('school_name','école',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+              {!! Form::select('school_name[]',$school,null,['id' => 'school_name']) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('director_title','civilité',['class' => 'form-group']) !!}
-              {!! Form::select('director_title',['Monsieur'=>'Mr','Madame'=> 'Mme'],null,['class' => 'form-group']) !!}
+              {!! Form::label('director_title','civilité',['class' => 'col-md-4 control-label']) !!}
+              {!! Form::select('director_title',['Monsieur'=>'Mr','Madame'=> 'Mme'],null) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('director_name','nom du chef d\'établissement',['class' => 'form-group']) !!}
-              {!! Form::text('director_name',null,['class' => 'form-group']) !!}
+              {!! Form::label('director_name','nom du chef d\'établissement',['class' => 'col-md-4 control-label']) !!}
+              {!! Form::text('director_name',null) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'form-group']) !!}
-              {!! Form::text('director_firstname',null,['class' => 'form-group']) !!}
+              {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'col-md-4 control-label']) !!}
+              {!! Form::text('director_firstname',null) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('total_student_effectives','nombre d\'élèves',['class' => 'form-group']) !!}
-              {!! Form::text('total_student_effectives',null,['class' => 'form-group']) !!}
+              {!! Form::label('total_student_effectives','nombre d\'élèves',['class' => 'col-md-4 control-label']) !!}
+              {!! Form::text('total_student_effectives',null) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('nb_class','nombre de classe',['class' => 'form-group']) !!}
-              {!! Form::text('nb_class',null,['class' => 'form-group']) !!}
+              {!! Form::label('nb_class','nombre de classe',['class' => 'col-md-4 control-label']) !!}
+              {!! Form::text('nb_class',null) !!}
             </div>
             <div class="form-group">
+              <div class="col-md-6 col-md-offset-4">
               {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
+              </div>
             </div>
           {!! Form::close() !!}
         </div>

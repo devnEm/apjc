@@ -4,49 +4,51 @@
   <div class="col-md-6">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <div class="titre">{{$promotion->year}} - {{$promotion->school->name}} </div>
+        <!-- <div class="titre">{{$promotion->year}} - {{$promotion->school->name}} </div> -->
         <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
         <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a>
         </div>
       <div class="panel-boby">
-        <div class="table table-responsive">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td>actuelle</td>
-                @if($promotion->current)
-                <td>&#9733;</td>
-                @else
-                <td></td>
-                @endif
-              </tr>
-              <tr>
-                <td>nom</td>
-                <td>{{$promotion->school->name}}</td>
-              </tr>
-              <tr>
-                <td>année</td>
-                <td>{{$promotion->year}}</td>
-              </tr>
-              <tr>
-                <td>Directrice</td>
-                <td>{{$promotion->director_name}}</td>
-              </tr>
-              <tr>
-                <td>Référent APJC</td>
-                <td>Adhérent n°1</td>
-              </tr>
-              <tr>
-                <td>Effectifs</td>
-                <td>{{$effectif}}</td>
-              </tr>
-              <tr>
-                <td>nbre de classe</td>
-                <td>{{count($promotion->classes)}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+
+          <div class="table table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>actuelle</td>
+                  @if($promotion->current)
+                  <td>&#9733;</td>
+                  @else
+                  <td></td>
+                  @endif
+                </tr>
+                <tr>
+                  <td>nom</td>
+                  <td>{{$promotion->school->name}}</td>
+                </tr>
+                <tr>
+                  <td>année</td>
+                  <td>{{$promotion->year}}</td>
+                </tr>
+                <tr>
+                  <td>Directrice</td>
+                  <td>{{$promotion->director_name}}</td>
+                </tr>
+                <tr>
+                  <td>Référent APJC</td>
+                  <td>Adhérent n°1</td>
+                </tr>
+                <tr>
+                  <td>Effectifs</td>
+                  <td>{{$effectif}}</td>
+                </tr>
+                <tr>
+                  <td>nbre de classe</td>
+                  <td>{{count($promotion->classes)}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
       </div>
     </div>
   </div>
@@ -59,17 +61,18 @@
         @endif
         </div>
       <div class="panel-boby">
-        <h4>Dates des conseils</h4>
-      <ul>
-        @foreach($promotion->councils as $council)
-        <li>
-          <label>Date : </label>
-          <date>{{$council->date}}</date><br>
-          <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
-          <a href="{{url('/admin/promotion/council/edit/'.$council->id)}}"><button type="button" class="btn btn-warning">modifier</button></a>
-        </li>
-        @endforeach
-      </ul>
+
+          <h4>Dates des conseils</h4>
+        <ul>
+          @foreach($promotion->councils as $council)
+          <li>
+            <label>Date : </label>
+            <date>{{$council->date}}</date><br>
+            <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
+            <a href="{{url('/admin/promotion/council/edit/'.$council->id)}}"><button type="button" class="btn btn-warning">modifier</button></a>
+          </li>
+          @endforeach
+        </ul>
 
       </div>
     </div>

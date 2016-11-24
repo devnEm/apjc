@@ -9,30 +9,33 @@
       </div>
       <div class="panel-boby">
         <div class="form-group">
-          {!! Form::open(['url' => '/admin/promotion/create/council/'.$promotion->id,'class' => 'form-group']) !!}
+          {!! Form::open(['url' => '/admin/promotion/create/council/'.$promotion->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
             {!! Form::label('promotion_id','promotion_id',['class' => 'hidden', 'type' => 'text']) !!}
             {!! Form::text('promotion_id',$promotion->id,['class' => 'hidden']) !!}
           </div>
           <div class="form-group">
-            {!! Form::label('Ecole','ecole : ',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::label('ecole',$promotion->school->name,['class' => 'form-group']) !!}
+            {!! Form::label('Ecole','ecole : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+            {!! Form::label('ecole',$promotion->school->name,['class' => 'control-label']) !!}
           </div>
           <div class="form-group">
-            {!! Form::label('Ecole','promotion : ',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::label('ecole',$promotion->year,['class' => 'form-group']) !!}
+            {!! Form::label('Ecole','promotion : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+            {!! Form::label('ecole',$promotion->year,['class' => 'control-label']) !!}
           </div>
           <div class="form-group">
-            {!! Form::label('date','date',['class' => 'form-group', 'type' => 'text']) !!}
-            {!! Form::date('date',\Carbon\Carbon::now(),['class' => 'form-group']) !!}
+            {!! Form::label('date','date',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+            {!! Form::date('date',\Carbon\Carbon::now()) !!}
           </div>
-            <div class="form-group">
-              {!! Form::label('url','url',['class' => 'form-group']) !!}
-              {!! Form::text('url',null,['class' => 'form-group']) !!}
-            </div>            
+          <div class="form-group">
+            {!! Form::label('url','url',['class' => 'col-md-4 control-label']) !!}
+            {!! Form::text('url',null) !!}
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-4">
               {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
             </div>
-          {!! Form::close() !!}
+          </div>
+            {!! Form::close() !!}
         </div>
       </div>
     </div>

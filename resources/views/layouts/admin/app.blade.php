@@ -11,7 +11,7 @@
 
     <title>APJC-Admin</title>
 
-    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/admin.css') }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,18 +24,27 @@
 
 <body id="app-layout">
 <!-- Static navbar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
+
+        <!-- Collapsed Hamburger -->
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="\">Retour</a>
+
+      <!-- Branding Image -->
+      <div class="navbar-header">
+        <a class="navbar-left" href="{{ url('/') }}">
+            <img src="{{ URL::asset('img/apjc-logo-2-64px.png') }}" alt="ecole-header" />
+        </a>
+      </div>
+
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
+    <div id="app-navbar-collapse" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><a href="\admin">Administration</a></li>
         <li><a href="\admin\ecole">Ecole</a></li>
@@ -66,6 +75,21 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+
+            <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
+
+                  <ul class="dropdown-menu" role="menu">
+                      <li><a href="#"><i class="fa fa-btn fa-user"></i>Mon compte</a></li>
+                      <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                  </ul>
+              </li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container-fluid -->
