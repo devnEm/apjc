@@ -87,15 +87,19 @@
                     </div>
                     <div class="panel-body">
                         <h4>Dates des conseils</h4>
-                      <ul>
-                        @foreach($promotion->councils as $council)
-                        <li>
-                          <label>Date : </label>
-                          <date>{{$council->date}}</date><br>
-                          <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>                          
-                        </li>
-                        @endforeach
-                      </ul>
+                        @if($promotion->councils)
+                          <ul>
+                            @foreach($promotion->councils as $council)
+                            <li>
+                              <label>Date : </label>
+                              <date>{{$council->date}}</date><br>
+                              <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
+                            </li>
+                            @endforeach
+                          </ul>
+                        @else
+                          <h5>A définir</h5>
+                        @endif
                       <h4>Liste des parents élus</h4>
                       <ul>
                         <li>Mme Untel</li>
