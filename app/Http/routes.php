@@ -65,5 +65,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/election/edit/{election_id}','Back\School\ElectionController@editElection');
   Route::post('/admin/election/update/{election_id}','Back\School\ElectionController@updateElection');
 
+  Route::get('/admin/redaction/','Back\Redaction\PostController@redaction');
+
   Route::get('/admin/redaction/create/post','Back\Redaction\PostController@createPost');
 });
