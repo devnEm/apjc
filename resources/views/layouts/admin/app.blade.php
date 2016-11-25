@@ -47,9 +47,12 @@
     <div id="app-navbar-collapse" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><a href="\admin">Administration</a></li>
+        @if(Auth::user()->admin)
         <li><a href="\admin\ecole">Ecole</a></li>
+        @endif
         <li><a href="\admin\promotion">Promotion</a></li>
         <li><a href="\admin\election">Election</a></li>
+
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ecoles <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -62,7 +65,7 @@
             <li><a href="\admin\promotion\create">Ajouter</a></li>
           </ul>
         </li> -->
-        <li><a href="#">Actualités</a></li>
+        <li><a href="\admin\redaction">Redaction</a></li>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
