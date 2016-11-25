@@ -1,13 +1,17 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="/admin/ecole">
+    <button type="button" name="button" class="btn btn-info">Retour</button>
+  </a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        {{$school->name}}
-        <a href="/admin/ecole"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
-        </div>
-      <div class="panel-boby">
+      <div class="panel-heading">{{$school->name}}</div>
+      <div class="panel-body">
         <div class="table table-responsive">
           <table class="table">
             <tbody>

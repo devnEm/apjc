@@ -1,16 +1,17 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="/admin/ecole/create">
+    <button type="button" name="button" class="btn btn-primary">Ajouter</button>
+  </a>
+</div>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-md-12">
       <div class="panel panel-info">
-          <div class="panel-heading">
-            Ecoles
-            </div>
+          <div class="panel-heading">Ecoles</div>
           <div class="panel-body">
-            <div class="row tools">
-              <a href="/admin/ecole/create"><button type="button" name="button" class="btn btn-primary">ajouter</button></a>
-            </div>
-
             <div class="table table-responsive">
               <table class="table">
                 <thead>

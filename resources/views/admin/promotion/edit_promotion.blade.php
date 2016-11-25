@@ -1,13 +1,17 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="/admin/promotion">
+    <button type="button" name="button" class="btn btn-danger">Annuler</button>
+  </a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        Modifier une promotion
-        <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
-      </div>
-      <div class="panel-boby">
+      <div class="panel-heading">Modifier une promotion</div>
+      <div class="panel-body">
           {!! Form::model($promotion, ['url' => '/admin/promotion/update/'.$promotion->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
             {!! Form::label('year','Millesime',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
@@ -43,7 +47,7 @@
           </div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-            {!! Form::submit('modifier',['class' => 'btn btn-success']) !!}
+            {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
             {!! Form::close() !!}
             <a href="{{url('/admin/promotion/delete/'.$promotion->id)}}">
               <button type="button" name="button" class="btn btn-danger">supprimer</button>

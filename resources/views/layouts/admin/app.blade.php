@@ -97,6 +97,7 @@
 
 <!-- Main component for a primary marketing message or call to action -->
 <div class="container">
+  @yield('tools')
   <div class="row">
     <div class="col-md-8">
       @yield('content')

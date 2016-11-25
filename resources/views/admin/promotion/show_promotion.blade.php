@@ -1,17 +1,21 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="/admin/promotion"><button type="button" name="button" class="btn btn-info">Retour</button></a>
+  <a href="{{url('/admin/promotion/create/classe/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter une Classes</button></a>
+  <!-- <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a> -->
+  <a href="{{url('/admin/election/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
+  @if(count($promotion->councils) < 3)
+  <a href="{{url('/admin/promotion/create/council/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
+  @endif
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        {{$promotion->year}} - {{$promotion->school->name}}
-
-        </div>
-      <div class="panel-boby">
-        <div class="tools">
-          <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Retour</button></a>
-          <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a>
-        </div>
+      <div class="panel-heading">{{$promotion->year}} - {{$promotion->school->name}}</div>
+      <div class="panel-body">
           <div class="table table-responsive">
             <table class="table">
               <tbody>
@@ -58,11 +62,9 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Conseils d'école</div>
-        @if(count($promotion->councils) < 3)
-        <a href="{{url('/admin/promotion/create/council/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
-        @endif
+
         </div>
-      <div class="panel-boby">
+      <div class="panel-body">
 
           <h4>Dates des conseils</h4>
         <ul>
@@ -84,11 +86,8 @@
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        <div class="titre">Classes</div>
-        <a href="{{url('/admin/promotion/create/classe/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter une Classes</button></a>
-        </div>
-      <div class="panel-boby">
+      <div class="panel-heading">Classes</div>
+      <div class="panel-body">
         <div class="table table-responsive">
           <table class="table">
             <thead>
@@ -114,11 +113,8 @@
   </div>
   <div class="col-md-6">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        <div class="titre">Elections</div>
-        <a href="{{url('/admin/election/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
-        </div>
-      <div class="panel-boby">
+      <div class="panel-heading">Elections</div>
+      <div class="panel-body">
         <label>Date</label>
         @if($promotion->election)
         <span>{{$promotion->election->date}}</span>

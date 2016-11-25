@@ -1,12 +1,16 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="/admin/ecole">
+    <button type="button" name="button" class="btn btn-danger">Annuler</button>
+  </a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        Modifier une école
-        <a href="/admin/ecole"><button type="button" name="button" class="btn btn-success">Annuler</button></a>
-      </div>
+      <div class="panel-heading">Modifier une école</div>
       <div class="panel_body">
           {!! Form::model($school, ['url' =>'/admin/ecole/update/'.$school->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
@@ -28,12 +32,11 @@
 
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-            {!! Form::submit('modifier',['class' => 'btn btn-success']) !!}
-
-          {!! Form::close() !!}
-          <a href="{{url('/admin/ecole/delete/'.$school->id)}}"><button class="btn btn-danger">supprimer</button></a>
+            {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
+            <a href="{{url('/admin/ecole/delete/'.$school->id)}}"><button class="btn btn-danger">supprimer</button></a>
+            </div>
           </div>
-        </div>
+          {!! Form::close() !!}
       </div>
     </div>
   </div>

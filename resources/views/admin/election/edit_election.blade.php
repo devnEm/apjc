@@ -1,9 +1,14 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="{{url('/admin/election/show/'.$election->promotion->id)}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-        <div class="panel-heading">Créer Election</div>
+        <div class="panel-heading">Modifier Election</div>
         <div class="panel-body">
             {!! Form::model($election,['url' => '/admin/election/update/'.$election->id,'class' => 'form-horizontal']) !!}
             <div class="form-group">
@@ -40,7 +45,7 @@
           </div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-              {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
+              {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
           </div>
         </div>
           {!! Form::close() !!}

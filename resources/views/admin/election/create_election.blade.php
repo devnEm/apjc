@@ -1,4 +1,9 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="{{url('/admin/promotion/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">

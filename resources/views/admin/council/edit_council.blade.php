@@ -1,13 +1,15 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="{{url('/admin/promotion/show/'.$council->promotion->id)}}"><button type="button" name="button" class="btn btn-info">Retour</button></a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        Ajouter un conseil d'école
-        <a href="{{url('/admin/promotion/show/'.$council->promotion->id)}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
-      </div>
-      <div class="panel-boby">
+      <div class="panel-heading">Modifier un conseil d'école</div>
+      <div class="panel-body">
         {!! Form::model($council, ['url' => '/admin/promotion/council/update/'.$council->id,'class' => 'form-horizontal']) !!}
         <div class="form-group">
           {!! Form::label('Ecole','ecole : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}

@@ -1,12 +1,16 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="/admin/ecole">
+    <button type="button" name="button" class="btn btn-danger">Annuler</button>
+  </a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        Ajouter une école
-
-      </div>
+      <div class="panel-heading">Ajouter une école</div>
       <div class="panel-body">
         {!! Form::open(['url' => '/admin/ecole/create','class' => 'form-horizontal']) !!}
         <div class="form-group">
@@ -25,17 +29,13 @@
           {!! Form::label('city','ville : ',['class' => 'col-md-4 control-label']) !!}
           {!! Form::text('city','Athis-Mons') !!}
         </div>
-
         <div class="form-group">
           <div class="col-md-6 col-md-offset-4">
-            <a href="/admin/ecole"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
           {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
           </div>
         </div>
         {!! Form::close() !!}
       </div>
-
-
     </div>
   </div>
 </div>

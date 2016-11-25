@@ -1,14 +1,17 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="col-md-8 tools">
+  <a href="/admin/promotion">
+    <button type="button" name="button" class="btn btn-danger">Annuler</button>
+  </a>
+</div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">
-        Ajouter une promotion
-        <a href="/admin/promotion"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
-      </div>
-      <div class="panel-boby">
-        <div class="form-group">
+      <div class="panel-heading">Ajouter une promotion</div>
+      <div class="panel-body">
           {!! Form::open(['url' => '/admin/promotion/create','class' => 'form-horizontal']) !!}
           <div class="form-group">
             {!! Form::label('year','Millesime',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
@@ -48,7 +51,6 @@
               </div>
             </div>
           {!! Form::close() !!}
-        </div>
       </div>
     </div>
   </div>
