@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Back;
+namespace App\Http\Controllers\Back\School;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class CouncilController extends Controller
 
     $promotion = Promotion::where('id',$promotion_id)->first();
 
-    return view('admin.council.create_council', ['promotion'=>$promotion]);
+    return view('admin.school_core.council.create_council', ['promotion'=>$promotion]);
   }
 
   public function saveCouncil($promotion_id, Request $request)
@@ -45,7 +45,7 @@ class CouncilController extends Controller
   {
     $council = Council::where('id', $id)->first();
 
-    return view('admin.council.edit_council',['council' => $council] );
+    return view('admin.school_core.council.edit_council',['council' => $council] );
   }
 
   public function updateCouncil($id, Request $request)

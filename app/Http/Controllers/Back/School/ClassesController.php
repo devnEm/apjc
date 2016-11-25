@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Back;
+namespace App\Http\Controllers\Back\School;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +16,7 @@ class ClassesController extends Controller
     public function createClasses($promotion_id){
       $promotion = Promotion::where('id',$promotion_id)->first();
 
-      return view('admin.classe.create_classe', ['promotion'=>$promotion]);
+      return view('admin.school_core.classe.create_classe', ['promotion'=>$promotion]);
     }
 
     public function saveClasses($promotion_id, Request $request)
@@ -51,7 +51,7 @@ class ClassesController extends Controller
     {
       $classe = Classes::where('id', $id)->first();
 
-      return view('admin.classe.edit_classe',['classe' => $classe] );
+      return view('admin.school_core.classe.edit_classe',['classe' => $classe] );
     }
 
     public function updateClasses($id, Request $request)

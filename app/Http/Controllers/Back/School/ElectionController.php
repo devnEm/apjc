@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Back;
+namespace App\Http\Controllers\Back\School;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,14 +21,14 @@ class ElectionController extends Controller
 
       // echo($promotion);die;
 
-      return view('admin.election.show_election',['promotion'=>$promotion,'election'=>$election]);
+      return view('admin.school_core.election.show_election',['promotion'=>$promotion,'election'=>$election]);
     }
 
     public function createElection($promotion_id){
 
       $promotion = Promotion::where('id',$promotion_id)->first();
 
-      return view('admin.election.create_election',['promotion'=>$promotion]);
+      return view('admin.school_core.election.create_election',['promotion'=>$promotion]);
     }
 
     public function saveElection($promotion_id, Request $request)
@@ -58,14 +58,14 @@ class ElectionController extends Controller
     public function showAllElection()
     {
       $elections = Election::all();
-      return view('admin.election.elections',['elections'=>$elections]);
+      return view('admin.school_core.election.elections',['elections'=>$elections]);
     }
 
     public function editElection($election_id){
 
       $election = Election::where('id',$election_id)->first();
 
-      return view('admin.election.edit_election',['election'=>$election]);
+      return view('admin.school_core.election.edit_election',['election'=>$election]);
     }
 
     public function updateElection($election_id, Request $request){

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Back;
+namespace App\Http\Controllers\Back\School;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class PromotionController extends Controller
   {
     $promotion = Promotion::where('id', $id)->first();
     $effectif_total = $promotion->classes->sum('effectif');
-    return view('admin.promotion.show_promotion',['promotion'=>$promotion, 'effectif'=>$effectif_total]);
+    return view('admin.school_core.promotion.show_promotion',['promotion'=>$promotion, 'effectif'=>$effectif_total]);
   }
 
   public function savePromotion(Request $request)
@@ -61,7 +61,7 @@ class PromotionController extends Controller
   {
     $school = School::lists('name', 'id');
 
-    return view('admin.promotion.create_promotion',['school' => $school]);
+    return view('admin.school_core.promotion.create_promotion',['school' => $school]);
   }
 
   public function editPromotion($id)
@@ -71,13 +71,13 @@ class PromotionController extends Controller
 
     $currentSchool = School::where('id',$promotion->school->id)->first();
 
-    return view('admin.promotion.edit_promotion',['promotion' => $promotion , 'school' => $school, 'currentSchool' => $currentSchool]);
+    return view('admin.school_core.promotion.edit_promotion',['promotion' => $promotion , 'school' => $school, 'currentSchool' => $currentSchool]);
   }
 
   public function showAllPromotion()
   {
     $promotions = Promotion::all();
-    return view('admin.promotion.promotions',['promotions' => $promotions]);
+    return view('admin.school_core.promotion.promotions',['promotions' => $promotions]);
   }
 
   public function updatePromotion($id, Request $request)

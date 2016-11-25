@@ -54,3 +54,13 @@
   </div>
 </div>
 @endsection
+@section('info')
+<div class="panel panel-info">
+    <div class="panel-heading">INFOS</div>
+    <div class="panel-body">
+        <p>
+          message d'informations ecrite en dur
+        </p>
+    </div>
+</div>
+@endsection

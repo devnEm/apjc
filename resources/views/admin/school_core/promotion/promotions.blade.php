@@ -12,7 +12,7 @@
     <div class="col-md-12">
         <div class="panel panel-info">
             <div class="panel-heading">Promotions</div>
-            <div class="panel-body">              
+            <div class="panel-body">
                 <div class="table table-responsive">
                   <table class="table">
                     <thead>

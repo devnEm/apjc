@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Back;
+namespace App\Http\Controllers\Back\School;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,14 +29,14 @@ class SchoolController extends Controller
   {
     $schools = School::all();
 
-    return view('admin.schools.schools', ['schools' => $schools]);
+    return view('admin.school_core.schools.schools', ['schools' => $schools]);
   }
 
   public function showSchool($id)
   {
      $school = School::where('id', $id)->first();
 
-     return view('admin.schools.show_school',['school' => $school]);
+     return view('admin.school_core.schools.show_school',['school' => $school]);
   }
 
   public function saveSchool(Request $request)
@@ -64,13 +64,13 @@ class SchoolController extends Controller
   public function createSchool()
   {
 
-      return view('admin.schools.create_school');
+      return view('admin.school_core.schools.create_school');
   }
 
   public function editSchool($id)
   {
     $school = School::where('id', $id)->first();
-    return view('admin.schools.edit_school',['school'=>$school]);
+    return view('admin.school_core.schools.edit_school',['school'=>$school]);
   }
 
   public function updateSchool($id, Request $request)
