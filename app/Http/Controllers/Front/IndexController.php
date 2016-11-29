@@ -9,6 +9,7 @@ use App\Http\Requests;
 
 use App\Models\School;
 use App\Models\Promotion;
+use App\Models\Post;
 
 class IndexController extends Controller
 {
@@ -21,8 +22,8 @@ class IndexController extends Controller
 
   public function ecole()
   {
-
+    $posts = Post::all();
     $promotions = Promotion::where('current', true )->get();
-    return view('public.ecole', ['promotions' => $promotions]);
+    return view('public.ecole', ['promotions' => $promotions,'posts' => $posts]);
   }
 }

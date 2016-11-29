@@ -16,26 +16,28 @@
         <div class="form-group">
           {!! Form::open(['url' => '/admin/redaction/create/post','class' => 'form-horizontal']) !!}
           <div class="form-group">
-            {!! Form::label('school_name','école',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::select('school_name[]',$school,'selectionnez',['id' => 'school_name'],null) !!}
             {!! Form::label('categorie_name','categorie',['class' => 'control-label', 'type' => 'text']) !!}
             {!! Form::select('categorie_name[]',$categorie,null, ['id' => 'categorie_label']) !!}
-            {!! Form::label('isPublic','publié',['class' => 'control-label']) !!}
-            {!! Form::checkbox('isPublic',null) !!}
+            {!! Form::label('publish','publié',['class' => 'control-label']) !!}
+            {!! Form::checkbox('publish',null) !!}
+            {!! Form::label('front','A la une',['class' => 'control-label']) !!}
+            {!! Form::checkbox('front',null) !!}
           </div>
           <div class="form-group">
             {!! Form::label('title','title',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::text('title') !!}
+            {!! Form::text('title',null,['class' => 'control-label']) !!}
+
+            {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
           </div>
           <div class="form-group">
             {!! Form::label('article','article : ',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::textarea('article') !!}
+            {!! Form::textarea('article',null,['class' => 'control-label']) !!}
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-              {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
+
             </div>
-          </div>
+          </div> -->
             {!! Form::close() !!}
         </div>
       </div>

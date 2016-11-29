@@ -27,14 +27,6 @@
                 <td>Référent APJC</td>
                 <td>Adhérent n°1</td>
               </tr>
-              <tr>
-                <td>Effectifs</td>
-                <td>1234</td>
-              </tr>
-              <tr>
-                <td>nbre de classe</td>
-                <td>25</td>
-              </tr>
             </tbody>
           </table>
         </div>

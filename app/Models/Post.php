@@ -19,5 +19,11 @@ class Post extends Model
        'article',
 
    ];
+   protected $table = 'posts';
+
+   public function category()
+   {
+     return $this->hasOne('App\Models\Categorie','id','categorie_id');
+   }
 
 }

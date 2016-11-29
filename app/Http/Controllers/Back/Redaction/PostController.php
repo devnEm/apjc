@@ -23,16 +23,15 @@ class PostController extends Controller
 
     public function createPost(){
 
-      $schools = array_merge(array('Select...'), School::lists('name', 'id')->all());
       $categories = array_merge(array('Select...'), Categorie::lists('label', 'id')->all());
-      return view('admin.blog_redaction.posts.create_post',['school'=> $schools , 'categorie'=>$categories]);
+      return view('admin.blog_redaction.posts.create_post',['categorie'=>$categories]);
     }
 
     public function savePost(Request $request)
     {
       $rules=[
-          'attente',
-          'public',
+          'publish',
+          'front',
           'title',
           'article',
 
@@ -41,8 +40,8 @@ class PostController extends Controller
       $validator= Validator::make($request->all(),$rules);
 
       $post = new Post();
-      $post->publish = false;
-      $post->front = true;
+      $post->publish = $request->input('publish');
+      $post->front = $request->input('front');
       $post->title = $request->input('title');
       $post->article = $request->input('article');
       $post->categorie_id = intval($request->input('categorie_name')[0]);
