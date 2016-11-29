@@ -68,4 +68,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/redaction/','Back\Redaction\PostController@redaction');
 
   Route::get('/admin/redaction/create/post','Back\Redaction\PostController@createPost');
+  Route::post('/admin/redaction/create/post','Back\Redaction\PostController@savePost');
+  
+  Route::get('/admin/redaction/create/category','Back\Redaction\CategoryController@createCategory');
+  Route::post('/admin/redaction/create/category','Back\Redaction\CategoryController@saveCategory');
 });
