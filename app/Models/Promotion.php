@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use DB;
+
 class Promotion extends Model
 {
   /**
@@ -16,8 +18,6 @@ class Promotion extends Model
       'director_title',
       'director_name',
       'director_firstname',
-      'total_student_effectives',
-      'nb_class',
       'current'
 
   ];
@@ -41,5 +41,11 @@ class Promotion extends Model
   public function election()
   {
       return $this->belongsTo('App\Models\Election','id','promotion_id');
+  }
+
+  public function effectif($id)
+  {
+    $effectif = DB::table('classes')->where('promotion_id',$id)->sum('effectif');
+    return $effectif;
   }
 }

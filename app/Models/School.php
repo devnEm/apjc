@@ -20,7 +20,8 @@ class School extends Model
   ];
   protected $table = 'schools';
 
-  // public function promotions(){
-  //   return $this->hasMany('App\Models\Promotion');
-  // }
+  public function posts()
+  {
+    return $this->hasMany('App\Models\Post','id','school_id');
+  }
 }
