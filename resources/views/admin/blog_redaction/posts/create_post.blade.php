@@ -1,8 +1,11 @@
 @extends('layouts.admin.app')
+
 @section('tools')
-<div class="col-md-8 tools">
-  <a href="{{url('#')}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
+<div class="tools">
+  <a href="{{url('/admin/redaction')}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
 </div>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
 @endsection
 @section('content')
 <div class="row">
@@ -10,18 +13,37 @@
     <div class="panel panel-info">
       <div class="panel-heading">Creer un Article</div>
       <div class="panel-body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br>
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris<br>
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor<br>
-          in reprehenderit in voluptate velit esse cillum dolore eu fugiat<br>
-          nulla pariatur. Excepteur sint occaecat cupidatat non proident,<br>
-          sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="form-group">
+          {!! Form::open(['url' => '/admin/redaction/create/post','class' => 'form-horizontal']) !!}
+          <div class="form-group">
+            {!! Form::label('school_name','école',['class' => 'control-label', 'type' => 'text']) !!}
+            {!! Form::select('school_name[]',$school,'selectionnez',['id' => 'school_name'],null) !!}
+            {!! Form::label('categorie_name','categorie',['class' => 'control-label', 'type' => 'text']) !!}
+            {!! Form::select('categorie_name[]',$categorie,null, ['id' => 'categorie_label']) !!}
+            {!! Form::label('isPublic','publié',['class' => 'control-label']) !!}
+            {!! Form::checkbox('isPublic',null) !!}
+          </div>
+          <div class="form-group">
+            {!! Form::label('title','title',['class' => 'control-label', 'type' => 'text']) !!}
+            {!! Form::text('title') !!}
+          </div>
+          <div class="form-group">
+            {!! Form::label('article','article : ',['class' => 'control-label', 'type' => 'text']) !!}
+            {!! Form::textarea('article') !!}
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-4">
+              {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
+            </div>
+          </div>
+            {!! Form::close() !!}
         </div>
+      </div>
     </div>
   </div>
 </div>
 @endsection
+
 @section('info')
 <div class="panel panel-info">
     <div class="panel-heading">INFOS</div>

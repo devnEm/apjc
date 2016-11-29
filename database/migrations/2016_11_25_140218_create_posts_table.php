@@ -14,11 +14,10 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date');
-            $table->integer('nb_vu');
+            $table->integer('views')->nullable();
             $table->integer('user_id')->unsigned();
-            $table->boolean('attente');
-            $table->boolean('public');
+            $table->boolean('publish');
+            $table->boolean('front');
             $table->string('title');
             $table->longText('article');
             $table->timestamps();

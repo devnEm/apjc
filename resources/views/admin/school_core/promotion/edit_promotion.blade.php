@@ -2,7 +2,7 @@
 @section('tools')
 <div class="col-md-8 tools">
   <a href="/admin/promotion">
-    <button type="button" name="button" class="btn btn-danger">Annuler</button>
+    <button type="button" name="button" class="btn btn-danger">&#215; Annuler</button>
   </a>
 </div>
 @endsection
@@ -38,14 +38,6 @@
             {!! Form::text('director_firstname',null) !!}
           </div>
           <div class="form-group">
-            {!! Form::label('total_student_effectives','nombre d\'élèves',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('total_student_effectives',null) !!}
-          </div>
-          <div class="form-group">
-            {!! Form::label('nb_class','nombre de classe',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('nb_class',null) !!}
-          </div>
-          <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
             {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
             {!! Form::close() !!}
@@ -64,7 +56,7 @@
     <div class="panel-heading">INFOS</div>
     <div class="panel-body">
         <p>
-          message d'informations ecrite en dur
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
 </div>

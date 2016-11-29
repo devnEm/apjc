@@ -50,25 +50,13 @@
                         </address>
                         </li>
                         <li>
-                          <h4>Les Classes</h4>
-                          <div class="table table responsive">
-                            <table class="table">
-                              <thead>
-                                <td>Nom</td>
-                                <td>effectif</td>
-                              </thead>
-                              <tbody>
-                                @foreach($promotion->classes as $classe)
-                                <tr>
-                                  <td>{{$classe->type}}</td>
-                                  <td>{{$classe->effectif}}</td>
-                                </tr>
-                                @endforeach
-                              </tbody>
-                            </table>
-                          </div>
-
-                      </li>
+                          <h4>nombre de classes</h4>
+                          <label>{{count($promotion->classes)}}</label>
+                        </li>
+                        <li>
+                          <h4>nombre d'élèves</h4>
+                          <label>{{$promotion->effectif($promotion->id)}}</label>
+                        </li>
                       </ul>
                       <div class="row">
                         <div class="col-md-4 col-md-offset-4">
@@ -115,10 +103,11 @@
                 </div>
               </div>
               <div class="row">
+                @foreach($promotion->school->posts as $post)
                 <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h2>Actualité 1</h2>
+                      <h2>{{$post->title}}</h2>
                     </div>
                     <div class="panel-body">
                       <p>
@@ -127,7 +116,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4">
+                @endforeach
+                <!-- <div class="col-md-4">
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <h2>Actualité 2</h2>
@@ -150,7 +140,7 @@
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="row">
                 <div class="col-md-4">
@@ -159,34 +149,19 @@
                       <h2>Tableau recapitualif 1</h2>
                     </div>
                     <div class="panel-body">
-                      <div class="table-responsive">
+                      <div class="table table responsive">
                         <table class="table">
                           <thead>
-                            <tr>
-                              <td>2016-2017</td>
-                            </tr>
+                            <td>Nom</td>
+                            <td>effectif</td>
                           </thead>
                           <tbody>
+                            @foreach($promotion->classes as $classe)
                             <tr>
-                              <td>classe 1</td>
-                              <td>20</td>
+                              <td>{{$classe->type}}</td>
+                              <td>{{$classe->effectif}}</td>
                             </tr>
-                            <tr>
-                              <td>classe 2</td>
-                              <td>20</td>
-                            </tr>
-                            <tr>
-                              <td>classe 3</td>
-                              <td>20</td>
-                            </tr>
-                            <tr>
-                              <td>classe 4</td>
-                              <td>20</td>
-                            </tr>
-                            <tr>
-                              <td>classe 5</td>
-                              <td>20</td>
-                            </tr>
+                            @endforeach
                           </tbody>
                         </table>
                       </div>

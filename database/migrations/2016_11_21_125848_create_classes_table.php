@@ -14,12 +14,12 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('promotion_id')->unsigned();
             $table->string('type');
-            $table->string('effectif');
+            $table->integer('effectif');
             $table->string('professor_title');
             $table->string('professor_name');
-            $table->string('professor_firstname');
+            $table->string('professor_firstname')->nullable();
+            $table->integer('promotion_id')->unsigned();
             $table->timestamps();
         });
 

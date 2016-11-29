@@ -1,4 +1,11 @@
 @extends('layouts.admin.app')
+@section('tools')
+<div class="tools">
+  <a href="{{url('/admin/redaction/create/post')}}"><button type="button" name="button" class="btn btn-primary">ajouter un article</button></a>
+  <a href="{{url('/admin/redaction/create/category')}}"><button type="button" name="button" class="btn btn-primary">ajouter une categorie</button></a>
+</div>
+@endsection
+
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -14,6 +21,7 @@
               <td>Date</td>
               <td>nb_vu</td>
               <td>Auteur</td>
+              <td>Categorie</td>
               <td>en attente</td>
               <td>en ligne</td>
               <td></td>
@@ -23,9 +31,10 @@
               @foreach($posts as $post)
               <tr>
                 <td>{{$post->title}}</td>
-                <td>{{$post->date}}</td>
+                <td>{{$post->created_at}}</td>
                 <td>{{$post->nb_vu}}</td>
                 <td>{{$post->user_id}}</td>
+                <td>{{$post->categorie_id}}</td>
                 <td>{{$post->attente}}</td>
                 <td>{{$post->public}}</td>
                 <td><a href="#"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>

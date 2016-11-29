@@ -15,12 +15,11 @@ class CreatePromotionsTable extends Migration
       Schema::create('promotions', function (Blueprint $table) {
           $table->increments('id');
           $table->string('year');
+          $table->boolean('current');
           $table->string('director_title');
           $table->string('director_name');
-          $table->string('director_firstname');
-          $table->string('total_student_effectives');
-          $table->string('nb_class');
-          $table->integer('school_id')->unsigned();          
+          $table->string('director_firstname')->nullable();
+          $table->integer('school_id')->unsigned();
           $table->timestamps();
       });
 

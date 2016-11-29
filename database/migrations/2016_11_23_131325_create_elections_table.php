@@ -17,7 +17,7 @@ class CreateElectionsTable extends Migration
             $table->date('date');
             $table->integer('sieges_totaux');
             $table->integer('sieges_obtenus');
-            $table->integer('participation');
+            $table->float('participation');
             $table->integer('nb_votant');
             $table->integer('nb_electeur');
             $table->integer('promotion_id')->unsigned();
@@ -27,7 +27,7 @@ class CreateElectionsTable extends Migration
         Schema::table('elections', function($table) {
              $table->foreign('promotion_id')->references('id')->on('promotions');
          });
-        
+
 
     }
 

@@ -36,15 +36,7 @@
             <div class="form-group">
               {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'col-md-4 control-label']) !!}
               {!! Form::text('director_firstname',null) !!}
-            </div>
-            <div class="form-group">
-              {!! Form::label('total_student_effectives','nombre d\'élèves',['class' => 'col-md-4 control-label']) !!}
-              {!! Form::text('total_student_effectives',null) !!}
-            </div>
-            <div class="form-group">
-              {!! Form::label('nb_class','nombre de classe',['class' => 'col-md-4 control-label']) !!}
-              {!! Form::text('nb_class',null) !!}
-            </div>
+            </div>          
             <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
               {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
