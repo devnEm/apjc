@@ -38,7 +38,7 @@ class CouncilController extends Controller
 
     $council->save();
 
-    return redirect()->action('Back\PromotionController@showPromotion',['id' => $promotion_id]);
+    return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $promotion_id]);
   }
 
   public function editCouncil($id)
@@ -64,7 +64,7 @@ class CouncilController extends Controller
 
     $council->update();
 
-    return redirect()->action('Back\PromotionController@showPromotion',['id' => $council->promotion->id]);
+    return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $council->promotion->id]);
   }
 
 }

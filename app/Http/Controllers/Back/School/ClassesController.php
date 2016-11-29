@@ -44,7 +44,7 @@ class ClassesController extends Controller
 
       $classe->save();
 
-      return redirect()->action('Back\PromotionController@showPromotion',['id' => $promotion_id]);
+      return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $promotion_id]);
     }
 
     public function editClasses($id)
@@ -77,7 +77,7 @@ class ClassesController extends Controller
 
       $classe->update();
 
-      return redirect()->action('Back\PromotionController@showPromotion',['id' => $classe->promotion->id]);
+      return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $classe->promotion->id]);
     }
 
     public function deleteClasses($id)
@@ -85,6 +85,6 @@ class ClassesController extends Controller
       $promotion = Classes::where('id',$id)->first()->promotion;
       $classe = Classes::where('id',$id)->delete();
 
-      return redirect()->action('Back\PromotionController@showPromotion',['id' => $promotion->id]);
+      return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $promotion->id]);
     }
 }

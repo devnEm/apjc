@@ -52,7 +52,7 @@ class ElectionController extends Controller
 
       $election->save();
 
-      return redirect()->action('Back\ElectionController@showElection',['id' => $promotion_id]);
+      return redirect()->action('Back\School\ElectionController@showElection',['id' => $promotion_id]);
     }
 
     public function showAllElection()
@@ -86,7 +86,7 @@ class ElectionController extends Controller
 
       $election->update();
 
-      return redirect()->action('Back\ElectionController@showElection',['id' => $election_id]);
+      return redirect()->action('Back\School\ElectionController@showElection',['id' => $election_id]);
     }
 
 

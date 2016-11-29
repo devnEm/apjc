@@ -9,6 +9,7 @@ use Validator;
 use App\Http\Requests;
 
 use App\Models\School;
+use App\Models\Categorie;
 
 
 class SchoolController extends Controller
@@ -58,7 +59,12 @@ class SchoolController extends Controller
 
     $school->save();
 
-    return redirect()->action('Back\SchoolController@showSchool',['id' => $school->id]);
+    $categorie = new Categorie();
+    $categorie->label = $request->input('name');
+
+    $categorie->save();
+
+    return redirect()->action('Back\School\SchoolController@showSchool',['id' => $school->id]);
   }
 
   public function createSchool()
@@ -77,6 +83,7 @@ class SchoolController extends Controller
   {
 
     $school= School::where('id', $id)->first();
+    $category = Categorie::where('label',$school->name)->first();
 
     $rules= [
     'name' => 'required',
@@ -88,20 +95,22 @@ class SchoolController extends Controller
     $validator= Validator::make($request->all(),$rules);
 
     $school->name = $request->input('name');
+    $category->label = $request->input('name');
     $school->type = $request->input('type');
     $school->street = $request->input('street');
     $school->city = $request->input('city');
 
     $school->update();
+    $category->update();    
 
-    return redirect()->action('Back\SchoolController@showSchool',['id' => $school->id]);
+    return redirect()->action('Back\School\SchoolController@showSchool',['id' => $school->id]);
   }
 
   public function deleteSchool($id)
   {
       $school = School::where('id',$id)->delete();
 
-      return redirect()->action('Back\SchoolController@showAllSchool');
+      return redirect()->action('Back\\School\SchoolController@showAllSchool');
   }
 
 

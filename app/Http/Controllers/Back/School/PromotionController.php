@@ -42,8 +42,6 @@ class PromotionController extends Controller
     $promotion->director_title = $request->input('director_title');
     $promotion->director_name = $request->input('director_name');
     $promotion->director_firstname = $request->input('director_firstname');
-    $promotion->total_student_effectives = $request->input('total_student_effectives');
-    $promotion->nb_class = $request->input('nb_class');
     $promotion->school_id = $school_id;
 
     if($request->input('current') == null){
@@ -54,7 +52,7 @@ class PromotionController extends Controller
 
     $promotion->save();
 
-    return redirect()->action('Back\PromotionController@showPromotion',['id' => $promotion->id]);
+    return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $promotion->id]);
   }
 
   public function createPromotion()
@@ -87,8 +85,6 @@ class PromotionController extends Controller
     'director_title' => 'required',
     'director_name' => 'required',
     'director_firstname'=> 'required',
-    'total_student_effectives'=> 'required',
-    'nb_class'=> 'required',
     'school_name'=> 'required',
     'current'=> 'required'
     ];
@@ -102,20 +98,18 @@ class PromotionController extends Controller
     $promotion->director_title = $request->input('director_title');
     $promotion->director_name = $request->input('director_name');
     $promotion->director_firstname = $request->input('director_firstname');
-    $promotion->total_student_effectives = $request->input('total_student_effectives');
-    $promotion->nb_class = $request->input('nb_class');
     $promotion->current = $request->input('current');
     $promotion->school_id = $school_id;
 
     $promotion->update();
 
-    return redirect()->action('Back\PromotionController@showPromotion',['id' => $promotion->id]);
+    return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $promotion->id]);
   }
 
   public function deletePromotion($id)
   {
     $promotion = Promotion::where('id',$id)->delete();
 
-    return redirect()->action('Back\PromotionController@showAllPromotion');
+    return redirect()->action('Back\School\PromotionController@showAllPromotion');
   }
 }
