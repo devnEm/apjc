@@ -36,7 +36,6 @@ class SchoolController extends Controller
   public function showSchool($id)
   {
      $school = School::where('id', $id)->first();
-
      return view('admin.school_core.schools.show_school',['school' => $school]);
   }
 
@@ -101,7 +100,7 @@ class SchoolController extends Controller
     $school->city = $request->input('city');
 
     $school->update();
-    $category->update();    
+    $category->update();
 
     return redirect()->action('Back\School\SchoolController@showSchool',['id' => $school->id]);
   }

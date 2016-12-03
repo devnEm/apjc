@@ -13,13 +13,11 @@
           <div class="panel-heading">Ecoles</div>
           <div class="panel-body">
             <div class="table table-responsive">
-              <table class="table">
+              <table class="table table-bordered">
                 <thead>
                   <td>id</td>
                   <td>type</td>
                   <td>nom</td>
-                  <td>classes</td>
-                  <td></td>
                   <td></td>
                 </thead>
                 <tbody>
@@ -28,8 +26,14 @@
                     <td>{{$school->id}}</td>
                     <td>{{$school->type}}</td>
                     <td>{{$school->name}}</td>
-                    <td><a href="{{ url('/admin/ecole/show', $school->id ) }}"><button type="button" name="button" class="btn btn-info">voir</button></a></td>
-                    <td><a href="{{ url('/admin/ecole/edit', $school->id ) }}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
+                    <td>
+                      <a href="{{ url('/admin/ecole/show', $school->id ) }}">
+                        <button type="button" name="button" class="btn btn-info">voir</button>
+                      </a>
+                      <a href="{{ url('/admin/ecole/edit', $school->id ) }}">
+                        <button type="button" name="button" class="btn btn-warning">modifier</button>
+                      </a>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>

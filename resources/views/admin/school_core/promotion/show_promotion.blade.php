@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 @section('tools')
 <div class="col-md-8 tools">
-  <a href="/admin/promotion"><button type="button" name="button" class="btn btn-info">Retour</button></a>
+  <a href="/admin"><button type="button" name="button" class="btn btn-info">Retour</button></a>
   <a href="{{url('/admin/promotion/create/classe/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter une Classes</button></a>
   <!-- <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a> -->
   <a href="{{url('/admin/election/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>

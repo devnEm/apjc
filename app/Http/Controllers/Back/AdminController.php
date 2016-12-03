@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\User;
+use App\Models\School;
+use App\Models\Election;
+use App\Models\Promotion;
 
 class AdminController extends Controller
 {
@@ -21,14 +24,19 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+      $promotions = Promotion::where('current',true)->get();
+      $elections = Election::all();
       $users = User::all();
-      return view('admin.admin', ['users' => $users]);
+      $schools = School::all();
+      return view('admin.admin',
+       [
+         'users' => $users,
+       'schools' => $schools,
+       'elections' => $elections,
+       'promotions' => $promotions
+     ]);
     }
 }

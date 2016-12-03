@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 @section('tools')
 <div class="col-md-8 tools">
-  <a href="/admin/ecole">
+  <a href="/admin">
     <button type="button" name="button" class="btn btn-info">Retour</button>
   </a>
 </div>

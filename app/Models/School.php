@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class School extends Model
 {
@@ -24,4 +25,6 @@ class School extends Model
   {
     return $this->hasMany('App\Models\Post','id','school_id');
   }
+
+  
 }
