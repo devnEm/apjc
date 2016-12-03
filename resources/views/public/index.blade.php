@@ -3,17 +3,36 @@
 @section('content')
 <!-- <header><img src="{{ URL::asset('img/apjc-logo-2.png') }}" alt="ecole-header" /></header> -->
 
-<div class="container-fluid index-container-1">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <img src="{{ URL::asset('img/img-800×600.JPG') }}" alt="ecole-gbg" width="555px" height="413px"/>
-    </div>
-    <div class="col-md-6">
+    </div> -->
+    <div class="col-md-6 col-md-offset-1">
       <div class="panel panel_default">
         <h1>Association</h1><br><h1>des parents d'élèves</h1><br><h1>du Val d'Athis</h1>
       </div>
     </div>
   </div>
+
+    @foreach($posts as $post)
+    <div class="row">
+      <div class="col-md-8 col-md-offset-1">
+        <div class="panel panel-default panel-body">
+          <article class="">
+            <h3>{{$post->title}}</h3><date>{{$post->updated_at->format('d F Y')}}</date>
+            <div class="">catégorie : {{$post->category->label}}</div>
+            <p>{!! substr($post->article,0,255) !!}
+              <a href="{{ url('actualite/article', $post->id ) }}" > ...
+                <button type="button" name="button">lire la suite</button>
+              </a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+    @endforeach
+
 </div>
 <div class="container-fluid index-container-2">
     <div class="row">

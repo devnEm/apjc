@@ -16,8 +16,8 @@ class IndexController extends Controller
 
   public function index()
   {
-
-    return view('public.index');
+    $posts = Post::where('front',true)->get();
+    return view('public.index',['posts'=>$posts]);
   }
 
   public function ecole()

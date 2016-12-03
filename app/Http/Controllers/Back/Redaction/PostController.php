@@ -40,6 +40,47 @@ class PostController extends Controller
       $validator= Validator::make($request->all(),$rules);
 
       $post = new Post();
+      if($request->input('publish') == null){
+        $post->publish = false;
+      }else{
+        $post->publish = true;
+      }
+      if($request->input('front') == null){
+        $post->front = false;
+      }else{
+        $post->front = true;
+      }
+      $post->title = $request->input('title');
+      $post->views = 0;
+      $post->article = $request->input('article');
+      $post->categorie_id = intval($request->input('categorie_name')[0]);
+      $post->user_id = Auth::user()->id;
+
+      $post->save();
+
+      return redirect()->action('Back\Redaction\PostController@redaction');
+    }
+
+    public function editPost($id){
+
+      $post = Post::where('id',$id)->first();
+      $categories = array_merge(array('Select...'), Categorie::lists('label', 'id')->all());
+      return view('admin.blog_redaction.posts.edit_post',['categorie'=>$categories,'post'=>$post]);
+    }
+
+    public function updatePost($id,Request $request)
+    {
+      $rules=[
+          'publish',
+          'front',
+          'title',
+          'article',
+
+      ];
+
+      $validator= Validator::make($request->all(),$rules);
+
+      $post = Post::where('id',$id)->first();
       $post->publish = $request->input('publish');
       $post->front = $request->input('front');
       $post->title = $request->input('title');
@@ -47,7 +88,7 @@ class PostController extends Controller
       $post->categorie_id = intval($request->input('categorie_name')[0]);
       $post->user_id = Auth::user()->id;
 
-      $post->save();
+      $post->update();
 
       return redirect()->action('Back\Redaction\PostController@redaction');
     }

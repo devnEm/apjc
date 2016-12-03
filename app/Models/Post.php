@@ -13,9 +13,9 @@ class Post extends Model
    */
 
    protected $fillable = [
-       'attente',
-       'public',
-       'director_name',
+       'front',
+       'publish',
+       'title',
        'article',
 
    ];

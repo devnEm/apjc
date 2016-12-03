@@ -13,9 +13,9 @@
 Route::group(['middleware' => ['web']], function () {
   Route::get('/', 'Front\IndexController@index');
   Route::get('/ecole', 'Front\IndexController@ecole');
-  Route::get('/actualite', function () {
-      return view('public.news');
-  });
+  Route::get('/actualite', 'Front\NewsController@index');
+  Route::get('/actualite/article/{post_id}', 'Front\NewsController@article');
+
   Route::get('/actions', function () {
       return view('public.actions');
   });
@@ -69,7 +69,9 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/admin/redaction/create/post','Back\Redaction\PostController@createPost');
   Route::post('/admin/redaction/create/post','Back\Redaction\PostController@savePost');
-  
+  Route::get('/admin/redaction/edit/post/{post_id}','Back\Redaction\PostController@editPost');
+  Route::post('/admin/redaction/edit/post/{post_id}','Back\Redaction\PostController@updatePost');
+
   Route::get('/admin/redaction/create/category','Back\Redaction\CategoryController@createCategory');
   Route::post('/admin/redaction/create/category','Back\Redaction\CategoryController@saveCategory');
 });

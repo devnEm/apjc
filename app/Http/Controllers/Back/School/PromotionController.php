@@ -98,7 +98,11 @@ class PromotionController extends Controller
     $promotion->director_title = $request->input('director_title');
     $promotion->director_name = $request->input('director_name');
     $promotion->director_firstname = $request->input('director_firstname');
-    $promotion->current = $request->input('current');
+    if($request->input('current') == null){
+      $promotion->current = false;
+    }else{
+      $promotion->current = true;
+    }
     $promotion->school_id = $school_id;
 
     $promotion->update();

@@ -11,28 +11,27 @@
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">Creer un Article</div>
+      <div class="panel-heading">Editer un Article</div>
       <div class="panel-body">
         <div class="form-group">
-          {!! Form::open(['url' => '/admin/redaction/create/post','class' => 'form-horizontal']) !!}
+          {!! Form::model($post,['url' => '/admin/redaction/edit/post/'.$post->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
-            {{ csrf_field() }}
             {!! Form::label('categorie_name','categorie',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::select('categorie_name[]',$categorie,null, ['id' => 'categorie_label']) !!}
+            {!! Form::select('categorie_name[]',$categorie,$post->categorie_id, ['id' => 'categorie_label']) !!}
             {!! Form::label('publish','publié',['class' => 'control-label']) !!}
-            {!! Form::checkbox('publish') !!}
+            {!! Form::checkbox('publish',1,$post->publish) !!}
             {!! Form::label('front','A la une',['class' => 'control-label']) !!}
-            {!! Form::checkbox('front') !!}
+            {!! Form::checkbox('front',1,$post->front) !!}
           </div>
           <div class="form-group">
             {!! Form::label('title','title',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::text('title',null,['class' => 'control-label']) !!}
+            {!! Form::text('title',$post->title,['class' => 'control-label']) !!}
 
-            {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}
+            {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
           </div>
           <div class="form-group">
             {!! Form::label('article','article : ',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::textarea('article',null,['class' => 'control-label']) !!}
+            {!! Form::textarea('article',$post->article,['class' => 'control-label']) !!}
           </div>
           <!-- <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

@@ -22,8 +22,8 @@
               <td>nb_vu</td>
               <td>Auteur</td>
               <td>Categorie</td>
-              <td>en attente</td>
-              <td>en ligne</td>
+              <td>publié</td>
+              <td>à la une</td>
               <td></td>
 
             </thead>
@@ -31,13 +31,13 @@
               @foreach($posts as $post)
               <tr>
                 <td>{{$post->title}}</td>
-                <td>{{$post->created_at}}</td>
-                <td>{{$post->nb_vu}}</td>
+                <td>{{$post->created_at->format('M Y')}}</td>
+                <td>{{$post->views}}</td>
                 <td>{{$post->user_id}}</td>
-                <td>{{$post->categorie_id}}</td>
-                <td>{{$post->attente}}</td>
-                <td>{{$post->public}}</td>
-                <td><a href="#"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
+                <td>{{$post->category->label}}</td>
+                <td>{{$post->publish}}</td>
+                <td>{{$post->front}}</td>
+                <td><a href="{{url('/admin/redaction/edit/post/'.$post->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
               </tr>
               @endforeach
             </tbody>

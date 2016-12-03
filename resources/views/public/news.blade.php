@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
 
-              <div class="panel panel-default panel-body">
-                <div>
+              <div class="panel panel-default">
                   <div class="panel-heading">
                     <h1>Les actualités</h1>
                   </div>
@@ -21,65 +20,25 @@
                           {!! Form::submit('activer les filtres') !!}
                           {!! Form::close() !!}
                         </div>
-                      </div>                      
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="panel panel-default panel-body">
-                          <article class="">
-                            <h3>Titre</h3><date>10/02/2017</date>
-                            <div class="">auteur : </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem debitis deleniti dicta enim eos fuga, inventore ipsum magnam, minus modi pariatur provident quam quo reprehenderit repudiandae sequi sint suscipit vero.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi cumque cupiditate dolore eligendi, eos explicabo laboriosam libero magnam maxime nemo odit optio quibusdam quisquam quod sapiente similique veritatis vitae.</p>
-                            <div>
-                              <a href="#"><button type="button" name="button">lire la suite</button></a>
-                            </div>
-                          </article>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="panel panel-default panel-body">
-                          <article class="">
-                            <h3>Titre</h3><date>10/02/2017</date>
-                            <div class="">auteur : </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem debitis deleniti dicta enim eos fuga, inventore ipsum magnam, minus modi pariatur provident quam quo reprehenderit repudiandae sequi sint suscipit vero.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi cumque cupiditate dolore eligendi, eos explicabo laboriosam libero magnam maxime nemo odit optio quibusdam quisquam quod sapiente similique veritatis vitae.</p>
-                            <div>
-                              <a href="#"><button type="button" name="button">lire la suite</button></a>
-                            </div>
-                          </article>
-                        </div>
                       </div>
                     </div>
                     <div class="row">
+                      @foreach($posts as $post)
                       <div class="col-md-6">
                         <div class="panel panel-default panel-body">
                           <article class="">
-                            <h3>Titre</h3><date>10/02/2017</date>
-                            <div class="">auteur : </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem debitis deleniti dicta enim eos fuga, inventore ipsum magnam, minus modi pariatur provident quam quo reprehenderit repudiandae sequi sint suscipit vero.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi cumque cupiditate dolore eligendi, eos explicabo laboriosam libero magnam maxime nemo odit optio quibusdam quisquam quod sapiente similique veritatis vitae.</p>
-                            <div>
-                              <a href="#"><button type="button" name="button">lire la suite</button></a>
-                            </div>
+                            <h3>{{$post->title}}</h3><date>{{$post->updated_at->format('d F Y')}}</date>
+                            <div class="">catégorie : {{$post->category->label}}</div>
+                              <p>{!! substr($post->article,0,255) !!}
+                                <a href="{{ url('actualite/article', $post->id ) }}" > ...
+                                  <button type="button" name="button">lire la suite</button>
+                                </a>
+                              </p>
                           </article>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="panel panel-default panel-body">
-                          <article class="">
-                            <h3>Titre</h3><date>10/02/2017</date>
-                            <div class="">auteur : </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem debitis deleniti dicta enim eos fuga, inventore ipsum magnam, minus modi pariatur provident quam quo reprehenderit repudiandae sequi sint suscipit vero.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi cumque cupiditate dolore eligendi, eos explicabo laboriosam libero magnam maxime nemo odit optio quibusdam quisquam quod sapiente similique veritatis vitae.</p>
-                            <div>
-                              <a href="#"><button type="button" name="button">lire la suite</button></a>
-                            </div>
-                          </article>
-                        </div>
-                      </div>
+                      @endforeach
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
