@@ -78,10 +78,10 @@
                   <td>{{$school->name}}</td>
                   <td>
                     <a href="{{ url('/admin/ecole/show', $school->id ) }}">
-                      <button type="button" name="button" class="btn btn-info btn-xs" style="width:33%">voir</button>
+                      <button type="button" name="button" class="btn btn-info btn-xs">voir</button>
                     </a>
                     <a href="{{ url('/admin/ecole/edit', $school->id ) }}">
-                      <button type="button" name="button" class="btn btn-warning btn-xs" style="width:60%">modifier</button>
+                      <button type="button" name="button" class="btn btn-warning btn-xs">modifier</button>
                     </a>
                   </td>
                 </tr>
@@ -111,10 +111,10 @@
                       <td>{{$promotion->school->name}}</td>
                       <td>
                         <a href="{{url('/admin/promotion/show/'.$promotion->id)}}">
-                          <button type="button" name="button" class="btn btn-info btn-xs" style="width:33%">voir</button>
+                          <button type="button" name="button" class="btn btn-info btn-xs">voir</button>
                         </a>
                         <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}">
-                          <button type="button" name="button" class="btn btn-warning btn-xs" style="width:50%">modifier</button>
+                          <button type="button" name="button" class="btn btn-warning btn-xs">modifier</button>
                         </a>
                       </td>
                     </tr>
@@ -161,10 +161,10 @@
             <td>{{$election->promotion->school->name}}</td>
             <td>
               <a href="{{url('/admin/election/show/'.$election->promotion->id)}}">
-                <button type="button" name="button" class="btn btn-info btn-xs" style="width:33%">voir</button>
+                <button type="button" name="button" class="btn btn-info btn-xs">voir</button>
               </a>
               <a href="{{url('/admin/election/edit/'.$election->id)}}">
-                <button type="button" name="button" class="btn btn-warning btn-xs" style="width:50%">modifier</button>
+                <button type="button" name="button" class="btn btn-warning btn-xs">modifier</button>
               </a>
             </td>
           </tr>
