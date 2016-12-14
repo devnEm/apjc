@@ -67,11 +67,18 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/admin/redaction/','Back\Redaction\PostController@redaction');
 
-  Route::get('/admin/redaction/create/post','Back\Redaction\PostController@createPost');
-  Route::post('/admin/redaction/create/post','Back\Redaction\PostController@savePost');
-  Route::get('/admin/redaction/edit/post/{post_id}','Back\Redaction\PostController@editPost');
-  Route::post('/admin/redaction/edit/post/{post_id}','Back\Redaction\PostController@updatePost');
+  Route::get('/admin/redaction/create/post', 'Back\Redaction\PostController@createPost');
+  Route::post('/admin/redaction/create/post', 'Back\Redaction\PostController@savePost');
+  Route::get('/admin/redaction/edit/post/{post_id}', 'Back\Redaction\PostController@editPost');
+  Route::post('/admin/redaction/edit/post/{post_id}', 'Back\Redaction\PostController@updatePost');
 
-  Route::get('/admin/redaction/create/category','Back\Redaction\CategoryController@createCategory');
-  Route::post('/admin/redaction/create/category','Back\Redaction\CategoryController@saveCategory');
+  Route::get('/admin/redaction/create/category', 'Back\Redaction\CategoryController@createCategory');
+  Route::post('/admin/redaction/create/category', 'Back\Redaction\CategoryController@saveCategory');
+
+  Route::get('/admin/association/adherents', 'Back\Association\AdherentController@allAdherent');
+  Route::get('/admin/association/adherent', 'Back\Association\AdherentController@showAdherent');
+  Route::get('/admin/association/create/adherent', 'Back\Association\AdherentController@createAdherent');
+  Route::post('/admin/association/create/adherent', 'Back\Association\AdherentController@saveAdherent');
+  Route::get('/admin/association/edit/adherent/{adherent_id}', 'Back\Association\AdherentController@editAdherent');
+  Route::post('/admin/association/edit/adherent/{adherent_id}', 'Back\Association\AdherentController@updateAdherent');
 });
