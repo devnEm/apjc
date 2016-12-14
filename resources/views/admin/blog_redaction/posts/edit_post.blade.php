@@ -16,6 +16,7 @@
         <div class="form-group">
           {!! Form::model($post,['url' => '/admin/redaction/edit/post/'.$post->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
+            {{ csrf_field() }}
             {!! Form::label('categorie_name','categorie',['class' => 'control-label', 'type' => 'text']) !!}
             {!! Form::select('categorie_name[]',$categorie,$post->categorie_id, ['id' => 'categorie_label']) !!}
             {!! Form::label('publish','publié',['class' => 'control-label']) !!}

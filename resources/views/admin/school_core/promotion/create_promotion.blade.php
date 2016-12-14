@@ -14,6 +14,7 @@
       <div class="panel-body">
           {!! Form::open(['url' => '/admin/promotion/create','class' => 'form-horizontal']) !!}
           <div class="form-group">
+            {{ csrf_field() }}
             {!! Form::label('year','Millesime',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
             {!! Form::text('year',null) !!}
           </div>
@@ -36,7 +37,7 @@
             <div class="form-group">
               {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'col-md-4 control-label']) !!}
               {!! Form::text('director_firstname',null) !!}
-            </div>          
+            </div>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
               {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}

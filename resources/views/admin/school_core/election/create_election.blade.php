@@ -12,6 +12,7 @@
         <div class="panel-body">
           {!! Form::open(['url' => '/admin/election/create/'.$promotion->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
+            {{ csrf_field() }}
             {!! Form::label('promotion_id','promotion_id',['class' => 'hidden', 'type' => 'text']) !!}
             {!! Form::text('promotion_id',$promotion->id,['class' => 'hidden']) !!}
           </div>

@@ -14,6 +14,7 @@
       <div class="panel-body">
         {!! Form::open(['url' => '/admin/ecole/create','class' => 'form-horizontal']) !!}
         <div class="form-group">
+          {{ csrf_field() }}
           {!! Form::label('type','type d\'établissement : ',['class' => 'col-md-4 control-label']) !!}
           {!! Form::select('type',['maternelle'=>'maternelle','primaire'=>'primaire','collége'=>'collége'],['class' => 'form-group']) !!} <!-- TODO SELECT OPTION -->
         </div>

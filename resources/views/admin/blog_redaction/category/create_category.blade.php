@@ -12,6 +12,7 @@
       <div class="panel-body">
           {!! Form::open(['url' => '/admin/redaction/create/category','class' => 'form-horizontal']) !!}
           <div class="form-group">
+            {{ csrf_field() }}
             {!! Form::label('label','label',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
             {!! Form::text('label',null) !!}
           </div>

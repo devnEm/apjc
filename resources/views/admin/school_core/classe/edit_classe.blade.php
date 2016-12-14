@@ -12,6 +12,7 @@
       <div class="panel-body">
           {!! Form::model($classe, ['url' => '/admin/promotion/classe/update/'.$classe->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
+            {{ csrf_field() }}
             {!! Form::label('Ecole','ecole : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
             {!! Form::label('ecole',$classe->promotion->school->name) !!}
           </div>

@@ -14,6 +14,7 @@
       <div class="panel_body">
           {!! Form::model($school, ['url' =>'/admin/ecole/update/'.$school->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
+            {{ csrf_field() }}
             {!! Form::label('type','type',['class' => 'col-md-4 control-label']) !!}
             {!! Form::select('type',['maternelle'=>'maternelle','primaire'=>'primaire','collége'=>'collége'],$school->type) !!} <!-- TODO SELECT OPTION -->
           </div>
