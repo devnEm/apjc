@@ -1,10 +1,14 @@
-$navbar-default-link-color : $primary-blue;
+$navbar-default-link-color : $dark-gray;
 $navbar-default-link-hover-color : $primary-orange;
-$navbar-default-bg : $light-blue;
+$navbar-default-bg : $primary-blue;
 $navbar-height : 66px;
 
 $panel-default-border : $primary-orange;
 $panel-default-heading-bg : $primary-blue;
+
+$panel-info-heading-bg : $primary-blue;
+$panel-info-border : $primary-orange;
+
 $panel-border-radius : 12px;
 $panel-body-padding : 25px;
 
@@ -12,14 +16,14 @@ $gray-base : $dark-gray;
 $brand-warning : $primary-orange;
 //
 $brand-primary : $primary-blue ;
-$brand-success : #30AF5B ;
+$brand-success : #35AD57 ;
 $brand-info : $light-blue ;
 $brand-danger : #EF524E ;
 
-$btn-info-color : $primary-blue;
+// $btn-info-color : $primary-blue;
 
 $state-info-bg : $light-blue;
-$state-info-text : $primary-blue;
+$state-info-text : $dark-gray;
 $state-info-border :$primary-blue;
 
 $table-bg: $light-blue;

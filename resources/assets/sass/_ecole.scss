@@ -5,13 +5,13 @@
     font-size: 35px;
     text-transform: uppercase;
   }
-  
+
   .nav-tabs {
     border-bottom: 1px solid $primary-orange ;
     border-radius: 12px 12px 0px 0px;
     margin-left: -1px;
     margin-top: -1px;
-    background: $light-blue;
+    background: $primary-blue;
     >li{
       background: white;
       border-radius: 12px 12px 0px 0px;
