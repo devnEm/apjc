@@ -1,15 +1,11 @@
 #app-layout{
   .panel{
-    // border : 2.5px solid $primary-blue ;
-    // .btn-warning{
-    //     background-color: $primary-orange;
-    // }
+    border : 2.5px solid $primary-orange ;
 
     .panel-heading{
       text-align: center;
       font-weight: bolder;
       font-size: 18px;
-      //color: $primary-blue;
       text-transform: uppercase;
 
     }
