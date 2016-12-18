@@ -1,6 +1,7 @@
 @extends('layouts.admin.app')
 @section('tools')
 <div class="tools">
+  <a href="/admin"><button type="button" name="button" class="btn btn-info">Retour</button></a>
   <a href="{{url('/admin/redaction/create/post')}}"><button type="button" name="button" class="btn btn-primary">ajouter un article</button></a>
   <a href="{{url('/admin/redaction/create/category')}}"><button type="button" name="button" class="btn btn-primary">ajouter une categorie</button></a>
 </div>

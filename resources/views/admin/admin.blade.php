@@ -67,14 +67,12 @@
           <div class="table table-responsive">
             <table class="table table-bordered">
               <thead>
-                <td>type</td>
                 <td>nom</td>
                 <td></td>
               </thead>
               <tbody>
                 @foreach($schools as $school)
                 <tr>
-                  <td>{{$school->type}}</td>
                   <td>{{$school->name}}</td>
                   <td>
                     <a href="{{ url('/admin/ecole/show', $school->id ) }}">

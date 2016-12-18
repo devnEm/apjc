@@ -1,6 +1,7 @@
 @extends('layouts.admin.app')
 @section('tools')
 <div class="tools">
+  <a href="/admin"><button type="button" name="button" class="btn btn-info">Retour</button></a>
   <a href="{{url('/admin/association/create/adherent')}}"><button type="button" name="button" class="btn btn-primary">ajouter un adherent</button></a>
   {{-- <a href="{{url('/admin/redaction/create/category')}}"><button type="button" name="button" class="btn btn-primary">acceder au bureau</button></a> --}}
 </div>
