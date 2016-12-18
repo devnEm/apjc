@@ -29,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new authentication controller instance.
@@ -64,12 +64,11 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-      
+
       $user = User::create([
           'name' => $data['name'],
           'email' => $data['email'],
           'password' => bcrypt($data['password']),
-          'activate_token' => hash_hmac('sha256', str_random(40), config('app.key')),
       ]);
 
       return $user;

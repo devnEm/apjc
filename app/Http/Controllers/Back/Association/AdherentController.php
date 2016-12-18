@@ -32,9 +32,6 @@ class AdherentController extends Controller
           'first_name',
           'email',
           'phone',
-          'candidat',
-          'suppleant',
-          'rang',
           'hidden_phone',
           'email_subscription',
           'subscribed'
@@ -48,26 +45,10 @@ class AdherentController extends Controller
       $adherent->first_name = $request->input('first_name');
       $adherent->phone = $request->input('phone');
       $adherent->email = $request->input('email');
-      $adherent->user_id = 0;
-      $adherent->candidat = $request->input('candidat');
-      $adherent->suppleant = $request->input('suppleant');
-      if($request->input('hidden_phone') == null){
-        $adherent->hidden_phone = false;
-      }else{
-        $adherent->hidden_phone = true;
-      }
-      if($request->input('email_subscription') == null){
-        $adherent->email_subscription = false;
-      }else{
-        $adherent->email_subscription = true;
-      }
-
-      if($request->input('subscribed') == null){
-        $adherent->subscribed = false;
-      }else{
-        $adherent->subscribed = true;
-      }
-
+      $adherent->hidden_phone = ($request->input('hidden_phone') == null) ? false : true ;
+      $adherent->email_subscription = ($request->input('email_subscription') == null) ? false : true ;
+      $adherent->subscribed = ($request->input('subscribed') == null) ? false : true ;
+      
       $adherent->save();
 
       return redirect()->action('Back\Association\AdherentController@allAdherent');

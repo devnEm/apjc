@@ -36,14 +36,6 @@
             {!! Form::text('phone',null) !!}
           </div>
           <div class="form-group">
-            {!! Form::label('candidat','candidat',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::checkbox('candidat') !!}
-          </div>
-          <div class="form-group">
-            {!! Form::label('suppleant','suppleant',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::checkbox('suppleant') !!}
-          </div>
-          <div class="form-group">
             {!! Form::label('hidden_phone','hidden_phone',['class' => 'col-md-4 control-label']) !!}
             {!! Form::checkbox('hidden_phone') !!}
           </div>
