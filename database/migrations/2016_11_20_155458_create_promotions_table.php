@@ -25,7 +25,7 @@ class CreatePromotionsTable extends Migration
 
       Schema::table('promotions', function($table) {
        $table->foreign('school_id')->references('id')->on('schools');
-   });
+      });
     }
 
     /**

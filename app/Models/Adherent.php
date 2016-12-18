@@ -17,9 +17,6 @@ class Adherent extends Model
       'first_name',
       'email',
       'phone',
-      'candidat',
-      'suppleant',
-      'rang',
       'hidden_phone',
       'email_subscription',
       'subscribed'

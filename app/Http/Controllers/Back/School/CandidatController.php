@@ -9,7 +9,7 @@ use Validator;
 
 use App\Http\Requests;
 
-class ParentEluController extends Controller
+class CandidatController extends Controller
 {
     //
 }

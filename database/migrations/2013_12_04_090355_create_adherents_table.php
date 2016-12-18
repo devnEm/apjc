@@ -17,12 +17,8 @@ class CreateAdherentsTable extends Migration
             $table->string('titre');
             $table->string('name');
             $table->string('first_name');
-            $table->string('email')->nullable();
+            $table->string('email');
             $table->string('phone')->nullable();
-            $table->integer('user_id')->nullable();
-            $table->boolean('candidat')->nullable();
-            $table->boolean('suppleant')->nullable();
-            $table->integer('rang')->nullable();
             $table->boolean('hidden_phone');
             $table->boolean('email_subscription');
             $table->boolean('subscribed');
