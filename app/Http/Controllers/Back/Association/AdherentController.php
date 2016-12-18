@@ -48,8 +48,45 @@ class AdherentController extends Controller
       $adherent->hidden_phone = ($request->input('hidden_phone') == null) ? false : true ;
       $adherent->email_subscription = ($request->input('email_subscription') == null) ? false : true ;
       $adherent->subscribed = ($request->input('subscribed') == null) ? false : true ;
-      
+
       $adherent->save();
+
+      return redirect()->action('Back\Association\AdherentController@allAdherent');
+    }
+
+    public function editAdherent($id){
+
+      $adherent = Adherent::where('id', $id)->first();
+
+      return view('admin.association.adherent.edit_adherent',['adherent'=> $adherent]);
+    }
+
+    public function updateAdherent($id,Request $request){
+
+      $rules = [
+          'titre',
+          'name',
+          'first_name',
+          'email',
+          'phone',
+          'hidden_phone',
+          'email_subscription',
+          'subscribed'
+      ];
+
+      $validator= Validator::make($request->all(),$rules);
+
+      $adherent = Adherent::where('id',$id)->first();
+      $adherent->titre = $request->input('titre');
+      $adherent->name = $request->input('name');
+      $adherent->first_name = $request->input('first_name');
+      $adherent->phone = $request->input('phone');
+      $adherent->email = $request->input('email');
+      $adherent->hidden_phone = ($request->input('hidden_phone') == null) ? false : true ;
+      $adherent->email_subscription = ($request->input('email_subscription') == null) ? false : true ;
+      $adherent->subscribed = ($request->input('subscribed') == null) ? false : true ;
+
+      $adherent->update();
 
       return redirect()->action('Back\Association\AdherentController@allAdherent');
     }

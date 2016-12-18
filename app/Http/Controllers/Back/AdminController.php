@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Models\School;
 use App\Models\Election;
 use App\Models\Promotion;
+use App\Models\Adherent;
+use App\Models\Bureau;
 
 class AdminController extends Controller
 {
@@ -31,12 +33,17 @@ class AdminController extends Controller
       $elections = Election::all();
       $users = User::all();
       $schools = School::all();
+      $adherents = Adherent::all();
+      $bureau_members = Bureau::all();
+
       return view('admin.admin',
        [
          'users' => $users,
-       'schools' => $schools,
-       'elections' => $elections,
-       'promotions' => $promotions
+         'schools' => $schools,
+         'elections' => $elections,
+         'promotions' => $promotions,
+         'adherents' => $adherents,
+         'bureau_members' => $bureau_members
      ]);
     }
 }

@@ -6,10 +6,10 @@
         <div class="panel-heading">Adhérents</div>
         <div class="panel-body">
           <div class="row">
-            <label>Nbr d'inscrit : {{count($users)}}</label>
+            <label>Nbr d'inscrit : {{count($adherents)}}</label>
           </div>
           <div class="row">
-            <label>Budget appro : {{count($users)}}</label>
+            <label>Budget appro : {{count($adherents)}}</label>
           </div>
           <div class="row">
             <a href="/admin/association/adherents">
@@ -29,26 +29,36 @@
         <div class="panel panel-info">
             <div class="panel-heading">Bureau</div>
             <div class="panel-body">
+              @if(count($bureau_members) !== 0)
+                @foreach($bureau_members as $member)
+                  @if($member->president)
+                  <div class="row">
+                    <label>Président : {{$member->adherent->name}}</label>
+                  </div>
+                  @endif
+                  {{-- <div class="row">
+                    <label><i>vice : </i></label>
+                  </div> --}}
+                  @if($member->comptable)
+                  <div class="row">
+                    <label>Trésorier : {{$member->adherent->name}}</label>
+                  </div>
+                  @endif
+                  {{-- <div class="row">
+                    <label><i>vice : {{count($users)}}</i></label>
+                  </div> --}}
+                  @if($member->secretaire)
+                  <div class="row">
+                    <label>Secrétaire : {{$member->adherent->name}}</label>
+                  </div>
+                  @endif
+                  {{-- <div class="row">
+                    <label><i>vice : {{count($users)}}</i></label>
+                  </div> --}}
+                @endforeach
+              @endif
               <div class="row">
-                <label>Président : {{count($users)}}</label>
-              </div>
-              <div class="row">
-                <label><i>vice : {{count($users)}}</i></label>
-              </div>
-              <div class="row">
-                <label>Trésorier : {{count($users)}}</label>
-              </div>
-              <div class="row">
-                <label><i>vice : {{count($users)}}</i></label>
-              </div>
-              <div class="row">
-                <label>Secrétaire : {{count($users)}}</label>
-              </div>
-              <div class="row">
-                <label><i>vice : {{count($users)}}</i></label>
-              </div>
-              <div class="row">
-                <a href="#">
+                <a href="/admin/association/add_member">
                   <button type="button" class="btn btn-primary" style="width:100%">Ajouter un membre</button>
                 </a>
                 <a href="#">

@@ -81,4 +81,9 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/admin/association/create/adherent', 'Back\Association\AdherentController@saveAdherent');
   Route::get('/admin/association/edit/adherent/{adherent_id}', 'Back\Association\AdherentController@editAdherent');
   Route::post('/admin/association/edit/adherent/{adherent_id}', 'Back\Association\AdherentController@updateAdherent');
+
+  Route::get('/admin/association/add_member', 'Back\Association\BureauController@addMember');
+  Route::post('/admin/association/add_member', 'Back\Association\BureauController@saveMember');
+  Route::get('/admin/association/edit_member/{member_id}', 'Back\Association\BureauController@editMember');
+  Route::post('/admin/association/edit_member/{member_id}', 'Back\Association\BureauController@updateMember');
 });

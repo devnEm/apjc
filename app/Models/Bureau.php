@@ -21,4 +21,9 @@ class Bureau extends Model
   ];
 
   protected $table = 'bureau';
+
+  public function adherent()
+  {
+    return $this->hasOne('App\Models\Adherent','id','adherent_id');
+  }
 }
