@@ -48,8 +48,7 @@
                     <li><a href="{{ url('/actions') }}">Nos Actions</a></li>
                     <li><a href="{{ url('/info') }}">Qui sommes nous ?</a></li>
                     @if (!Auth::guest())
-                        <li><a href="{{ url('/home') }}">Espace </a></li>
-                        @if (Auth::user()->admin)
+                        @if (Auth::user())
                             <li><a href="{{ url('/admin') }}">Admin</a></li>
                         @endif
                     @endif
@@ -66,8 +65,7 @@
                                 Connexion
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/login') }}">Se connecter</a></li>
-                                <li><a href="{{ url('/register') }}">S'inscrire</a></li>
+                                <li><a href="{{ url('/login') }}">Se connecter</a></li>                                
                             </ul>
                         </li>
                     @else

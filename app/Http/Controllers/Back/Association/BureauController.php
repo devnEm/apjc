@@ -62,6 +62,7 @@ class BureauController extends Controller
     $bureau->president = ($request->input('president') == null) ? false : true ;
     $bureau->secretaire = ($request->input('secretaire') == null) ? false : true ;
     $bureau->comptable = ($request->input('comptable') == null) ? false : true ;
+    $bureau->redacteur = ($request->input('redacteur') == null) ? false : true ;
 
     $bureau->save();
 
