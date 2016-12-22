@@ -28,4 +28,8 @@ class Adherent extends Model
   {
     return $this->belongsTo('App\Models\Bureau','id','adherent_id');
   }
+  public function user()
+  {
+    return $this->belongsTo('App\Models\User','id','adherent_id');
+  }
 }

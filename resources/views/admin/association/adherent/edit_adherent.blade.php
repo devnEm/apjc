@@ -43,10 +43,12 @@
             {!! Form::label('email_subscription','email_subscription',['class' => 'col-md-4 control-label']) !!}
             {!! Form::checkbox('email_subscription',$adherent->email_subscription) !!}
           </div>
+          @if(Auth::user()->adherent->bureau->comptable)
           <div class="form-group">
             {!! Form::label('subscribed','subscribed',['class' => 'col-md-4 control-label']) !!}
             {!! Form::checkbox('subscribed',$adherent->subscribed) !!}
           </div>
+          @endif
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
             {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}

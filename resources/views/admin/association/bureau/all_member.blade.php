@@ -35,7 +35,7 @@
                     <td>{{$members->secretaire}}</td>
                     <td>{{$members->comptable}}</td>
                     <td>{{$members->redacteur}}</td>
-                    <td><a href="{{url('/admin/association/edit_member/'.$members->adherent->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
+                    <td><a href="{{url('/admin/association/edit_member/'.$members->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
                   </tr>
                   @endforeach
                 @endif

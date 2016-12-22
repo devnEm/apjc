@@ -47,12 +47,15 @@ class BureauController extends Controller
     $adherent_id = intval($request->input('adherent_name')[0]);
     $adherent = Adherent::where('id', $adherent_id)->first();
 
-    $user = User::create([
-      'name' => $adherent->name,
-      'email' => $adherent->email,
-      'password' => bcrypt('azerty'),
-      'adherent_id' => $adherent_id,
-    ]);
+    if($adherent->user === null){
+      $user = User::create([
+        'name' => $adherent->name,
+        'email' => $adherent->email,
+        'password' => bcrypt('azerty'),
+        'adherent_id' => $adherent_id,
+      ]);
+    }
+
 
     $bureau = new Bureau();
     $bureau->adherent_id = $adherent_id;
@@ -67,7 +70,7 @@ class BureauController extends Controller
 
   public function editMember($id){
 
-    $bureau = Bureau::where('adherent_id', $id)->first();
+    $bureau = Bureau::where('id', $id)->first();
 
     return view('admin.association.bureau.edit_member', ['bureau' => $bureau]);
   }
@@ -76,7 +79,9 @@ class BureauController extends Controller
 
     $bureau = Bureau::where('id', $id)->first();
     $user = User::where('adherent_id', $bureau->adherent_id)->first();
-    User::destroy($user->id);
+    if( !$user->admin ){
+      User::destroy($user->id);
+    }
     $bureau->destroy($id);
 
     return redirect()->action('Back\Association\BureauController@allMember');

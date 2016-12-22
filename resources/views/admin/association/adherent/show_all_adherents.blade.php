@@ -20,27 +20,31 @@
               <thead>
                 <td>Nom</td>
                 <td>Prenom</td>
-                {{-- <td>nb_vu</td>
-                <td>Auteur</td>
-                <td>Categorie</td>
-                <td>publié</td>
-                <td>à la une</td> --}}
+                <td>Bureau</td>
                 <td></td>
 
               </thead>
               <tbody>
                 @if($adherents)
                   @foreach($adherents as $adherent)
-                  <tr>
-                    <td>{{$adherent->name}}</td>
-                    <td>{{$adherent->first_name}}</td>
-                    {{-- <td>{{$adherent->views}}</td>
-                    <td>{{$adherent->user_id}}</td>
-                    <td>{{$adherent->category->label}}</td>
-                    <td>{{$adherent->publish}}</td>
-                    <td>{{$adherent->front}}</td> --}}
-                    <td><a href="{{url('/admin/association/edit/adherent/'.$adherent->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
-                  </tr>
+                    @if($adherent->id !== 1)
+                      <tr>
+                        <td>{{$adherent->name}}</td>
+                        <td>{{$adherent->first_name}}</td>
+                        @if(!$adherent->bureau)
+                          <td>Adhérent</td>
+                          @elseif($adherent->bureau->president)
+                            <td>Président</td>
+                          @elseif($adherent->bureau->secretaire)
+                            <td>Secrétaire</td>
+                          @elseif($adherent->bureau->comptable)
+                            <td>Comptable</td>
+                          @elseif($adherent->bureau->redacteur)
+                            <td>redacteur</td>
+                        @endif
+                        <td><a href="{{url('/admin/association/edit/adherent/'.$adherent->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
+                      </tr>
+                    @endif
                   @endforeach
                 @endif
               </tbody>

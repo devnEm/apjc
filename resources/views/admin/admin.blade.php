@@ -11,17 +11,21 @@
           <div class="row">
             <label>Budget appro : {{count($adherents)}}</label>
           </div>
-          <div class="row">
-            <a href="/admin/association/create/adherent">
-              <button type="button" class="btn btn-success btn-xs" style="width:100%">Ajouter un adhérent</button>
-            </a>
-            <a href="/admin/association/adherents">
-              <button type="button" class="btn btn-success btn-xs" style="width:100%">Suivi des adhérent</button>
-            </a>
-            <a href="#">
-              <button type="button" class="btn btn-success btn-xs" style="width:100%">Communiquer aves les adhérents</button>
-            </a>
-          </div>
+            <div class="row">
+              @if(Auth::user()->admin || Auth::user()->adherent->bureau->president || Auth::user()->adherent->bureau->secretaire)
+                <a href="/admin/association/create/adherent">
+                  <button type="button" class="btn btn-success btn-xs" style="width:100%">Ajouter un adhérent</button>
+                </a>
+              @endif
+              <a href="/admin/association/adherents">
+                <button type="button" class="btn btn-success btn-xs" style="width:100%">Suivi des adhérent</button>
+              </a>
+              @if(Auth::user()->admin || Auth::user()->adherent->bureau->president || Auth::user()->adherent->bureau->secretaire)
+                <a href="#">
+                  <button type="button" class="btn btn-success btn-xs" style="width:100%">Communiquer aves les adhérents</button>
+                </a>
+              @endif
+            </div>
         </div>
     </div>
   </div>
@@ -57,6 +61,7 @@
                   </div> --}}
                 @endforeach
               @endif
+              @if(Auth::user()->admin || Auth::user()->adherent->bureau->president)
               <div class="row">
                 <a href="/admin/association/add_member">
                   <button type="button" class="btn btn-primary" style="width:100%">Ajouter un membre</button>
@@ -65,10 +70,12 @@
                   <button type="button" class="btn btn-success" style="width:100%">Modifier les rôles</button>
                 </a>
               </div>
+              @endif
             </div>
         </div>
     </div>
 </div>
+@if(Auth::user()->admin || Auth::user()->adherent->bureau->president || Auth::user()->adherent->bureau->secretaire)
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-info">
@@ -96,9 +103,9 @@
                 @endforeach
               </tbody>
             </table>
-            <a href="/admin/ecole/create">
-              <button type="button" name="button" class="btn btn-success">Ajouter</button>
-            </a>
+              <a href="/admin/ecole/create">
+                <button type="button" name="button" class="btn btn-success">Ajouter</button>
+              </a>
           </div>
         </div>
       </div>
@@ -137,6 +144,8 @@
       </div>
     </div>
 </div>
+@endif
+@if(Auth::user()->admin)
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
@@ -152,6 +161,7 @@
     </div>
   </div>
 </div>
+@endif
 @endsection
 @section('info')
 <div class="panel panel-info">
