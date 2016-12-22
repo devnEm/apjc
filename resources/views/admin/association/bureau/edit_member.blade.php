@@ -12,7 +12,7 @@
       <div class="panel-heading">Modifier rôle</div>
       <div class="panel-body">
         <div class="form-group">
-          {!! Form::model($bureau,['url' => '/admin/association/edit_member','class' => 'form-horizontal']) !!}
+          {!! Form::model($bureau,['url' => '/admin/association/delete_member/'.$bureau->id,'class' => 'form-horizontal']) !!}
           {{ csrf_field() }}
           <div class="form-group">
             {!! Form::label('adherent_id','nom : ',['class' => 'col-md-4 control-label']) !!}
@@ -30,13 +30,15 @@
             {!! Form::label('comptable','comptable',['class' => 'col-md-4 control-label']) !!}
             {!! Form::checkbox('comptable',$bureau->comptable) !!}
           </div>
-          <div class="form-group">
-            {!! Form::label('redacteur','redacteur',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::checkbox('redacteur',$bureau->redacteur) !!}
-          </div>
+          @if(Auth::user())
+            <div class="form-group">
+              {!! Form::label('redacteur','redacteur',['class' => 'col-md-4 control-label']) !!}
+              {!! Form::checkbox('redacteur',$bureau->redacteur) !!}
+            </div>
+          @endif
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-            {!! Form::submit('mettre à jour',['class' => 'btn btn-success']) !!}
+            {!! Form::submit('retirer',['class' => 'btn btn-danger']) !!}
             </div>
           </div>
           {!! Form::close() !!}

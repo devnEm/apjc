@@ -12,7 +12,7 @@
             <label>Budget appro : {{count($adherents)}}</label>
           </div>
           <div class="row">
-            <a href="/admin/association/adherents">
+            <a href="/admin/association/create/adherent">
               <button type="button" class="btn btn-success btn-xs" style="width:100%">Ajouter un adhérent</button>
             </a>
             <a href="/admin/association/adherents">
@@ -61,7 +61,7 @@
                 <a href="/admin/association/add_member">
                   <button type="button" class="btn btn-primary" style="width:100%">Ajouter un membre</button>
                 </a>
-                <a href="#">
+                <a href="/admin/bureau">
                   <button type="button" class="btn btn-success" style="width:100%">Modifier les rôles</button>
                 </a>
               </div>

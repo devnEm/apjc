@@ -23,4 +23,9 @@ class Adherent extends Model
   ];
 
   protected $table = 'adherents';
+
+  public function bureau()
+  {
+    return $this->belongsTo('App\Models\Bureau','id','adherent_id');
+  }
 }

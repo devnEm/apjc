@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'activate_token',
+        'name', 'email', 'password', 'adherent_id',
     ];
 
     /**
@@ -21,6 +21,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','activate_token',
+        'password', 'remember_token', 'adherent_id',
     ];
+
+    public function adherent()
+    {
+      return $this->hasOne('App\Models\Adherent','id','adherent_id');
+    }
 }

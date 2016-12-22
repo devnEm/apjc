@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back\Association;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use Validator;
 
@@ -10,9 +11,20 @@ use App\Http\Requests;
 
 use App\Models\Adherent;
 use App\Models\Bureau;
+use App\Models\User;
 
 class BureauController extends Controller
 {
+
+  use AuthenticatesAndRegistersUsers;
+
+  public function allMember(){
+
+    $bureau_members = Bureau::all();
+
+    return view('admin.association.bureau.all_member', ['bureau_members' => $bureau_members]);
+  }
+
   public function addMember(){
 
     $adherents = Adherent::lists('name', 'id');
@@ -33,6 +45,14 @@ class BureauController extends Controller
     $validator= Validator::make($request->all(),$rules);
 
     $adherent_id = intval($request->input('adherent_name')[0]);
+    $adherent = Adherent::where('id', $adherent_id)->first();
+
+    $user = User::create([
+      'name' => $adherent->name,
+      'email' => $adherent->email,
+      'password' => bcrypt('azerty'),
+      'adherent_id' => $adherent_id,
+    ]);
 
     $bureau = new Bureau();
     $bureau->adherent_id = $adherent_id;
@@ -42,7 +62,7 @@ class BureauController extends Controller
 
     $bureau->save();
 
-    return redirect()->action('Back\AdminController@index');
+    return redirect()->action('Back\Association\BureauController@allMember');
   }
 
   public function editMember($id){
@@ -50,5 +70,15 @@ class BureauController extends Controller
     $bureau = Bureau::where('adherent_id', $id)->first();
 
     return view('admin.association.bureau.edit_member', ['bureau' => $bureau]);
+  }
+
+  public function deleteMember($id){
+
+    $bureau = Bureau::where('id', $id)->first();
+    $user = User::where('adherent_id', $bureau->adherent_id)->first();
+    User::destroy($user->id);
+    $bureau->destroy($id);
+
+    return redirect()->action('Back\Association\BureauController@allMember');
   }
 }

@@ -41,11 +41,11 @@
           </div>
           <div class="form-group">
             {!! Form::label('email_subscription','email_subscription',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::checkbox('email_subscription') !!}
+            {!! Form::checkbox('email_subscription',null,true) !!}
           </div>
           <div class="form-group">
-            {!! Form::label('subscribed','subscribed',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::checkbox('subscribed') !!}
+            {!! Form::label('subscribed','subscribed',['class' => 'hidden']) !!}
+            {!! Form::checkbox('subscribed',null,false,['class' => 'hidden']) !!}
           </div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

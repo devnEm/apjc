@@ -65,6 +65,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/election/edit/{election_id}','Back\School\ElectionController@editElection');
   Route::post('/admin/election/update/{election_id}','Back\School\ElectionController@updateElection');
 
+  // La partie BLOG
+
   Route::get('/admin/redaction/','Back\Redaction\PostController@redaction');
 
   Route::get('/admin/redaction/create/post', 'Back\Redaction\PostController@createPost');
@@ -74,6 +76,10 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/admin/redaction/create/category', 'Back\Redaction\CategoryController@createCategory');
   Route::post('/admin/redaction/create/category', 'Back\Redaction\CategoryController@saveCategory');
+
+  // La partie ASSOCIATION
+
+  Route::get('/admin/bureau', 'Back\Association\BureauController@allMember');
 
   Route::get('/admin/association/adherents', 'Back\Association\AdherentController@allAdherent');
   Route::get('/admin/association/adherent', 'Back\Association\AdherentController@showAdherent');
@@ -85,5 +91,5 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/admin/association/add_member', 'Back\Association\BureauController@addMember');
   Route::post('/admin/association/add_member', 'Back\Association\BureauController@saveMember');
   Route::get('/admin/association/edit_member/{member_id}', 'Back\Association\BureauController@editMember');
-  Route::post('/admin/association/edit_member/{member_id}', 'Back\Association\BureauController@updateMember');
+  Route::post('/admin/association/delete_member/{member_id}', 'Back\Association\BureauController@deleteMember');
 });
