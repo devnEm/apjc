@@ -16,24 +16,39 @@
           {{ csrf_field() }}
           <div class="form-group">
             {!! Form::label('titre','civilité',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::select('titre',['Monsieur'=>'Mr','Madame'=> 'Mme'],null) !!}
+            {!! Form::select('titre',['Monsieur'=>'Monsieur','Madame'=> 'Madame'],null,['class' => 'col-md-4']) !!}
           </div>
           <div class="form-group">
             {!! Form::label('name','nom',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-            {!! Form::text('name',null) !!}
+            {!! Form::text('name',null,['class' => 'col-md-4','placeholder' => 'Saisir un nom de famille']) !!}
+            @if ($errors->has('name'))
+                <div class="col-md-4">
+                    <strong>Un nom de famille est requis</strong>
+                </div>
+            @endif
           </div>
 
           <div class="form-group">
             {!! Form::label('first_name','prénom',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('first_name',null) !!}
+            {!! Form::text('first_name',null,['class' => 'col-md-4','placeholder' => 'Saisir un prénom']) !!}
           </div>
           <div class="form-group">
             {!! Form::label('email','email',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('email',null) !!}
+            {!! Form::text('email',null,['class' => 'col-md-4','placeholder' => 'Saisir un email valide']) !!}
+            @if ($errors->has('email'))
+                <div class="col-md-4">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </div>
+            @endif
           </div>
           <div class="form-group">
             {!! Form::label('phone','phone',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('phone',null) !!}
+            {!! Form::text('phone',null,['class' => 'col-md-4','placeholder' => 'Saisir un numéro de téléphone']) !!}
+            @if ($errors->has('phone'))
+                <div class="col-md-4">
+                    <strong>{{ $errors->first('phone') }}</strong>
+                </div>
+            @endif
           </div>
           <div class="form-group">
             {!! Form::label('hidden_phone','hidden_phone',['class' => 'col-md-4 control-label']) !!}

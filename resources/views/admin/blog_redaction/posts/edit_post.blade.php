@@ -17,8 +17,13 @@
           {!! Form::model($post,['url' => '/admin/redaction/edit/post/'.$post->id,'class' => 'form-horizontal']) !!}
           <div class="form-group">
             {{ csrf_field() }}
-            {!! Form::label('categorie_name','categorie',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::select('categorie_name[]',$categorie,$post->categorie_id, ['id' => 'categorie_label']) !!}
+            @if (session('status'))
+                <div class="alert alert-danger">
+                    {{ session('status') }}
+                </div>
+            @endif
+            {!! Form::label('categorie_id','categorie',['class' => 'control-label', 'type' => 'text']) !!}
+            {!! Form::select('categorie_id',$categorie,$post->categorie_id, ['id' => 'categorie_label']) !!}
             {!! Form::label('publish','publié',['class' => 'control-label']) !!}
             {!! Form::checkbox('publish',1,$post->publish) !!}
             {!! Form::label('front','A la une',['class' => 'control-label']) !!}

@@ -16,24 +16,38 @@
           {{ csrf_field() }}
           <div class="form-group">
             {!! Form::label('titre','civilité',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::select('titre',['Monsieur'=>'Mr','Madame'=> 'Mme'],$adherent->titre) !!}
+            {!! Form::select('titre',['Monsieur'=>'Monsieur','Madame'=> 'Madame'],$adherent->titre,['class' => 'col-md-4']) !!}
           </div>
           <div class="form-group">
             {!! Form::label('name','nom',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-            {!! Form::text('name',$adherent->name) !!}
+            {!! Form::text('name',$adherent->name,['class' => 'col-md-4']) !!}
+            @if ($errors->has('name'))
+                <div class="col-md-4">
+                    <strong>Un nom de famille est requis</strong>
+                </div>
+            @endif
           </div>
-
           <div class="form-group">
             {!! Form::label('first_name','prénom',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('first_name',$adherent->first_name) !!}
+            {!! Form::text('first_name',$adherent->first_name,['class' => 'col-md-4']) !!}
           </div>
           <div class="form-group">
             {!! Form::label('email','email',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('email',$adherent->email) !!}
+            {!! Form::text('email',$adherent->email,['class' => 'col-md-4']) !!}
+            @if ($errors->has('email'))
+                <div class="col-md-4">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </div>
+            @endif
           </div>
           <div class="form-group">
             {!! Form::label('phone','phone',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('phone',$adherent->phone) !!}
+            {!! Form::text('phone',$adherent->phone,['class' => 'col-md-4']) !!}
+            @if ($errors->has('phone'))
+                <div class="col-md-4">
+                    <strong>{{ $errors->first('phone') }}</strong>
+                </div>
+            @endif
           </div>
           <div class="form-group">
             {!! Form::label('hidden_phone','hidden_phone',['class' => 'col-md-4 control-label']) !!}
@@ -43,7 +57,7 @@
             {!! Form::label('email_subscription','email_subscription',['class' => 'col-md-4 control-label']) !!}
             {!! Form::checkbox('email_subscription',$adherent->email_subscription) !!}
           </div>
-          @if(Auth::user()->adherent->bureau->comptable)
+          @if(Auth::user()->admin || Auth::user()->adherent->bureau->comptable)
           <div class="form-group">
             {!! Form::label('subscribed','subscribed',['class' => 'col-md-4 control-label']) !!}
             {!! Form::checkbox('subscribed',$adherent->subscribed) !!}

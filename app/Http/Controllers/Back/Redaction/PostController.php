@@ -29,16 +29,6 @@ class PostController extends Controller
 
     public function savePost(Request $request)
     {
-      $rules=[
-          'publish',
-          'front',
-          'title',
-          'article',
-
-      ];
-
-      $validator= Validator::make($request->all(),$rules);
-
       $post = new Post();
       if($request->input('publish') == null){
         $post->publish = false;
@@ -53,10 +43,19 @@ class PostController extends Controller
       $post->title = $request->input('title');
       $post->views = 0;
       $post->article = $request->input('article');
-      $post->categorie_id = intval($request->input('categorie_name')[0]);
+
+      if(intval($request->input('categorie_id')) == 0){
+        return redirect('/admin/redaction/create/post')
+          ->with('status', 'Il manque une catégorie')
+          ->withInput();
+      }else{
+        $post->categorie_id = intval($request->input('categorie_id'));
+      }
+
       $post->user_id = Auth::user()->id;
 
       $post->save();
+      $request->session()->flash('status', 'L\'article a été enregistré');
 
       return redirect()->action('Back\Redaction\PostController@redaction');
     }
@@ -70,22 +69,18 @@ class PostController extends Controller
 
     public function updatePost($id,Request $request)
     {
-      $rules=[
-          'publish',
-          'front',
-          'title',
-          'article',
-
-      ];
-
-      $validator= Validator::make($request->all(),$rules);
 
       $post = Post::where('id',$id)->first();
       $post->publish = $request->input('publish');
       $post->front = $request->input('front');
       $post->title = $request->input('title');
       $post->article = $request->input('article');
-      $post->categorie_id = intval($request->input('categorie_name')[0]);
+      if(intval($request->input('categorie_id')) == 0){
+        return redirect('/admin/redaction/edit/post/'.$id)
+          ->with('status', 'Il manque une catégorie');
+      }else{
+        $post->categorie_id = intval($request->input('categorie_id'));
+      }
       $post->user_id = Auth::user()->id;
 
       $post->update();

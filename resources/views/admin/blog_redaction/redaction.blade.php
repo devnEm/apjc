@@ -6,8 +6,12 @@
   <a href="{{url('/admin/redaction/create/category')}}"><button type="button" name="button" class="btn btn-primary">ajouter une categorie</button></a>
 </div>
 @endsection
-
 @section('content')
+  @if (session('status'))
+      <div class="alert alert-success">
+          {{ session('status') }}
+      </div>
+  @endif
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">

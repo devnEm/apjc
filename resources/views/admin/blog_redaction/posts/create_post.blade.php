@@ -9,16 +9,22 @@
 @endsection
 @section('content')
 <div class="row">
+
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">Creer un Article</div>
+      <div class="panel-heading">Créer un Article</div>
       <div class="panel-body">
         <div class="form-group">
           {!! Form::open(['url' => '/admin/redaction/create/post','class' => 'form-horizontal']) !!}
           <div class="form-group">
             {{ csrf_field() }}
-            {!! Form::label('categorie_name','categorie',['class' => 'control-label', 'type' => 'text']) !!}
-            {!! Form::select('categorie_name[]',$categorie,null, ['id' => 'categorie_label']) !!}
+            @if (session('status'))
+                <div class="alert alert-danger">
+                    {{ session('status') }}
+                </div>
+            @endif
+            {!! Form::label('categorie_id','categorie',['class' => 'control-label', 'type' => 'text']) !!}
+            {!! Form::select('categorie_id',$categorie,null, ['id' => 'categorie_label']) !!}
             {!! Form::label('publish','publié',['class' => 'control-label']) !!}
             {!! Form::checkbox('publish') !!}
             {!! Form::label('front','A la une',['class' => 'control-label']) !!}

@@ -28,16 +28,26 @@ class AdherentController extends Controller
 
       $rules = [
           'titre',
-          'name',
+          'name' => 'required',
           'first_name',
-          'email',
-          'phone',
+          'email' => 'required',
+          'phone' => 'digits:10',
           'hidden_phone',
           'email_subscription',
           'subscribed'
       ];
+      $messages = [
+        'required' => 'Un :attribute est requis',
+        'digits' => 'Ceci n\'est pas un numéro à 10 chiffres'
+      ];
 
-      $validator= Validator::make($request->all(),$rules);
+      $validator= Validator::make($request->all(),$rules,$messages);
+
+      if($validator->fails()){
+        return redirect('/admin/association/create/adherent')
+          ->withErrors($validator)
+          ->withInput();
+      }
 
       $adherent = new Adherent();
       $adherent->titre = $request->input('titre');
@@ -65,16 +75,26 @@ class AdherentController extends Controller
 
       $rules = [
           'titre',
-          'name',
+          'name' => 'required',
           'first_name',
-          'email',
-          'phone',
+          'email' => 'required',
+          'phone' => 'digits:10',
           'hidden_phone',
           'email_subscription',
           'subscribed'
       ];
+      $messages = [
+        'required' => 'Un :attribute est requis',
+        'digits' => 'Ceci n\'est pas un numéro à 10 chiffres'
+      ];
 
-      $validator= Validator::make($request->all(),$rules);
+      $validator= Validator::make($request->all(),$rules,$messages);
+
+      if($validator->fails()){
+        return redirect('/admin/association/edit/adherent/'.$id)
+          ->withErrors($validator)
+          ->withInput();
+      }
 
       $adherent = Adherent::where('id',$id)->first();
       $adherent->titre = $request->input('titre');
