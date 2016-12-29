@@ -23,10 +23,6 @@
                 <td>nom</td>
                 <td>{{$school->name}}</td>
               </tr>
-              <tr>
-                <td>Référent APJC</td>
-                <td>Adhérent n°1</td>
-              </tr>
             </tbody>
           </table>
         </div>

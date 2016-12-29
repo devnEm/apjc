@@ -1,8 +1,8 @@
 @extends('layouts.admin.app')
 @section('tools')
 <div class="col-md-8 tools">
-  <a href="/admin/promotion">
-    <button type="button" name="button" class="btn btn-danger">Annuler</button>
+  <a href="/admin">
+    <button type="button" name="button" class="btn btn-info">Retour</button>
   </a>
 </div>
 @endsection
@@ -42,9 +42,6 @@
             <div class="col-md-6 col-md-offset-4">
             {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
             {!! Form::close() !!}
-            <a href="{{url('/admin/promotion/delete/'.$promotion->id)}}">
-              <button type="button" name="button" class="btn btn-danger">supprimer</button>
-            </a>
           </div>
         </div>
       </div>

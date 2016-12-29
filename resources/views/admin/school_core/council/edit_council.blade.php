@@ -20,13 +20,23 @@
           {!! Form::label('Ecole','promotion : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
           {!! Form::label('ecole',$council->promotion->year,['class' => 'control-label']) !!}
         </div>
+        <script>
+          $(function() {
+            $( "#datepicker" ).datepicker($.datepicker.regional[ "fr" ]);
+          });
+        </script>
         <div class="form-group">
           {!! Form::label('date','date',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-          {!! Form::date('date',$council->date) !!}
+          {!! Form::text('date',$council->date,['id' => "datepicker", 'class' => 'col-md-4']) !!}
+          @if ($errors->has('date'))
+              <div class="col-md-3">
+                  <strong>{{ $errors->first('date') }}</strong>
+              </div>
+          @endif
         </div>
         <div class="form-group">
           {!! Form::label('url','url',['class' => 'col-md-4 control-label']) !!}
-          {!! Form::text('url',null) !!}
+          {!! Form::text('url',null,['class' => 'col-md-4']) !!}
         </div>
         <div class="form-group">
           <div class="col-md-6 col-md-offset-4">

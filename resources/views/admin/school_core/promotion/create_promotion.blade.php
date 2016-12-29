@@ -16,27 +16,42 @@
           <div class="form-group">
             {{ csrf_field() }}
             {!! Form::label('year','Millesime',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-            {!! Form::text('year',null) !!}
+            {!! Form::text('year',null,['class' => 'col-md-4', 'placeholder' => 'Respectez le format YYYY/YYYY' ]) !!}
+            @if ($errors->has('year'))
+                <div class="col-md-4">
+                    <strong>{{ $errors->first('year') }}</strong>
+                </div>
+            @endif
           </div>
           <div class="form-group">
             {!! Form::label('current','Promotion acuelle',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
             {!! Form::checkbox('current',null) !!}
           </div>
             <div class="form-group">
-              {!! Form::label('school_name','école',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-              {!! Form::select('school_name[]',$school,null,['id' => 'school_name']) !!}
+              {!! Form::label('school_id','école',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+              {!! Form::select('school_id',$school,null,['id' => 'school_name','class' => 'col-md-4'],null) !!}
+              @if (session('status'))
+                  <div class="alert alert-danger">
+                      {{ session('status') }}
+                  </div>
+              @endif
             </div>
             <div class="form-group">
               {!! Form::label('director_title','civilité',['class' => 'col-md-4 control-label']) !!}
-              {!! Form::select('director_title',['Monsieur'=>'Mr','Madame'=> 'Mme'],null) !!}
+              {!! Form::select('director_title',['Monsieur'=>'Mr','Madame'=> 'Mme'],null,['class' => 'col-md-4']) !!}
             </div>
             <div class="form-group">
               {!! Form::label('director_name','nom du chef d\'établissement',['class' => 'col-md-4 control-label']) !!}
-              {!! Form::text('director_name',null) !!}
+              {!! Form::text('director_name',null,['class' => 'col-md-4', 'placeholder' => 'Nom de chef d\'établissement']) !!}
+              @if ($errors->has('director_name'))
+                  <div class="col-md-4">
+                      <strong>Un nom de chef d'établissement est requis</strong>
+                  </div>
+              @endif
             </div>
             <div class="form-group">
               {!! Form::label('director_firstname','prénom du chef d\'établissement',['class' => 'col-md-4 control-label']) !!}
-              {!! Form::text('director_firstname',null) !!}
+              {!! Form::text('director_firstname',null,['class' => 'col-md-4', 'placeholder' => 'Prénom de chef d\'établissement']) !!}
             </div>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-4">

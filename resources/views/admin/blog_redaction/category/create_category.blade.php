@@ -8,13 +8,18 @@
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-info">
-      <div class="panel-heading">Ajouter une Classe</div>
+      <div class="panel-heading">Ajouter une Catégorie</div>
       <div class="panel-body">
           {!! Form::open(['url' => '/admin/redaction/create/category','class' => 'form-horizontal']) !!}
           <div class="form-group">
             {{ csrf_field() }}
             {!! Form::label('label','label',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-            {!! Form::text('label',null) !!}
+            {!! Form::text('label',null,['class'=>'col-md-4', 'placeholder' => 'Saisir un nom de catégorie']) !!}
+            @if ($errors->has('label'))
+                <div class="col-md-4">
+                    <strong>Un nom de catégorie est requis</strong>
+                </div>
+            @endif
           </div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

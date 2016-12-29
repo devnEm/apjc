@@ -23,42 +23,50 @@ class PromotionController extends Controller
   public function savePromotion(Request $request)
   {
     $rules=[
-    'year' => 'required',
-    'director_title' => 'required',
+    'year' => 'required | regex:/[0-9]{4}+[\/][0-9]{4}/',
+    'director_title',
     'director_name' => 'required',
-    'director_firstname'=> 'required',
-    'total_student_effectives'=> 'required',
-    'nb_class'=> 'required',
-    'school_name'=> 'required',
-    'current'=> 'required'
+    'director_firstname',
+    'current'
     ];
 
-    $validator= Validator::make($request->all(),$rules);
+    $messages = [
+      'regex' => 'Respectez le format => "2016/2017"',
+      'required' => 'L\'année scolaire est requis'
+    ];
 
-    $school_id = intval($request->input('school_name')[0]);
 
+    $validator= Validator::make($request->all(),$rules,$messages);
+    if($validator->fails()){
+      return redirect('/admin/promotion/create')
+        ->withErrors($validator)
+        ->withInput();
+    }
+
+    $school_id = intval($request->input('school_id'));
     $promotion = new Promotion();
+    if($school_id == 0){
+      return redirect('/admin/promotion/create')
+        ->with('status', 'Il manque une école')
+        ->withInput();
+    }else{
+      $promotion->school_id = $school_id;
+    }
     $promotion->year = $request->input('year');
     $promotion->director_title = $request->input('director_title');
     $promotion->director_name = $request->input('director_name');
     $promotion->director_firstname = $request->input('director_firstname');
-    $promotion->school_id = $school_id;
-
-    if($request->input('current') == null){
-      $promotion->current = false;
-    }else{
-      $promotion->current = true;
-    }
+    $promotion->current = ($request->input('current') == null) ? false : true;
 
     $promotion->save();
 
-    return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $promotion->id]);
+    return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $promotion->id])->with('status','Bienvenue');
   }
 
   public function createPromotion()
   {
     $school = School::lists('name', 'id');
-
+    // var_dump(typeof($school));die();
     return view('admin.school_core.promotion.create_promotion',['school' => $school]);
   }
 

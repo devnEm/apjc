@@ -16,15 +16,25 @@
         <div class="form-group">
           {{ csrf_field() }}
           {!! Form::label('type','type d\'établissement : ',['class' => 'col-md-4 control-label']) !!}
-          {!! Form::select('type',['maternelle'=>'maternelle','primaire'=>'primaire','collége'=>'collége'],['class' => 'form-group']) !!} <!-- TODO SELECT OPTION -->
+          {!! Form::select('type',['maternelle'=>'maternelle','primaire'=>'primaire','collége'=>'collége'],['class' => 'form-group']) !!}
+          @if ($errors->has('type'))
+              <div class="col-md-4">
+                  <strong>Un type d'établissement doit être renseigné</strong>
+              </div>
+          @endif
         </div>
         <div class="form-group">
-          {!! Form::label('name','nom de l\'école : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-          {!! Form::text('name',null,['placeholder' => 'Entre un nom']) !!}
+          {!! Form::label('name','* nom de l\'école : ',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
+          {!! Form::text('name',null,['placeholder' => 'Saisir le nom de l\'ècole']) !!}
+          @if ($errors->has('name'))
+              <div class="col-md-4">
+                  <strong>Le nom de l' école doit être renseigné</strong>
+              </div>
+          @endif
         </div>
         <div class="form-group">
           {!! Form::label('street','rue : ',['class' => 'col-md-4 control-label']) !!}
-          {!! Form::text('street',null) !!}
+          {!! Form::text('street',null,['placeholder' => 'Saisir le nom de la rue']) !!}
         </div>
         <div class="form-group">
           {!! Form::label('city','ville : ',['class' => 'col-md-4 control-label']) !!}

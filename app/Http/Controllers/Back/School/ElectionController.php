@@ -45,10 +45,16 @@ class ElectionController extends Controller
       $election->date = $request->input('date');
       $election->sieges_totaux = $request->input('sieges_totaux');
       $election->sieges_obtenus = $request->input('sieges_obtenus');
-      $election->participation = $request->input('nb_votant')/$request->input('nb_electeur')*100;
       $election->nb_votant = $request->input('nb_votant');
       $election->nb_electeur = $request->input('nb_electeur');
       $election->promotion_id = $promotion_id;
+
+      if($request->input('nb_electeur') == 0 ){
+        $election->participation = 0;
+      }else{
+        $election->participation = $request->input('nb_votant')/$request->input('nb_electeur')*100;
+      }
+
 
       $election->save();
 
@@ -80,9 +86,14 @@ class ElectionController extends Controller
       $election->date = $request->input('date');
       $election->sieges_totaux = $request->input('sieges_totaux');
       $election->sieges_obtenus = $request->input('sieges_obtenus');
-      $election->participation = $request->input('nb_votant')/$request->input('nb_electeur')*100;
       $election->nb_votant = $request->input('nb_votant');
       $election->nb_electeur = $request->input('nb_electeur');
+
+      if($request->input('nb_electeur') == 0 ){
+        $election->participation = 0;
+      }else{
+        $election->participation = $request->input('nb_votant')/$request->input('nb_electeur')*100;
+      }
 
       $election->update();
 

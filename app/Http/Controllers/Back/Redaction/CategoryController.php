@@ -21,17 +21,23 @@ class CategoryController extends Controller
     public function saveCategory(Request $request){
 
       $rules=[
-          'label'
+          'label' => 'required'
         ];
 
       $validator= Validator::make($request->all(),$rules);
+
+      if($validator->fails()){
+        return redirect('/admin/redaction/create/category')
+        ->withErrors($validator)
+        ->withInput();
+      }
 
       $categorie = new Categorie();
       $categorie->label = $request->input('label');
 
       $categorie->save();
 
-      return redirect()->action('Back\Redaction\PostController@redaction');
+      return redirect()->action('Back\Redaction\PostController@redaction')->with('status', 'La catégorie a bien été enregistrée');
     }
 
     public function editCategory(){
