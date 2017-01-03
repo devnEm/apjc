@@ -34,17 +34,39 @@
               </div>
           @endif
         </div>
-        <div class="form-group">
-          {!! Form::label('url','url',['class' => 'col-md-4 control-label']) !!}
-          {!! Form::text('url',null,['class' => 'col-md-4']) !!}
-        </div>
+        {{-- <div class="form-group">
+          {!! Form::label('rapport','rapport',['class' => 'col-md-4 control-label','type'=>'file']) !!}
+          {!! Form::file('rapport',['class' => 'col-md-4']) !!}
+        </div> --}}
         <div class="form-group">
           <div class="col-md-6 col-md-offset-4">
             {!! Form::submit('modifier',['class' => 'btn btn-warning']) !!}
           </div>
         </div>
         {!! Form::close() !!}
+        <hr>
+          <div class="col-md-6 col-md-offset-2">
+            <form class="form-horizontal" action="/rapport/{{ $council->id }}" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                {{ csrf_field() }}
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                <input type="file" name="rapport"></input>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6 col-md-offset-4">
+                  <button type="submit">Enregister le rapport</button>
+                </div>
+              </div>
+            </form>
+          </div>
       </div>
+
+
+    </div>
     </div>
   </div>
 </div>

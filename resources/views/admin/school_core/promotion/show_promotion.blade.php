@@ -2,12 +2,15 @@
 @section('tools')
 <div class="col-md-8 tools">
   <a href="/admin"><button type="button" name="button" class="btn btn-info">Retour</button></a>
-  <a href="{{url('/admin/promotion/create/classe/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter une Classes</button></a>
+  <a href="{{url('/admin/promotion/create/classe/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter une Classe</button></a>
   <!-- <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a> -->
   <a href="{{url('/admin/election/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
   @if(count($promotion->councils) < 3)
   <a href="{{url('/admin/promotion/create/council/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
   @endif
+  <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}">
+    <button type="button" name="button" class="btn btn-warning">Modifier</button>
+  </a>
 </div>
 @endsection
 @section('content')
@@ -19,30 +22,14 @@
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-info">
-      <div class="panel-heading">{{$promotion->year}} - {{$promotion->school->name}}</div>
+      <div class="panel-heading">{{$promotion->year}} - {{$promotion->school->name}} @if($promotion->current)<span>&#9733;</span>@endif</div>
       <div class="panel-body">
           <div class="table table-responsive">
             <table class="table">
               <tbody>
                 <tr>
-                  <td>actuelle</td>
-                  @if($promotion->current)
-                  <td>&#9733;</td>
-                  @else
-                  <td></td>
-                  @endif
-                </tr>
-                <tr>
-                  <td>nom</td>
-                  <td>{{$promotion->school->name}}</td>
-                </tr>
-                <tr>
-                  <td>année</td>
-                  <td>{{$promotion->year}}</td>
-                </tr>
-                <tr>
                   <td>Directrice</td>
-                  <td>{{$promotion->director_name}}</td>
+                  <td>{{$promotion->director_title}} {{$promotion->director_name}} {{$promotion->director_firstname}}</td>
                 </tr>
                 <tr>
                   <td>Référent APJC</td>
@@ -67,11 +54,9 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="titre">Conseils d'école</div>
-
-        </div>
+      </div>
       <div class="panel-body">
-
-          <h4>Dates des conseils</h4>
+        <h4>Dates des conseils</h4>
         <ul>
           @foreach($promotion->councils as $council)
           <li>
@@ -82,11 +67,9 @@
           </li>
           @endforeach
         </ul>
-
       </div>
     </div>
   </div>
-
 </div>
 <div class="row">
   <div class="col-md-6">
@@ -126,15 +109,10 @@
         @else
         <span>à venir</span>
         @endif
-        <h4>Liste des parents élus</h4>
+        <h4>Candidats</h4>
         <ul>
           <li>Mme Untel</li>
           <li>Mme Deuxtel</li>
-          <li>Mme Troistel</li>
-          <li>Mme Quatretel</li>
-          <li>Mme Cinqtel</li>
-          <li>Mme Sixtel</li>
-          <li>Mme Septtel</li>
         </ul>
       </div>
     </div>

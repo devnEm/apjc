@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\User;
 use App\Models\School;
@@ -46,4 +47,6 @@ class AdminController extends Controller
          'bureau_members' => $bureau_members
      ]);
     }
+
+    
 }

@@ -132,17 +132,14 @@
                       <td>
                         <a href="{{url('/admin/promotion/show/'.$promotion->id)}}">
                           <button type="button" name="button" class="btn btn-info btn-xs">voir</button>
-                        </a>
-                        <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}">
-                          <button type="button" name="button" class="btn btn-warning btn-xs">modifier</button>
-                        </a>
+                        </a>                        
                       </td>
                     </tr>
                     @endforeach
                   </tbody>
                 </table>
                 <a href="/admin/promotion">
-                  <button type="button" name="button" class="btn btn-success">Voir plus</button>
+                  <button type="button" name="button" class="btn btn-success">Tout voir</button>
                 </a>
               </div>
           </div>
@@ -185,9 +182,6 @@
             <td>
               <a href="{{url('/admin/election/show/'.$election->promotion->id)}}">
                 <button type="button" name="button" class="btn btn-info btn-xs">voir</button>
-              </a>
-              <a href="{{url('/admin/election/edit/'.$election->id)}}">
-                <button type="button" name="button" class="btn btn-warning btn-xs">modifier</button>
               </a>
             </td>
           </tr>

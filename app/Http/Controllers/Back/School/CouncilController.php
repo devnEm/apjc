@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back\School;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 use Validator;
@@ -81,16 +82,43 @@ class CouncilController extends Controller
 
     $council = Council::where('id', $id)->first();
 
-    // var_dump($request->input('date'));die();
+    var_dump($request->file('rapport'));
+    die('merde');
+
+    if($request->file('rapport')){
+      die('cool');
+      $fileName = $request->file('rapport')->getClientOriginalName();
+      $path = base_path() . '/storage/app/public/rapport/';
+      $request->file('rapport')->move($path , $fileName);
+      $council->url = $path.$fileName;
+    }
+
     list($jour, $mois, $annee) = explode("/", $request->input('date'));
     $dateToStored = $annee."-".$mois."-".$jour;
-
     $council->date = $dateToStored;
-    $council->url = $request->input('url');
-
     $council->update();
 
     return redirect()->action('Back\School\PromotionController@showPromotion',['id' => $council->promotion->id]);
+  }
+
+  public function rapport($id, Request $request)
+  {
+    if($request->file('rapport')){
+      $fileName = $request->file('rapport')->getClientOriginalName();
+      $path = base_path() . '/storage/app/public/rapport/';
+      $request->file('rapport')->move($path , $fileName);
+      $council = Council::where('id',$id)->first();
+      $council->url = $path.$fileName;
+      $council->update();
+      return redirect('/admin/promotion/show/'.$council->promotion->id)->with('status', 'Le rapport a bien été enregistré');
+    }else{
+      return redirect('/admin/promotion/council/edit/'.$id)->with('status', 'ERREUR');
+    }
+  }
+  public function getRapports()
+  {
+    $files = Storage::get('rapport');
+    return redirect()->action('Back\AdminController@index')->with('status', 'Le rapport a bien été enregistré');
   }
 
 }

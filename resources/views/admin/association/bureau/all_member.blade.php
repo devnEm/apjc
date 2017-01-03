@@ -2,7 +2,7 @@
 @section('tools')
 <div class="tools">
   <a href="/admin"><button type="button" name="button" class="btn btn-info">Retour</button></a>
-  <a href="{{url('/admin/association/add_member')}}"><button type="button" name="button" class="btn btn-primary">ajouter un adherent</button></a>
+  <a href="{{url('/admin/association/add_member')}}"><button type="button" name="button" class="btn btn-primary">ajouter un membre</button></a>
   {{-- <a href="{{url('/admin/redaction/create/category')}}"><button type="button" name="button" class="btn btn-primary">acceder au bureau</button></a> --}}
 </div>
 @endsection
@@ -19,10 +19,8 @@
               <thead>
                 <td>Nom</td>
                 <td>Prenom</td>
-                <td>President</td>
-                <td>secretaire</td>
-                <td>comptable</td>
-                <td>redacteur</td>
+                <td>Rôle</td>
+                <td></td>
 
               </thead>
               <tbody>
@@ -31,10 +29,19 @@
                   <tr>
                     <td>{{$members->adherent->name}}</td>
                     <td>{{$members->adherent->first_name}}</td>
-                    <td>{{$members->president}}</td>
-                    <td>{{$members->secretaire}}</td>
-                    <td>{{$members->comptable}}</td>
-                    <td>{{$members->redacteur}}</td>
+
+                    @if($members->president)
+                      <td>Président</td>
+                    @endif
+                    @if($members->secretaire)
+                      <td>Secrétaire</td>
+                    @endif
+                    @if($members->comptable)
+                      <td>Comptable</td>
+                    @endif
+                    @if($members->redacteur)
+                      <td>Rédacteur</td>
+                    @endif
                     <td><a href="{{url('/admin/association/edit_member/'.$members->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a></td>
                   </tr>
                   @endforeach
