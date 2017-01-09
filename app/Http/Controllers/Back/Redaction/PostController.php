@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back\Redaction;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 use Validator;
@@ -13,6 +14,7 @@ use App\Http\Requests;
 use App\Models\Post;
 use App\Models\School;
 use App\Models\Categorie;
+use App\Models\Council;
 
 class PostController extends Controller
 {
@@ -23,8 +25,14 @@ class PostController extends Controller
 
     public function createPost(){
 
-      $categories = array_merge(array('Select...'), Categorie::lists('label', 'id')->all());
-      return view('admin.blog_redaction.posts.create_post',['categorie'=>$categories]);
+      $categories = array_merge(array('Sélectionner'), Categorie::lists('label', 'id')->all());
+      $councilRapportPath = Council::whereNotNull('url')->get();
+      foreach ($councilRapportPath as $councilRapport) {
+        // $rapports[] = Storage::get('rapports/'.$councilRapport->url);
+        $rapports[]= $councilRapport->url;
+      }
+      $rapports = array_merge(array('Sélectionner'),$rapports);
+      return view('admin.blog_redaction.posts.create_post',['categorie'=>$categories, 'rapports'=> $rapports]);
     }
 
     public function savePost(Request $request)

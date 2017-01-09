@@ -31,6 +31,10 @@
             {!! Form::checkbox('front') !!}
           </div>
           <div class="form-group">
+            {!! Form::label('council_id','ajouter un fichier',['class' => 'control-label', 'type' => 'text']) !!}
+            {!! Form::select('council_id',$rapports,null, ['id' => 'council_label']) !!}
+          </div>
+          <div class="form-group">
             {!! Form::label('title','title',['class' => 'control-label', 'type' => 'text']) !!}
             {!! Form::text('title',null,['class' => 'control-label']) !!}
 

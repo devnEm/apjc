@@ -38,11 +38,7 @@
                     <strong>{{ $errors->first('date') }}</strong>
                 </div>
             @endif
-          </div>
-          <div class="form-group">
-            {!! Form::label('url','url',['class' => 'col-md-4 control-label']) !!}
-            {!! Form::text('url',null,['class' => 'col-md-4']) !!}
-          </div>
+          </div>          
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
               {!! Form::submit('ajouter',['class' => 'btn btn-success']) !!}

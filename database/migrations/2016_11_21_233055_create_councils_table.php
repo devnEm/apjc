@@ -15,7 +15,7 @@ class CreateCouncilsTable extends Migration
         Schema::create('councils', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-            $table->text('url');
+            $table->text('url')->nullable();
             $table->integer('promotion_id')->unsigned();
             $table->timestamps();
         });
