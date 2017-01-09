@@ -26,28 +26,18 @@ class PostController extends Controller
     public function createPost(){
 
       $categories = array_merge(array('Sélectionner'), Categorie::lists('label', 'id')->all());
-      $councilRapportPath = Council::whereNotNull('url')->get();
-      foreach ($councilRapportPath as $councilRapport) {
-        // $rapports[] = Storage::get('rapports/'.$councilRapport->url);
-        $rapports[]= $councilRapport->url;
-      }
-      $rapports = array_merge(array('Sélectionner'),$rapports);
+      $rapports = Council::lists('url' , 'id')->all();
+      // var_dump($rapports);die();
+      array_unshift($rapports, 'Sélectionner');
+      $rapports = array_filter($rapports);
       return view('admin.blog_redaction.posts.create_post',['categorie'=>$categories, 'rapports'=> $rapports]);
     }
 
     public function savePost(Request $request)
     {
       $post = new Post();
-      if($request->input('publish') == null){
-        $post->publish = false;
-      }else{
-        $post->publish = true;
-      }
-      if($request->input('front') == null){
-        $post->front = false;
-      }else{
-        $post->front = true;
-      }
+      $post->publish = ($request->input('publish') == null) ? false : true ;
+      $post->front = ($request->input('front') == null) ? false : true ;
       $post->title = $request->input('title');
       $post->views = 0;
       $post->article = $request->input('article');
@@ -58,6 +48,12 @@ class PostController extends Controller
           ->withInput();
       }else{
         $post->categorie_id = intval($request->input('categorie_id'));
+      }
+
+      if(intval($request->input('council_id')) !== 0){
+        $post->council_id = $request->input('council_id');
+      }else{
+        $post->council_id = 0;
       }
 
       $post->user_id = Auth::user()->id;
@@ -71,7 +67,7 @@ class PostController extends Controller
     public function editPost($id){
 
       $post = Post::where('id',$id)->first();
-      $categories = array_merge(array('Select...'), Categorie::lists('label', 'id')->all());
+      $categories = array_merge(array('Selectionner'), Categorie::lists('label', 'id')->all());
       return view('admin.blog_redaction.posts.edit_post',['categorie'=>$categories,'post'=>$post]);
     }
 
@@ -88,6 +84,11 @@ class PostController extends Controller
           ->with('status', 'Il manque une catégorie');
       }else{
         $post->categorie_id = intval($request->input('categorie_id'));
+      }
+      if(intval($request->input('council_id')) !== 0){
+        $post->council_id = $request->input('council_id');
+      }else{
+        $post->council_id = 0;
       }
       $post->user_id = Auth::user()->id;
 
