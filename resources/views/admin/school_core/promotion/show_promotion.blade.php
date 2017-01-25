@@ -2,15 +2,17 @@
 @section('tools')
 <div class="col-md-8 tools">
   <a href="/admin"><button type="button" name="button" class="btn btn-info">Retour</button></a>
-  <a href="{{url('/admin/promotion/create/classe/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter une Classe</button></a>
-  <!-- <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a> -->
-  <a href="{{url('/admin/election/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
-  @if(count($promotion->councils) < 3)
-  <a href="{{url('/admin/promotion/create/council/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
+  @if(Auth::user()->admin || Auth::user()->adherent->bureau->president || Auth::user()->adherent->bureau->secretaire)
+    <a href="{{url('/admin/promotion/create/classe/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter une Classe</button></a>
+    <!-- <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-warning">modifier</button></a> -->
+    <a href="{{url('/admin/election/show/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Gérer les Elections</button></a>
+    @if(count($promotion->councils) < 3)
+    <a href="{{url('/admin/promotion/create/council/'.$promotion->id)}}"><button type="button" name="button" class="btn btn-success">Ajouter un Conseil</button></a>
+    @endif
+    <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}">
+      <button type="button" name="button" class="btn btn-warning">Modifier</button>
+    </a>
   @endif
-  <a href="{{url('/admin/promotion/edit/'.$promotion->id)}}">
-    <button type="button" name="button" class="btn btn-warning">Modifier</button>
-  </a>
 </div>
 @endsection
 @section('content')

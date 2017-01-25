@@ -79,9 +79,11 @@
                 @endforeach
               </tbody>
             </table>
-            <a href="/admin/promotion">
-              <button type="button" name="button" class="btn btn-success" style="width:100%">Tout voir</button>
-            </a>
+            @if(Auth::user()->admin || Auth::user()->adherent->bureau->president || Auth::user()->adherent->bureau->secretaire)
+              <a href="/admin/promotion">
+                <button type="button" name="button" class="btn btn-success" style="width:100%">Tout voir</button>
+              </a>
+            @endif
           </div>
       </div>
   </div>
