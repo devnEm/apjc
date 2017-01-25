@@ -2,7 +2,7 @@
 
 @section('tools')
 <div class="tools">
-  <a href="{{url('/admin')}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
+  <a href="{{url('/admin/bureau')}}"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
 </div>
 @endsection
 @section('content')

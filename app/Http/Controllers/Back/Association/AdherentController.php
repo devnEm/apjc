@@ -61,7 +61,8 @@ class AdherentController extends Controller
 
       $adherent->save();
 
-      return redirect()->action('Back\Association\AdherentController@allAdherent');
+      return redirect()->action('Back\AdminController@index')
+            ->with('status', 'Nouvel adhérent ajouté');
     }
 
     public function editAdherent($id){
@@ -108,6 +109,6 @@ class AdherentController extends Controller
 
       $adherent->update();
 
-      return redirect()->action('Back\Association\AdherentController@allAdherent');
+      return redirect()->action('Back\AdminController@index')->with('status', 'Mise à jour effectuée');
     }
 }

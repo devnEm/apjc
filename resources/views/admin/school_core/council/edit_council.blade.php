@@ -27,7 +27,7 @@
         </script>
         <div class="form-group">
           {!! Form::label('date','date',['class' => 'col-md-4 control-label', 'type' => 'text']) !!}
-          {!! Form::text('date',$council->date,['id' => "datepicker", 'class' => 'col-md-4']) !!}
+          {!! Form::text('date',$date,['id' => "datepicker", 'class' => 'col-md-4']) !!}
           @if ($errors->has('date'))
               <div class="col-md-3">
                   <strong>{{ $errors->first('date') }}</strong>

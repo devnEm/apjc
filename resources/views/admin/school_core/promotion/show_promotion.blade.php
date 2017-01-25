@@ -62,7 +62,7 @@
           <li>
             <label>Date : </label>
             <date>{{$council->date}}</date><br>
-            <a href="#"><button type="button" class="btn btn-primary">voir le rapport</button></a>
+            <a href="{{url('/getRapport/'.$council->id)}}"><button type="button" class="btn btn-primary">voir le rapport</button></a>
             <a href="{{url('/admin/promotion/council/edit/'.$council->id)}}"><button type="button" class="btn btn-warning">modifier</button></a>
           </li>
           @endforeach

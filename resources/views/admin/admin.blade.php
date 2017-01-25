@@ -132,7 +132,7 @@
                       <td>
                         <a href="{{url('/admin/promotion/show/'.$promotion->id)}}">
                           <button type="button" name="button" class="btn btn-info btn-xs">voir</button>
-                        </a>                        
+                        </a>
                       </td>
                     </tr>
                     @endforeach

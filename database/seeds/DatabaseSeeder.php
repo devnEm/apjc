@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
       Adherent::create([
         'titre' => 'Monsieur',
         'name' => 'vaneme',
@@ -27,11 +26,11 @@ class DatabaseSeeder extends Seeder
       ]);
 
       User::create([
-          'name' => 'admin',
-          'email' =>  'admin@admin.com',
-          'password' =>  bcrypt('azerty'),
-          'admin' =>  true,
-          'adherent_id' => 1
+        'name' => 'admin',
+        'email' =>  'admin@admin.com',
+        'password' =>  bcrypt('azerty'),
+        'admin' =>  true,
+        'adherent_id' => 1
       ]);
     }
 }

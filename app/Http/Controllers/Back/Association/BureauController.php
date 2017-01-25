@@ -66,7 +66,8 @@ class BureauController extends Controller
 
     $bureau->save();
 
-    return redirect()->action('Back\Association\BureauController@allMember');
+    return redirect()->action('Back\AdminController@index')
+          ->with('status', 'Nouveau membre du bureau ajouté');
   }
 
   public function editMember($id){
@@ -80,11 +81,13 @@ class BureauController extends Controller
 
     $bureau = Bureau::where('id', $id)->first();
     $user = User::where('adherent_id', $bureau->adherent_id)->first();
-    if( !$user->admin ){
+    var_dump($user.' - '.$bureau);die();
+    if( !$user->admin){
       User::destroy($user->id);
     }
     $bureau->destroy($id);
 
-    return redirect()->action('Back\Association\BureauController@allMember');
+    return redirect()->action('Back\AdminController@index')
+          ->with('status', 'Membre du bureau supprimé');
   }
 }

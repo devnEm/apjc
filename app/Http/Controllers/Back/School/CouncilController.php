@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back\School;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use Validator;
 use App\Http\Requests;
@@ -57,8 +58,11 @@ class CouncilController extends Controller
   public function editCouncil($id)
   {
     $council = Council::where('id', $id)->first();
+    $date = explode("-",$council->date);
+    $date = $date[2].'/'.$date[1].'/'.$date[0];
 
-    return view('admin.school_core.council.edit_council',['council' => $council] );
+    // var_dump($date);die();
+    return view('admin.school_core.council.edit_council',['council' => $council , 'date' => $date] );
   }
 
   public function updateCouncil($id, Request $request)
@@ -114,5 +118,11 @@ class CouncilController extends Controller
     }else{
       return redirect('/admin/promotion/council/edit/'.$id)->with('status', 'ERREUR');
     }
+  }
+
+  public function getRapport($id){
+    $council = Council::where('id', $id)->first();
+    $file = Storage::get($council->url);
+    return response()->download('/rapports/'.$council->url);
   }
 }

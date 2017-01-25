@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'Front\HomeController@index');
   Route::get('/admin', 'Back\AdminController@index');
   Route::post('/rapport/{council_id}', 'Back\School\CouncilController@rapport');
+  Route::get('/getRapport/{council_id}', 'Back\School\CouncilController@getrapport');
 
   Route::get('/admin/ecole', 'Back\School\SchoolController@showAllSchool');
   Route::get('/admin/ecole/show/{ecole_id}','Back\School\SchoolController@showSchool');
